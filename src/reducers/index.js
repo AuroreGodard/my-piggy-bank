@@ -1,19 +1,33 @@
-import { SET_NEW_ADDRESS, SET_NEW_BIC, SET_NEW_BIRTHDATE, SET_NEW_CITY, SET_NEW_COUNTRY, SET_NEW_EMAIL, SET_NEW_FIRSTNAME, SET_NEW_IBAN, SET_NEW_LASTNAME, SET_NEW_PASSWORD, SET_NEW_PHONE, SET_NEW_USERNAME, SET_NEW_ZIPCODE } from '../actions';
+import {
+  SET_NEW_ADDRESS,
+  SET_NEW_BIC,
+  SET_NEW_BIRTHDATE,
+  SET_NEW_CITY,
+  SET_NEW_COUNTRY,
+  SET_NEW_EMAIL,
+  SET_NEW_FIRSTNAME,
+  SET_NEW_IBAN,
+  SET_NEW_LASTNAME,
+  SET_NEW_PASSWORD,
+  SET_NEW_PHONE,
+  SET_NEW_USERNAME,
+  SET_NEW_ZIPCODE,
+} from '../actions';
 
 const initialState = {
-  email: 'toto@gmail.com',
-  password: 'test',
-  username: 'toto',
-  firstname: 'Lucien',
-  lastname: 'Dupont',
-  birthDate: '1990-07-14',
-  address: '10 rue du stade',
-  city: 'Paris',
-  zipCode: 75000,
+  email: 'jeanbon@user.com',
+  password: 'admin',
+  username: 'user',
+  firstname: 'user',
+  lastname: 'bonjour',
+  birthDate: '1991-07-15',
+  address: '8 rue blabla',
+  city: 'cap-ferret-martin',
+  zipCode: 33510,
   country: 'France',
-  phone: '0635815264',
-  iban: 'stringfdfdf',
-  bic: 'FR76',
+  phone: '6417637373',
+  iban: 'fdsfdsfdsfdfssdfd',
+  bic: 'unbic',
 };
 
 const reducer = (state = initialState, action = {}) => {

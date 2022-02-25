@@ -1,6 +1,21 @@
 // import dependencies
 import { useSelector, useDispatch } from 'react-redux';
-import { setNewLastName, setNewFirstname, setNewAddress, setNewBirthdate, setNewCity, setNewZipCode, setNewCountry, setNewPhone, setNewIban, setNewBic, setNewUserName, setNewPassword, setNewEmail } from '../../actions';
+import {
+  setNewLastName,
+  setNewFirstname,
+  setNewAddress,
+  setNewBirthdate,
+  setNewCity,
+  setNewZipCode,
+  setNewCountry,
+  setNewPhone,
+  setNewIban,
+  setNewBic,
+  setNewUserName,
+  setNewPassword,
+  setNewEmail,
+  login,
+} from '../../actions';
 // import styles
 
 const AuthModal = () => {
@@ -17,14 +32,19 @@ const AuthModal = () => {
   const phone = useSelector((state) => state.phone);
   const iban = useSelector((state) => state.iban);
   const bic = useSelector((state) => state.bic);
-  console.log(lastname);
-  console.log(firstname);
+
   const dispatch = useDispatch();
+
+  const handleSubmit = (event) => {
+    // on empêche le rechargement de ma page
+    event.preventDefault();
+    dispatch(login());
+  };
 
   return (
 
     <div className="h-screen flex flex-col justify-center items-center">
-      <form className="w-[500px] flex flex-col justify-center items-center gap-2">
+      <form onSubmit={handleSubmit} className="w-[500px] flex flex-col justify-center items-center gap-2">
         <button type="button" className="flex justify-center items-center rounded-full h-10 w-10 text-bg-slate-400 text-lg bg-slate-300 hover:bg-slate-400 p-2">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -176,7 +196,7 @@ const AuthModal = () => {
           <input
             className="w-4/5 flex align-middle justify-center p-2 rounded-md"
             placeholder="Mobile"
-            type="number"
+            type="text"
             value={phone}
             onChange={
                     (event) => {
@@ -228,29 +248,3 @@ const AuthModal = () => {
 };
 
 export default AuthModal;
-
-/* <TextField
-        value={lastname}
-        onChange={
-                (event) => {
-                  dispatch(setNewLastName(event.target.value));
-                }
-}
-        id="outlined-basic"
-        label="Nom"
-        variant="outlined"
-      />
-
-      <TextField
-        value={firstname}
-        onChange={
-                    (event) => {
-                      dispatch(setNewFirstname(event.target.value));
-                    }
-                }
-        id="outlined-basic"
-        label="Prénom"
-        variant="outlined"
-      />
-
-      <Button variant="contained">Valider</Button> */

@@ -1,3 +1,11 @@
+// ACTION TYPE LOGIN
+export const LOGIN = 'LOGIN';
+
+// ACTION CREATOR login
+export const login = () => ({
+  type: LOGIN,
+});
+
 // ACTION TYPE SET_NEW_EMAIL
 export const SET_NEW_EMAIL = 'SET_NEW_EMAIL';
 
@@ -48,12 +56,12 @@ export const SET_NEW_BIRTHDATE = 'SET_NEW_BIRTHDATE';
 
 // ACTION CREATOR setNewBirthdate
 export const setNewBirthdate = (birthDate) => ({
-  type: SET_NEW_LASTNAME,
+  type: SET_NEW_BIRTHDATE,
   birthDate,
 });
 
 // ACTION TYPE SET_NEW_ADDRESS
-export const SET_NEW_ADDRESS = 'SET_NEW_BIRTHDATE';
+export const SET_NEW_ADDRESS = 'SET_NEW_ADDRESS';
 
 // ACTION CREATOR setNewAddress
 export const setNewAddress = (address) => ({
