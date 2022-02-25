@@ -22,9 +22,16 @@ function index() {
           >
 
             {/*   All Cards  */}
-            <div className="w-full p-2 flex flex-wrap rounded-tl gap-10 justify-between
-            lg:justify-start "
+            <div className="w-full p-2 flex flex-wrap rounded-tl gap-10 justify-center
+            lg:justify-center
+            md:justify-around
+            xl:justify-center"
             >
+              <PotsCards />
+              <PotsCards />
+              <PotsCards />
+              <PotsCards />
+              <PotsCards />
               <PotsCards />
               <PotsCards />
               <PotsCards />

@@ -4,7 +4,12 @@ function PotsCards() {
   return (
     <>
       {/*  Single card  */}
-      <div className="cards-shadows w-96 h-60 rounded-lg flex-col cursor-pointer ">
+      <div className="flex-grow cards-shadows w-80 max-w-[500px] h-60 rounded-lg flex-col cursor-pointer
+      lg:flex-grow
+      md:flex-grow
+      xl:min-w-[500px]
+      "
+      >
         {/* img container */}
         <div className="flex">
           <div className="flex justify-center items-center h-32 w-32 bg-sky-100 m-2 p-2 rounded-lg">
