@@ -23,7 +23,7 @@ const AuthModal = () => {
         <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
           <input
             className="w-4/5 flex align-middle justify-center p-2 rounded-md"
-            placeholder="Email"
+            placeholder="Nom"
             type="email"
             onChange={
                     (event) => {
@@ -35,8 +35,8 @@ const AuthModal = () => {
         <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
           <input
             className="w-4/5 flex align-middle justify-center p-2 rounded-md"
-            placeholder="Votre mot de passe"
-            type="password"
+            placeholder="Prénom"
+            type="text"
             onChange={
                         (event) => {
                           dispatch(setNewFirstname(event.target.value));
