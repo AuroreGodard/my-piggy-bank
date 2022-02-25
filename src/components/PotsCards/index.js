@@ -1,11 +1,13 @@
+import './style.scss';
+
 function PotsCards() {
   return (
     <>
       {/*  Single card  */}
-      <div className="w-96 h-60 rounded-lg flex-col bg-gray-100 hover:shadow-xl">
+      <div className="cards-shadows w-96 h-60 rounded-lg flex-col cursor-pointer ">
         {/* img container */}
         <div className="flex">
-          <div className="flex justify-center items-center h-32 w-32 bg-green-200 m-2 p-2 rounded-lg">
+          <div className="flex justify-center items-center h-32 w-32 bg-sky-100 m-2 p-2 rounded-lg">
             photo
           </div>
           <div className="flex flex-col w-2/3">
@@ -19,7 +21,7 @@ function PotsCards() {
         <div className="mt-2 mx-2 bg-gray-600 rounded-full">
 
           {/* Progress bar */}
-          <div className="w-8/12 mt-2 bg-green-200 text-center rounded-full"><div className="text-white text-sm inline-block bg-slate-700 px-2 rounded-full">75%</div></div>
+          <div className="w-8/12 mt-2 bg-rose-300 text-center rounded-full"><div className="text-white text-sm inline-block bg-slate-700 px-2 rounded-full">75%</div></div>
         </div>
       </div>
     </>
