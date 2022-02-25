@@ -1,6 +1,9 @@
 function Sidebar() {
   return (
-    <aside className="hidden xl:flex h-full w-16  flex-col space-y-10 items-center justify-start pt-24 relative bg-slate-600 text-white">
+    <aside className="hidden  h-full w-16  flex-col space-y-10 items-center justify-start pt-24 relative bg-slate-600 text-white
+    xl:flex
+    lg:flex"
+    >
       {/*  Dashboard home */}
       <div className="h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" fill="currentColor" className="bi bi-house-door" viewBox="0 0 16 16">
