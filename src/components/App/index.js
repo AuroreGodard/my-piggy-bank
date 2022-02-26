@@ -1,13 +1,13 @@
-// == Import
-import reactLogo from './react-logo.svg';
+// Styles
 import './styles.css';
 
-import AuthModal from '../AuthModal';
+// Components
+import ConceptLanding from 'src/components/ConceptLanding';
 
 // == Composant
 const App = () => (
-  <div className="app">
-    <AuthModal />
+  <div className="w-screen flex justify-center items-center">
+    <ConceptLanding />
   </div>
 
 );

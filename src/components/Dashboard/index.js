@@ -7,44 +7,36 @@ import BottomMenu from '../BottomMenu';
 function index() {
   return (
     <>
-      <div className="h-screen w-full bg-white relative flex overflow-hidden ">
-
-        {/*  Sidebar  */}
-        <Sidebar />
-        <div className="w-full h-full flex flex-col justify-between">
-
-          {/*  Header  */}
-          <HeaderMenu />
-
-          {/*  Main  */}
-          <main className="flex flex-col h-full w-full items-start relative overflow-auto
-          lg:p-10 "
-          >
-
-            {/*   All Cards  */}
-            <div className="w-full p-2 flex flex-wrap rounded-tl gap-10 justify-center
-            lg:justify-center
-            md:justify-around
-            xl:justify-center"
-            >
-              <PotsCards />
-              <PotsCards />
-              <PotsCards />
-              <PotsCards />
-              <PotsCards />
-              <PotsCards />
-              <PotsCards />
-              <PotsCards />
-              <PotsCards />
-              <PotsCards />
-
-            </div>
-            <RecentActivity />
-          </main>
-          <BottomMenu />
+      <HeaderMenu />
+      <main className="pt-[70px] ml-8 m-8
+      xl:ml-24
+      lg:ml-24"
+      >
+        {/* Pots listing */}
+        <div className="grid gap-4 justify-center
+        md:grid-cols-2
+        lg:grid-cols-2
+        xl:grid-cols-3"
+        >
+          <PotsCards />
+          <PotsCards />
+          <PotsCards />
+          <PotsCards />
+          <PotsCards />
+          <PotsCards />
+          <PotsCards />
+          <PotsCards />
+          <PotsCards />
+          <PotsCards />
+          <PotsCards />
         </div>
 
-      </div>
+        {/* Global pots activity */}
+        <RecentActivity />
+      </main>
+
+      <Sidebar />
+      <BottomMenu />
     </>
   );
 }

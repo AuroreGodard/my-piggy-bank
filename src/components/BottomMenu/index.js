@@ -1,7 +1,7 @@
 function BottomMenu() {
   return (
-    <aside className="w-full h-14 flex items-center justify-between relative bg-slate-600 text-white
-    lg:hidden md:h-16 md:px-4
+    <aside className="w-full h-14 px-8 flex items-center justify-between fixed bottom-0 bg-slate-600 text-white
+    lg:hidden md:h-16 md:px-8
     "
     >
       {/*  Dashboard home */}
