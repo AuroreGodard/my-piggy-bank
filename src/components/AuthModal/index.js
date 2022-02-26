@@ -1,6 +1,5 @@
 // import dependencies
 import { useSelector, useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 
 // import actions
 import {

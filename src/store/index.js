@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware } from 'redux';
-// on vient brancher le middleware
-import apiMiddleWare from '../middlewares/api';
 
 import reducer from 'src/reducers';
+// on vient brancher le middleware
+import apiMiddleWare from '../middlewares/api';
 
 const store = createStore(
   reducer, (applyMiddleware(apiMiddleWare)),
