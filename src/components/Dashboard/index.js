@@ -8,7 +8,7 @@ function index() {
   return (
     <>
       <HeaderMenu />
-      <main className="pt-[70px] ml-8 m-8
+      <main className="ml-8 m-8
       xl:ml-24
       lg:ml-24"
       >
