@@ -1,8 +1,6 @@
 function ActivityHistory() {
   return (
-    <div>
-      test
-    </div>
+    <div>test</div>
   );
 }
 

@@ -1,15 +1,17 @@
 // == Import : npm
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // == Import : local
 // Composants
 import App from 'src/components/App';
 import Dashboard from 'src/components/Dashboard';
+import store from 'src/store';
+import HeaderMenu from 'src/components/HeaderMenu';
+import AuthModal from 'src/components/AuthModal';
 
 // Store
-import store from 'src/store';
 
 // == Render
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)
@@ -17,7 +19,10 @@ import store from 'src/store';
 const rootReactElement = (
   <BrowserRouter>
     <Provider store={store}>
-      <Dashboard />
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="dashboard" element={<Dashboard />} />
+      </Routes>
     </Provider>
   </BrowserRouter>
 );
