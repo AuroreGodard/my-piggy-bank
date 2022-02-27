@@ -16,7 +16,9 @@ function HeaderMenu() {
           My Piggy Bank
         </div>
       </NavLink>
-      <nav className="flex gap-4">
+      <nav className="gap-4 hidden
+      xl:flex"
+      >
         <NavLink to="/dashboard">Dashboard</NavLink>
         <NavLink to="/signup">SignUp</NavLink>
         <NavLink to="/login">Login</NavLink>
