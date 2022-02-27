@@ -1,6 +1,6 @@
 function Sidebar() {
   return (
-    <aside className="hidden h-full w-16 flex-col space-y-10 items-center justify-start pt-24 fixed top-[70px] bg-slate-600 text-white
+    <aside className="hidden h-full w-16 flex-col space-y-10 items-center justify-start pt-24 fixed top-[70px] bg-[#C9DECE] text-black
     xl:flex
     lg:flex"
     >

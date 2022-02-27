@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 // import Components
 import HeaderMenu from 'src/components/HeaderMenu';
 
+// import styles
+import './style.scss';
+
 // import actions
 import {
   setNewPassword,
@@ -26,14 +29,18 @@ const AuthModal = () => {
   return (
     <>
       <HeaderMenu />
-      <div className="h-[calc(100vh_-_100px)] flex flex-col justify-center items-center">
+      <div className="h-[calc(100vh_-_100px)] flex flex-col justify-start items-center">
         <form
           onSubmit={handleSubmit}
-          className="w-full px-4 flex flex-col justify-center items-center gap-2
+          className="w-full px-4 flex flex-col justify-center items-start gap-2
         md:w-[500px]"
         >
 
-          <div className="inline-flex justify-center rounded-md items-center w-full text-center text-white h-12 bg-slate-500 uppercase mt-6 ">Connexion</div>
+          <h3 className="w-fit underline-login-title uppercase text-[1.5em] my-6
+          "
+          >
+            Me connecter
+          </h3>
 
           <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
             <input
@@ -64,7 +71,7 @@ const AuthModal = () => {
           </div>
 
           <input
-            className="cursor-pointer inline-flex justify-center rounded-md items-center w-full text-center text-slate- h-12 bg-green-200 uppercase mt-2 hover:bg-green-300"
+            className="cursor-pointer inline-flex justify-center rounded-md items-center w-full text-center text-slate- h-12 bg-[#C9DECE] uppercase mt-2 hover:bg-green-300"
             type="submit"
             value="Valider"
           />

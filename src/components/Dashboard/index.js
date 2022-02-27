@@ -8,21 +8,16 @@ function index() {
   return (
     <>
       <HeaderMenu />
-      <main className="ml-8 m-8
-      xl:ml-24
+      <main className="ml-8 mx-8
+      xl:ml-24 xl:mx-16
       lg:ml-24"
       >
         {/* Pots listing */}
-        <div className="grid gap-4 justify-center
+        <div className="grid gap-16 justify-center
         md:grid-cols-2
         lg:grid-cols-2
-        xl:grid-cols-3"
+        xl:grid-cols-3 xl:gap-10"
         >
-          <PotsCards />
-          <PotsCards />
-          <PotsCards />
-          <PotsCards />
-          <PotsCards />
           <PotsCards />
           <PotsCards />
           <PotsCards />

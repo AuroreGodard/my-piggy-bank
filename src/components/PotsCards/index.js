@@ -4,7 +4,7 @@ function PotsCards() {
   return (
     <>
       {/*  Single card  */}
-      <div className="cards-shadows h-60 rounded-lg flex-col cursor-pointer
+      <div className="cards-shadows h-60 rounded-lg flex-col cursor-pointer bg-white
 
       "
       >
@@ -20,11 +20,13 @@ function PotsCards() {
             </p>
           </div>
         </div>
-        <div className="text-4xl text-slate-800 w-full text-right px-4">XXXX,XX <span className="font-bold">€</span> </div>
-        <div className="mt-2 mx-2 bg-gray-600 rounded-full">
+        <div className="flex justify-end text-4xl text-slate-800 w-full px-4">
+          <div className="bg-[#C9DECE] rounded-md px-2">XXXX,XX <span className="font-bold">€</span></div>
+        </div>
+        <div className="mt-2 mx-2 bg-gray-400 rounded-full">
 
           {/* Progress bar */}
-          <div className="w-8/12 mt-2 bg-rose-300 text-center rounded-full"><div className="text-white text-sm inline-block bg-slate-700 px-2 rounded-full">75%</div></div>
+          <div className="w-8/12 mt-2 bg-[#FFD9E0] text-center rounded-full"><div className="text-black text-sm inline-block px-2 rounded-full">75%</div></div>
         </div>
       </div>
     </>

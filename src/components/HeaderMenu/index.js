@@ -22,7 +22,6 @@ function HeaderMenu() {
         <NavLink to="/dashboard">Dashboard</NavLink>
         <NavLink to="/signup">SignUp</NavLink>
         <NavLink to="/login">Login</NavLink>
-        <NavLink to="/SignUp">SignUp</NavLink>
       </nav>
       <div className="flex justify-center items-center h-10 w-10 rounded-full cursor-pointer bg-[#FFD9E0]">
 
