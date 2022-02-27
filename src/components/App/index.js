@@ -1,7 +1,7 @@
 // Styles
 import './styles.css';
 import ConceptLanding from 'src/components/ConceptLanding';
-import AuthModal from '../AuthModal';
+import AuthModal from '../Login';
 
 // Components
 

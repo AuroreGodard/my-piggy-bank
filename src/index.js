@@ -4,12 +4,12 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // == Import : local
-// Composants
+// Components
 import App from 'src/components/App';
 import Dashboard from 'src/components/Dashboard';
 import store from 'src/store';
-import HeaderMenu from 'src/components/HeaderMenu';
-import AuthModal from 'src/components/AuthModal';
+import Login from 'src/components/Login';
+import SignUp from 'src/components/SignUp';
 
 // Store
 
@@ -22,6 +22,8 @@ const rootReactElement = (
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<SignUp />} />
       </Routes>
     </Provider>
   </BrowserRouter>

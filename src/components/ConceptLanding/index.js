@@ -1,7 +1,7 @@
 import Lottie from 'react-lottie';
 import animationData from 'src/assets/lottiefiles/piggy';
 import HeaderMenu from '../HeaderMenu';
-import AuthModal from '../AuthModal';
+import AuthModal from '../Login';
 
 // CSS
 import './style.scss';
@@ -17,13 +17,13 @@ function ConceptLanding() {
   };
   return (
     /* HOMEPAGE container */
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full -mt-8">
       <HeaderMenu />
 
       {/* ---------------------------------------------------------------- */}
 
       {/* HERO main container */}
-      <section className="w-full flex justify-center pb-4 relative">
+      <section className="w-full flex justify-center pb-16 relative">
 
         {/* HERO limited container */}
         <div className="w-[1100px] flex flex-col ">
@@ -42,7 +42,7 @@ function ConceptLanding() {
                     <path fillRule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
                   </svg>
                 </button>
-                <div className="uppercase text-xs flex gap-2 items-center" type="button">
+                <div className="uppercase text-xs flex gap-2 items-center text-gray-600" type="button">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-info-circle" viewBox="0 0 16 16">
                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                     <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
@@ -82,22 +82,26 @@ function ConceptLanding() {
       {/* ---------------------------------------------------------------- */}
 
       {/* STEPS main container */}
-      <section className="w-full flex justify-center p-16 relative bg-[#F1EECD]">
+      <section className="w-full flex justify-center relative bg-[#F1EECD]">
 
         {/* STEPS limited container */}
-        <div className="w-[1100px] flex flex-col items-center gap-16">
+        <div className="w-[1100px] pt-16 flex flex-col">
 
-          <h3 className="w-fit underline-step-title text-center uppercase">
+          <h3 className="w-fit underline-step-title uppercase my-4">
             Comment créer ma cagnotte
           </h3>
+          <p className="text-gray-600">En seulement 4 étapes</p>
 
           {/* STEPS cards */}
-          <div className="h-full gap-48 flex justify-between">
+          <div className="pb-32 gap-48 flex justify-between mt-16">
 
             {/* SINGLE STEP card */}
 
-            <div className=" h-24 w-32 flex flex-col gap-4 items-start text-center rounded-md">
-              <span className="text-[4em]">1</span>
+            <div className="font-bold h-24 w-32 flex flex-col gap-4 items-start text-center rounded-md">
+              <div>
+                <span className="text-[4em]">1</span>
+                <button className="h-4 w-4 rounded-full bg-black" />
+              </div>
               <h4>Créer mon compte</h4>
             </div>
 
@@ -134,6 +138,14 @@ function ConceptLanding() {
 
       </section>
       {/* END STEPS main container */}
+
+      {/* ---------------------------------------------------------------- */}
+
+      {/* FOOTER container */}
+      <section>
+        <div>test</div>
+      </section>
+      {/* END FOOTER container */}
 
       {/* ---------------------------------------------------------------- */}
 
