@@ -22,6 +22,8 @@ const rootReactElement = (
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="dashboard" element={<Dashboard />} />
+        <Route path="signup" element={<AuthModal />} />
+        <Route path="login" element={<AuthModal />} />
       </Routes>
     </Provider>
   </BrowserRouter>

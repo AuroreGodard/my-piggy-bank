@@ -18,6 +18,7 @@ function HeaderMenu() {
       </NavLink>
       <nav className="flex gap-4">
         <NavLink to="/dashboard">Dashboard</NavLink>
+        <NavLink to="/signup">SignUp</NavLink>
         <NavLink to="/login">Login</NavLink>
       </nav>
       <div className="flex justify-center items-center h-10 w-10 rounded-full cursor-pointer bg-[#FFD9E0] border-2 border-blue-400">
