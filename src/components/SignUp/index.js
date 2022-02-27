@@ -48,8 +48,12 @@ const SignUp = () => {
   return (
     <>
       <HeaderMenu />
-      <div className="h-screen flex flex-col justify-center items-center">
-        <form onSubmit={handleSubmit} className="w-[500px] flex flex-col justify-center items-center gap-2">
+      <div className="h-full pb-8 flex flex-col justify-center items-center">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full px-4 flex flex-col justify-center items-center gap-2
+        md:w-[500px]"
+        >
 
           <div className="inline-flex justify-center rounded-md items-center w-full text-center text-white h-12 bg-slate-500 uppercase mt-6 ">Inscription</div>
 
