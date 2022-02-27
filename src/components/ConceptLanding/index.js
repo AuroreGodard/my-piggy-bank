@@ -1,10 +1,12 @@
 import Lottie from 'react-lottie';
 import animationData from 'src/assets/lottiefiles/piggy';
 import HeaderMenu from '../HeaderMenu';
-import AuthModal from '../Login';
 
 // CSS
 import './style.scss';
+
+// assets
+import piggybank from '../../assets/images/piggybank.gif';
 
 function ConceptLanding() {
   const defaultOptions = {
@@ -23,26 +25,61 @@ function ConceptLanding() {
       {/* ---------------------------------------------------------------- */}
 
       {/* HERO main container */}
-      <section className="w-full flex justify-center pb-16 relative">
+      <section className="w-full flex justify-center pb-16 relative px-4">
 
         {/* HERO limited container */}
-        <div className="w-[1100px] flex flex-col ">
+        <div className=" flex flex-col
+        xl:w-[1100px]
+        lg:mx-8
+        "
+        >
 
-          <div className="mx-8 px-8 rounded-md flex justify-center">
+          {/* HERO 2 cols container */}
+          <div className="w-full rounded-md flex flex-col justify-between
+          md:flex-row
+          lg:mt-4 "
+          >
             {/* left side */}
-            <div className="flex flex-col gap-8 items-start justify-center pt-16">
-              <div>
-                <h1 className="uppercase">Une manière <span className="underlined-title">simple</span><br />de mettre<br />de l'<span className="underlined-title">argent de côté</span></h1>
-                <p className="w-[600px] mt-8 text-gray-600">Fixez-vous des objectifs</p>
+            <div className="w-full flex-col gap-8 items-start justify-center pt-16 order-2
+            md:order-1
+            md:w-fit
+            lg:w-fit
+            xl:w-fit
+            "
+            >
+
+              <div className="flex flex-col items-center -mt-16
+              md:items-start
+              md:mt-0
+              "
+              >
+                <h1 className="uppercase
+                text-[1.4em]
+                sm:text-[2em]
+                "
+                >Une manière <span className="underlined-title">simple</span><br />de mettre<br />de l'<span className="underlined-title">argent de côté</span>
+                </h1>
+                <p className=" mt-8 text-gray-600
+                "
+                >Fixez-vous des objectifs
+                </p>
               </div>
-              {/* right side */}
-              <div className="flex gap-4">
-                <button className="bg-[#CFB6E5] text-slate-600 font-bold px-6 rounded-lg py-2 uppercase flex items-center gap-2" type="button">Créer ma cagnotte
+
+              <div className=" flex flex-col items-center gap-4 mt-8
+              md:flex-row
+              md:items-center
+              md:justify-start"
+              >
+                <button className="bg-[#CFB6E5] w-fit text-slate-600 font-bold px-6 rounded-lg py-2 uppercase flex items-center gap-2" type="button">Créer ma cagnotte
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-arrow-right-short" viewBox="0 0 16 16">
                     <path fillRule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
                   </svg>
                 </button>
-                <div className="uppercase text-xs flex gap-2 items-center text-gray-600" type="button">
+                <div
+                  className="uppercase text-xs flex flex-col gap-2 items-center text-gray-600
+                md:flex-row"
+                  type="button"
+                >
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-info-circle" viewBox="0 0 16 16">
                     <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                     <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
@@ -52,18 +89,27 @@ function ConceptLanding() {
             </div>
             {/* END left side */}
 
-            {/* right side (piggy) */}
-            <div>
-              <Lottie
-                options={defaultOptions}
-                height={500}
-                width={500}
+            {/* RIGHT side (piggy) */}
+            <div className="w-full order-1 -mt-4 flex justify-center items-center
+            md:order-0
+            md:w-fit
+            lg:-mt-16
+            "
+            >
+              <img
+                src={piggybank}
+                className="h-[14em] aspect-square
+              md:h-[20em] md:aspect-square
+              lg:h-[25em]
+              xl:h-[30em]
+              "
+                alt=""
               />
             </div>
-            {/* END right side (piggy) */}
+            {/* END RIGHT side (piggy) */}
 
           </div>
-          {/* END HERO container */}
+          {/* HERO 2 cols container */}
 
         </div>
         {/* END HERO limited container */}
@@ -82,42 +128,54 @@ function ConceptLanding() {
       {/* ---------------------------------------------------------------- */}
 
       {/* STEPS main container */}
-      <section className="w-full flex justify-center relative bg-[#F1EECD]">
+      <section className="w-full flex justify-center relative bg-[#F1EECD] px-4
+      "
+      >
 
         {/* STEPS limited container */}
-        <div className="w-[1100px] pt-16 flex flex-col">
+        <div className="w-full pt-16 flex flex-col gap-8 items-center
+        xl:w-[1100px]
+        lg:mx-8
+        md:items-start
+        "
+        >
 
-          <h3 className="w-fit underline-step-title uppercase my-4">
+          <h3 className="w-fit underline-step-title uppercase text-[1.5em]
+          "
+          >
             Comment créer ma cagnotte
           </h3>
           <p className="text-gray-600">En seulement 4 étapes</p>
 
           {/* STEPS cards */}
-          <div className="pb-32 gap-48 flex justify-between mt-16">
+          <div className="pb-32 gap-12 grid grid-cols-1 justify-between
+          lg:grid-cols-4
+          md:grid-cols-4
+          sm:grid-cols-2
+          xs:grid-cols-1
+          "
+          >
 
             {/* SINGLE STEP card */}
 
-            <div className="font-bold h-24 w-32 flex flex-col gap-4 items-start text-center rounded-md">
-              <div>
-                <span className="text-[4em]">1</span>
-                <button className="h-4 w-4 rounded-full bg-black" />
-              </div>
-              <h4>Créer mon compte</h4>
+            <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
+              <span className="flex items-center justify-center h-full  text-[4em] bg-[#E3C1C7] px-4 rounded-tl-md rounded-bl-md">1</span>
+              <h4 className="flex items-center justify-center h-full bg-[#FFD9E0] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Créer mon compte</h4>
             </div>
 
-            <div className=" h-24 w-32 flex flex-col gap-4 items-start text-center rounded-md">
-              <span className="text-[4em]">2</span>
-              <h4>Créer mon compte</h4>
+            <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
+              <span className="flex items-center justify-center h-full  text-[4em] bg-[#AFC2B4] px-4 rounded-tl-md rounded-bl-md">2</span>
+              <h4 className="flex items-center justify-center h-full bg-[#C9DECE] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Créer mon compte</h4>
             </div>
 
-            <div className=" h-24 w-32 flex flex-col gap-4 items-start text-center rounded-md">
-              <span className="text-[4em]">3</span>
-              <h4>Créer mon compte</h4>
+            <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
+              <span className="flex items-center justify-center h-full  text-[4em] bg-[#BFA8D4] px-4 rounded-tl-md rounded-bl-md">3</span>
+              <h4 className="flex items-center justify-center h-full bg-[#CFB6E5] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Créer mon compte</h4>
             </div>
 
-            <div className=" h-24 w-32 flex flex-col gap-4 items-start text-center rounded-md">
-              <span className="text-[4em]">4</span>
-              <h4>Créer mon compte</h4>
+            <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
+              <span className="flex items-center justify-center h-full  text-[4em] bg-[#A9C6DE] px-4 rounded-tl-md rounded-bl-md">4</span>
+              <h4 className="flex items-center justify-center h-full bg-[#C2E4FF] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Créer mon compte</h4>
             </div>
 
             {/* END SINGLE STEP card */}

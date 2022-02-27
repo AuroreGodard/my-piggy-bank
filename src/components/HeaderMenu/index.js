@@ -16,13 +16,15 @@ function HeaderMenu() {
           My Piggy Bank
         </div>
       </NavLink>
-      <nav className="flex gap-4">
+      <nav className="gap-4 hidden
+      xl:flex"
+      >
         <NavLink to="/dashboard">Dashboard</NavLink>
         <NavLink to="/signup">SignUp</NavLink>
         <NavLink to="/login">Login</NavLink>
         <NavLink to="/SignUp">SignUp</NavLink>
       </nav>
-      <div className="flex justify-center items-center h-10 w-10 rounded-full cursor-pointer bg-[#FFD9E0] border-2 border-blue-400">
+      <div className="flex justify-center items-center h-10 w-10 rounded-full cursor-pointer bg-[#FFD9E0]">
 
         {/*  Burger menu  */}
         <svg xmlns="http://www.w3.org/2000/svg" width="24" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
