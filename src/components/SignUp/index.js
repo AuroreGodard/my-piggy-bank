@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from 'react-redux';
 // import Components
 import HeaderMenu from 'src/components/HeaderMenu';
 
+// import Styles
+import './style.scss';
+
 // import actions
 import {
   setNewLastName,
@@ -51,11 +54,15 @@ const SignUp = () => {
       <div className="h-full pb-8 flex flex-col justify-center items-center">
         <form
           onSubmit={handleSubmit}
-          className="w-full px-4 flex flex-col justify-center items-center gap-2
+          className="w-full px-4 flex flex-col justify-center items-start gap-2
         md:w-[500px]"
         >
 
-          <div className="inline-flex justify-center rounded-md items-center w-full text-center text-white h-12 bg-slate-500 uppercase mt-6 ">Inscription</div>
+          <h3 className="w-fit underline-signup-title uppercase text-[1.5em] my-6
+          "
+          >
+            Créer mon compte
+          </h3>
 
           <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
             <input
@@ -240,7 +247,7 @@ const SignUp = () => {
           </div>
 
           <input
-            className="cursor-pointer inline-flex justify-center rounded-md items-center w-full text-center text-slate- h-12 bg-green-200 uppercase mt-2 hover:bg-green-300"
+            className="cursor-pointer inline-flex justify-center rounded-md items-center w-full text-center text-slate- h-12 bg-[#FFD9E0] uppercase mt-2 hover:bg-green-300"
             type="submit"
             value="Valider"
           />
