@@ -28,7 +28,7 @@ function ConceptLanding() {
         {/* HERO limited container */}
         <div className="w-[1100px] flex flex-col ">
 
-          <div className="mx-8 px-8 rounded-md flex justify-center">
+          <div className="rounded-md flex justify-center">
             {/* left side */}
             <div className="flex flex-col gap-8 items-start justify-center pt-16">
               <div>
@@ -56,8 +56,7 @@ function ConceptLanding() {
             <div>
               <Lottie
                 options={defaultOptions}
-                height={500}
-                width={500}
+
               />
             </div>
             {/* END right side (piggy) */}
@@ -85,39 +84,41 @@ function ConceptLanding() {
       <section className="w-full flex justify-center relative bg-[#F1EECD]">
 
         {/* STEPS limited container */}
-        <div className="w-[1100px] pt-16 flex flex-col">
+        <div className="w-[1100px] pt-16 flex flex-col gap-8">
 
-          <h3 className="w-fit underline-step-title uppercase my-4">
+          <h3 className="w-fit underline-step-title uppercase">
             Comment créer ma cagnotte
           </h3>
           <p className="text-gray-600">En seulement 4 étapes</p>
 
           {/* STEPS cards */}
-          <div className="pb-32 gap-48 flex justify-between mt-16">
+          <div className="pb-32 gap-12 grid grid-cols-1 justify-between
+          lg:grid-cols-4
+          sm:grid-cols-2
+          xs:grid-cols-1
+          "
+          >
 
             {/* SINGLE STEP card */}
 
-            <div className="font-bold h-24 w-32 flex flex-col gap-4 items-start text-center rounded-md">
-              <div>
-                <span className="text-[4em]">1</span>
-                <button className="h-4 w-4 rounded-full bg-black" />
-              </div>
-              <h4>Créer mon compte</h4>
+            <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
+              <span className="flex items-center justify-center h-full  text-[4em] bg-[#E3C1C7] px-4 rounded-tl-md rounded-bl-md">1</span>
+              <h4 className="flex items-center justify-center h-full bg-[#FFD9E0] p-8 w-fit rounded-tr-md rounded-br-md">Créer mon compte</h4>
             </div>
 
-            <div className=" h-24 w-32 flex flex-col gap-4 items-start text-center rounded-md">
-              <span className="text-[4em]">2</span>
-              <h4>Créer mon compte</h4>
+            <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
+              <span className="flex items-center justify-center h-full  text-[4em] bg-[#AFC2B4] px-4 rounded-tl-md rounded-bl-md">2</span>
+              <h4 className="flex items-center justify-center h-full bg-[#C9DECE] p-8 w-fit rounded-tr-md rounded-br-md">Créer mon compte</h4>
             </div>
 
-            <div className=" h-24 w-32 flex flex-col gap-4 items-start text-center rounded-md">
-              <span className="text-[4em]">3</span>
-              <h4>Créer mon compte</h4>
+            <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
+              <span className="flex items-center justify-center h-full  text-[4em] bg-[#BFA8D4] px-4 rounded-tl-md rounded-bl-md">3</span>
+              <h4 className="flex items-center justify-center h-full bg-[#CFB6E5] p-8 w-fit rounded-tr-md rounded-br-md">Créer mon compte</h4>
             </div>
 
-            <div className=" h-24 w-32 flex flex-col gap-4 items-start text-center rounded-md">
-              <span className="text-[4em]">4</span>
-              <h4>Créer mon compte</h4>
+            <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
+              <span className="flex items-center justify-center h-full  text-[4em] bg-[#A9C6DE] px-4 rounded-tl-md rounded-bl-md">4</span>
+              <h4 className="flex items-center justify-center h-full bg-[#C2E4FF] p-8 w-fit rounded-tr-md rounded-br-md">Créer mon compte</h4>
             </div>
 
             {/* END SINGLE STEP card */}
