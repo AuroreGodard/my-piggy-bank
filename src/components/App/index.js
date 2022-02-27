@@ -7,7 +7,7 @@ import AuthModal from '../Login';
 
 // == Composant
 const App = () => (
-  <div className="w-screen flex justify-center items-center">
+  <div className=" flex justify-center items-center">
     <ConceptLanding />
   </div>
 

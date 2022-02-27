@@ -18,6 +18,7 @@ function HeaderMenu() {
       </NavLink>
       <nav className="flex gap-4">
         <NavLink to="/dashboard">Dashboard</NavLink>
+        <NavLink to="/signup">SignUp</NavLink>
         <NavLink to="/login">Login</NavLink>
         <NavLink to="/SignUp">SignUp</NavLink>
       </nav>
