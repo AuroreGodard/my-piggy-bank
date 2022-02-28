@@ -9,14 +9,15 @@ import './style.scss';
 
 // import actions
 import {
+  setNewUserName,
   setNewPassword,
-  setNewEmail,
   login,
-} from '../../actions';
+} from '../../actions/login';
 
-const AuthModal = () => {
-  const email = useSelector((state) => state.email);
-  const password = useSelector((state) => state.password);
+const Login = () => {
+  const username = useSelector((state) => state.login.username);
+  console.log(username);
+  const password = useSelector((state) => state.login.password);
 
   const dispatch = useDispatch();
 
@@ -47,10 +48,10 @@ const AuthModal = () => {
               className="w-4/5 flex align-middle justify-center p-2 rounded-md"
               placeholder="Email"
               type="email"
-              value={email}
+              value={username}
               onChange={
                         (event) => {
-                          dispatch(setNewEmail(event.target.value));
+                          dispatch(setNewUserName(event.target.value));
                         }
                     }
             />
@@ -82,4 +83,4 @@ const AuthModal = () => {
   );
 };
 
-export default AuthModal;
+export default Login;
