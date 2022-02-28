@@ -6,7 +6,6 @@ import axios from 'axios';
 
 const apiMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {
-
     case SIGN_UP: {
       const {
         email,

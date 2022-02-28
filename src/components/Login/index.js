@@ -11,7 +11,7 @@ import './style.scss';
 import {
   setNewPassword,
   setNewEmail,
-  signUp,
+  login,
 } from '../../actions';
 
 const AuthModal = () => {
@@ -23,7 +23,7 @@ const AuthModal = () => {
   const handleSubmit = (event) => {
     // on empêche le rechargement de ma page
     event.preventDefault();
-    dispatch(signUp());
+    dispatch(login());
   };
 
   return (
