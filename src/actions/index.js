@@ -1,9 +1,9 @@
-// ACTION TYPE LOGIN
-export const LOGIN = 'LOGIN';
+// ACTION TYPE SIGN_UP
+export const SIGN_UP = 'SIGN_UP';
 
-// ACTION CREATOR login
-export const login = () => ({
-  type: LOGIN,
+// ACTION CREATOR signUp
+export const signUp = () => ({
+  type: SIGN_UP,
 });
 
 // ACTION TYPE SET_NEW_EMAIL
