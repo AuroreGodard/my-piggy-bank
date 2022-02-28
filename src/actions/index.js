@@ -6,6 +6,14 @@ export const login = () => ({
   type: LOGIN,
 });
 
+// ACTION TYPE SIGNUP
+export const SIGNUP = 'SIGNUP';
+
+// ACTION CREATOR signup
+export const signup = () => ({
+  type: SIGNUP,
+});
+
 // ACTION TYPE SET_NEW_EMAIL
 export const SET_NEW_EMAIL = 'SET_NEW_EMAIL';
 
