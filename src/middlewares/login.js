@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOGIN } from 'src/actions/login';
+import { LOGIN, saveToken } from 'src/actions/login';
 
 const apiMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {
@@ -11,6 +11,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
         password,
       })
         .then((response) => {
+          store.dispatch(saveToken(response.data.token));
           console.log('success', response);
         })
         .catch((error) => {

@@ -1,4 +1,4 @@
-import { SET_NEW_USERNAME, SET_NEW_PASSWORD } from '../actions/login';
+import { SAVE_TOKEN, SET_NEW_USERNAME, SET_NEW_PASSWORD } from '../actions/login';
 
 const initialState = {
   username: 'admin@admin.com',
@@ -11,6 +11,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         username: action.username,
+      };
+    case SAVE_TOKEN:
+      return {
+        ...state,
+        token: action.token,
       };
     case SET_NEW_PASSWORD:
       return {
