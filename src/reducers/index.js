@@ -8,8 +8,9 @@ import {
 } from '../actions';
 
 const initialState = {
-  email: 'jeanbon@user.com',
+  email: 'admin@admin.com',
   password: 'admin',
+  username: 'admin@admin.com',
   firstname: 'user',
   lastname: 'bonjour',
   birthDate: '1991-07-15',
