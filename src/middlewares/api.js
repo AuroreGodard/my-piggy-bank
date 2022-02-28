@@ -1,7 +1,7 @@
 // import
 
-import { LOGIN } from 'src/actions';
-import { SIGN_UP } from 'src/actions';
+import { LOGIN } from 'src/actions/login';
+import { SIGN_UP } from 'src/actions/signUp';
 import axios from 'axios';
 
 const apiMiddleWare = (store) => (next) => (action) => {

@@ -10,21 +10,21 @@ import './style.scss';
 // import actions
 import {
   setNewLastName,
-  setNewFirstname,
+  setNewFirstName,
   setNewBirthdate,
   setNewPhone,
   setNewPassword,
   setNewEmail,
   signUp,
-} from '../../actions';
+} from '../../actions/signUp';
 
 const SignUp = () => {
-  const email = useSelector((state) => state.email);
-  const password = useSelector((state) => state.password)
-  const birthDate = useSelector((state) => state.birthDate);
-  const lastname = useSelector((state) => state.lastname);
-  const firstname = useSelector((state) => state.firstname);
-  const phone = useSelector((state) => state.phone);
+  const email = useSelector((state) => state.signUp.email);
+  const password = useSelector((state) => state.signUp.password);
+  const birthDate = useSelector((state) => state.signUp.birthDate);
+  const lastname = useSelector((state) => state.signUp.lastname);
+  const firstname = useSelector((state) => state.signUp.firstname);
+  const phone = useSelector((state) => state.signUp.phone);
 
   const dispatch = useDispatch();
 
@@ -86,7 +86,7 @@ const SignUp = () => {
               value={firstname}
               onChange={
                         (event) => {
-                          dispatch(setNewFirstname(event.target.value));
+                          dispatch(setNewFirstName(event.target.value));
                         }
                     }
             />
