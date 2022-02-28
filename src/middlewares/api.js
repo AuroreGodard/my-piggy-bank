@@ -42,7 +42,7 @@ const apiMiddleWare = (store) => (next) => (action) => {
         password,
         username,
       } = store.getState();
-      axios.post('http://tristan-bonnal.vpnuser.lan:8000/api/signup', {
+      axios.post('http://tristan-bonnal.vpnuser.lan:8000/api/login_check', {
         password,
         username,
       })
