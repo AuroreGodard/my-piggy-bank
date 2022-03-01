@@ -1,18 +1,23 @@
 import axios from 'axios';
 import { LOGIN, saveToken } from 'src/actions/login';
 
+const axiosInstance = axios.create({
+  baseURL: 'http://tristan-bonnal.vpnuser.lan:8000/api',
+});
+
 const apiMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {
     case LOGIN: {
       const { login: { username, password } } = store.getState();
 
-      axios.post('http://tristan-bonnal.vpnuser.lan:8000/api/login_check', {
+      axiosInstance.post('/login_check', {
         username,
         password,
       })
         .then((response) => {
           store.dispatch(saveToken(response.data.token));
           console.log('success', response);
+          axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
         })
         .catch((error) => {
           console.log('error', error);
