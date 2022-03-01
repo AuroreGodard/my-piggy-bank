@@ -1,11 +1,12 @@
 import axios from 'axios';
 import { LOGIN, saveToken } from 'src/actions/login';
+import { FETCH_USERS, saveUserApi } from '../actions/login';
 
 const axiosInstance = axios.create({
   baseURL: 'http://tristan-bonnal.vpnuser.lan:8000/api',
 });
 
-const useToken = localStorage.getItem('token');
+const token = localStorage.getItem('token');
 
 const apiMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {
@@ -27,16 +28,35 @@ const apiMiddleWare = (store) => (next) => (action) => {
         .catch((error) => {
           console.log('error', error);
         });
-    }
-      console.log('hello');
       next(action);
-      axiosInstance.get('/users')
-        .then((response) => {
-          axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
-
-          localStorage.getItem('token');
-        });
       break;
+    }
+    case FETCH_USERS: {
+      axiosInstance
+        .get(
+          '/users',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        )
+        .then(
+          (response) => {
+            store.dispatch(saveUserApi(response));
+            console.log(response.data);
+          },
+        ).catch(
+          () => console.log('error'),
+        );
+      next(action);
+      break;
+    }
+   /*  case LOGOUT:
+      // au logout, on supprime le token de l'instance
+      axiosInstance.defaults.headers.common.Authorization = null;
+      next(action);
+      break; */
     default:
       next(action);
   }

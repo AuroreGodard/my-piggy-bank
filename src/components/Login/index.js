@@ -12,6 +12,7 @@ import {
   setNewUserName,
   setNewPassword,
   login,
+  fetchUsers,
 } from '../../actions/login';
 
 const Login = () => {
@@ -25,6 +26,7 @@ const Login = () => {
     // on empêche le rechargement de ma page
     event.preventDefault();
     dispatch(login());
+    dispatch(fetchUsers());
   };
 
   return (

@@ -32,3 +32,20 @@ export const setNewUserName = (username) => ({
   type: SET_NEW_USERNAME,
   username,
 });
+
+// ACTION TYPE FETCH_USERS
+export const FETCH_USERS = 'FETCH_USERS';
+
+// ACTION CREATOR fetchFavorites
+export const fetchUsers = () => ({
+  type: FETCH_USERS,
+});
+
+// ACTION TYPE SAVE_USERS_API
+export const SAVE_USERS_API = 'SAVE_USERS_API';
+
+// ACTION CREATOR saveFavorites
+export const saveUserApi = (user) => ({
+  type: SAVE_USERS_API,
+  user,
+});
