@@ -1,8 +1,10 @@
-import { SAVE_TOKEN, SET_NEW_USERNAME, SET_NEW_PASSWORD, SAVE_USERS_API, LOGOUT } from '../actions/login';
+import {
+  SAVE_TOKEN, SET_NEW_USERNAME, SET_NEW_PASSWORD, SAVE_USERS_API, LOGOUT,
+} from '../actions/login';
 
 const initialState = {
   username: 'admin@admin.com',
-  password: 'user',
+  password: 'admin',
   user: '',
   logged: false,
 };
@@ -28,7 +30,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         user: action.user,
-        logged: action.login.logged,
+        logged: true,
       };
     case LOGOUT:
       return {
