@@ -48,4 +48,13 @@ export const SAVE_USERS_API = 'SAVE_USERS_API';
 export const saveUserApi = (user) => ({
   type: SAVE_USERS_API,
   user,
+  logged: true,
+});
+
+// ACTION TYPE LOGOUT
+export const LOGOUT = 'LOGOUT';
+
+// ACTION CREATOR logout
+export const logout = () => ({
+  type: LOGOUT,
 });

@@ -1,9 +1,10 @@
 import axios from 'axios';
-import { LOGIN, saveToken } from 'src/actions/login';
-import { FETCH_USERS, saveUserApi } from '../actions/login';
+import {
+  LOGIN, saveToken, LOGOUT, FETCH_USERS, saveUserApi,
+} from 'src/actions/login';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://tristan-bonnal.vpnuser.lan:8000/api',
+  baseURL: ' http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',
 });
 
 const token = localStorage.getItem('token');
@@ -19,8 +20,8 @@ const apiMiddleWare = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(saveToken(response.data.token));
-          console.log(response.data);
-          console.log('success', response);
+          // console.log(response.data);
+          // console.log('success', response);
           axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
           localStorage.setItem('token', response.data.token);
         })
@@ -52,11 +53,11 @@ const apiMiddleWare = (store) => (next) => (action) => {
       next(action);
       break;
     }
-   /*  case LOGOUT:
+    case LOGOUT:
       // au logout, on supprime le token de l'instance
       axiosInstance.defaults.headers.common.Authorization = null;
       next(action);
-      break; */
+      break;
     default:
       next(action);
   }

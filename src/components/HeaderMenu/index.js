@@ -1,9 +1,29 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 // style
 import './style.scss';
 
+import {
+  logout,
+} from '../../actions/login';
+
 function HeaderMenu() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logged = useSelector((state) => state.login.logged);
+
+  const handleLogout = () => {
+    console.log('je veux me déconnecter');
+    console.log(logged);
+    dispatch(logout());
+    localStorage.clear();
+    // on se redirige vers la page d'accueil
+    navigate('/login');
+  };
+
   return (
     <header className="z-50 h-[70px] w-screen flex items-center fixed top-0 justify-between px-5 space-x-10 bg-[#C9DECE]">
 
@@ -21,7 +41,8 @@ function HeaderMenu() {
       >
         <NavLink to="/dashboard">Dashboard</NavLink>
         <NavLink to="/signup">SignUp</NavLink>
-        <NavLink to="/login">Login</NavLink>
+        {logged ? (<span className="cursor-pointer" onClick={handleLogout} id="logout">Logout</span>) : (<NavLink to="/login">Login</NavLink>) }
+
       </nav>
       <div className="flex justify-center items-center h-10 w-10 rounded-full cursor-pointer bg-[#FFD9E0]">
 
