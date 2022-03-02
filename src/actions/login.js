@@ -49,3 +49,11 @@ export const saveUserApi = (user) => ({
   type: SAVE_USERS_API,
   user,
 });
+
+// ACTION TYPE LOGOUT
+export const LOGOUT = 'LOGOUT';
+
+// ACTION CREATOR logout
+export const logout = () => ({
+  type: LOGOUT,
+});

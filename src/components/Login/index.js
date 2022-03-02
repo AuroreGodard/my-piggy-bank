@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 // import Components
 import HeaderMenu from 'src/components/HeaderMenu';
 
+import { useNavigate } from 'react-router-dom';
+
 // import styles
 import './style.scss';
 
@@ -13,12 +15,20 @@ import {
   setNewPassword,
   login,
   fetchUsers,
+  logout,
 } from '../../actions/login';
 
 const Login = () => {
   const username = useSelector((state) => state.login.username);
   console.log(username);
   const password = useSelector((state) => state.login.password);
+
+  // is user logged or not ?
+  const logged = useSelector((state) => state.login.logged);
+
+  const navigate = useNavigate();
+
+  console.log(logged);
 
   const dispatch = useDispatch();
 
@@ -27,6 +37,14 @@ const Login = () => {
     event.preventDefault();
     dispatch(login());
     dispatch(fetchUsers());
+  };
+
+  const handleLogout = () => {
+    console.log('je veux me déconnecter');
+    console.log(logged);
+    dispatch(logout());
+    // on se redirige vers la page d'accueil
+    navigate('/');
   };
 
   return (
@@ -80,6 +98,14 @@ const Login = () => {
           />
 
         </form>
+        {logged && (
+        <input
+            className="w-48 mt-12 cursor-pointer inline-flex justify-center rounded-md items-center w-full text-center text-slate- h-12 bg-red-500 uppercase mt-2 hover:bg-green-300"
+            type="button"
+            value="Se déconnecter"
+            onClick={handleLogout}
+          />
+          )}
       </div>
     </>
   );
