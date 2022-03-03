@@ -143,9 +143,9 @@ function ConceptLanding() {
           <h3 className="w-fit underline-step-title uppercase text-[1.5em]
           "
           >
-            Comment créer ma cagnotte
+            Comment ça marche ?
           </h3>
-          <p className="text-gray-600">En seulement 4 étapes</p>
+          <p className="text-gray-600">Economiser ou atteindre un objectif en seulement 4 étapes pour soi ou pour offir !</p>
 
           {/* STEPS cards */}
           <div className="pb-32 gap-12 grid grid-cols-1 justify-between
@@ -160,22 +160,22 @@ function ConceptLanding() {
 
             <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
               <span className="flex items-center justify-center h-full  text-[4em] bg-[#E3C1C7] px-4 rounded-tl-md rounded-bl-md">1</span>
-              <h4 className="flex items-center justify-center h-full bg-[#FFD9E0] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Créer mon compte</h4>
+              <h4 className="flex items-center justify-center h-full bg-[#FFD9E0] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Je crée mon compte</h4>
             </div>
 
             <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
               <span className="flex items-center justify-center h-full  text-[4em] bg-[#AFC2B4] px-4 rounded-tl-md rounded-bl-md">2</span>
-              <h4 className="flex items-center justify-center h-full bg-[#C9DECE] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Créer mon compte</h4>
+              <h4 className="flex items-center justify-center h-full bg-[#C9DECE] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Je crée ma cagnotte </h4>
             </div>
 
             <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
               <span className="flex items-center justify-center h-full  text-[4em] bg-[#BFA8D4] px-4 rounded-tl-md rounded-bl-md">3</span>
-              <h4 className="flex items-center justify-center h-full bg-[#CFB6E5] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Créer mon compte</h4>
+              <h4 className="flex items-center justify-center h-full bg-[#CFB6E5] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Je dépose sur ma cagnotte</h4>
             </div>
 
             <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
               <span className="flex items-center justify-center h-full  text-[4em] bg-[#A9C6DE] px-4 rounded-tl-md rounded-bl-md">4</span>
-              <h4 className="flex items-center justify-center h-full bg-[#C2E4FF] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Créer mon compte</h4>
+              <h4 className="flex items-center justify-center h-full bg-[#C2E4FF] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Je retire ou offre ma cagnotte</h4>
             </div>
 
             {/* END SINGLE STEP card */}
