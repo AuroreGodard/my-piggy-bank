@@ -14,8 +14,6 @@ import {
   setNewUserName,
   setNewPassword,
   login,
-  fetchUsers,
-  logout,
 } from '../../actions/login';
 
 const Login = () => {
@@ -37,16 +35,6 @@ const Login = () => {
     event.preventDefault();
     dispatch(login());
     navigate('/dashboard');
-  };
-
-  const handleLogout = () => {
-    console.log('je veux me déconnecter');
-    console.log(logged);
-    dispatch(logout());
-    localStorage.clear();
-    // on se redirige vers la page d'accueil
-
-    window.location.reload(true);
   };
 
   useEffect(() => {
