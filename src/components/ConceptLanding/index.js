@@ -170,7 +170,7 @@ function ConceptLanding() {
 
             <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
               <span className="flex items-center justify-center h-full  text-[4em] bg-[#BFA8D4] px-4 rounded-tl-md rounded-bl-md">3</span>
-              <h4 className="flex items-center justify-center h-full bg-[#CFB6E5] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Je dépose sur ma cagnotte</h4>
+              <h4 className="flex items-center justify-center h-full bg-[#CFB6E5] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Je dépose de l'argent sur ma cagnotte</h4>
             </div>
 
             <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
