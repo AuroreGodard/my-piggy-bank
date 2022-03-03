@@ -1,6 +1,10 @@
 import axios from 'axios';
 import { SIGN_UP } from 'src/actions/signUp';
 
+const axiosInstance = axios.create({
+  baseURL: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',
+});
+
 const signUpMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {
     case SIGN_UP: {
@@ -15,7 +19,7 @@ const signUpMiddleWare = (store) => (next) => (action) => {
         },
       } = store.getState();
 
-      axios.post('http://tristan-bonnal.vpnuser.lan:8000/api/signup', {
+      axiosInstance.post('/signup', {
         email,
         password,
         firstname,

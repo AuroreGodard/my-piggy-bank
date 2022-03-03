@@ -7,13 +7,22 @@ import {
   SET_NEW_PHONE,
 } from '../actions/signUp';
 
-const initialState = {
+/* const initialState = {
   email: 'admin@admin.com',
   password: 'admin',
   firstname: 'user',
   lastname: 'bonjour',
   birthDate: '1991-07-15',
   phone: '6417637373',
+}; */
+
+const initialState = {
+  email: '',
+  password: '',
+  firstname: '',
+  lastname: '',
+  birthDate: '',
+  phone: '',
 };
 
 const reducer = (state = initialState, action = {}) => {

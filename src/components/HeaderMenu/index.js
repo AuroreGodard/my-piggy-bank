@@ -16,8 +16,8 @@ function HeaderMenu() {
   const logged = useSelector((state) => state.login.logged);
 
   const handleLogout = () => {
-    console.log('je veux me déconnecter');
-    console.log(logged);
+    // console.log('je veux me déconnecter');
+    // console.log(logged);
     dispatch(logout());
     localStorage.clear();
     // on se redirige vers la page d'accueil

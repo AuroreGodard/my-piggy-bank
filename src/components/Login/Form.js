@@ -1,5 +1,17 @@
+import { useDispatch, useSelector } from 'react-redux';
+
+// import actions
+import {
+  setNewUserName,
+  setNewPassword,
+} from '../../actions/login';
+
 function Form(handleSubmit) {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const username = useSelector((state) => state.login.username);
+  const password = useSelector((state) => state.login.password);
+
   return (
     <form
       onSubmit={handleSubmit}

@@ -2,9 +2,16 @@ import {
   SAVE_TOKEN, SET_NEW_USERNAME, SET_NEW_PASSWORD, SAVE_USERS_API, LOGOUT,
 } from '../actions/login';
 
-const initialState = {
+/* const initialState = {
   username: 'admin@admin.com',
   password: 'admin',
+  user: '',
+  logged: false,
+};
+ */
+const initialState = {
+  username: '',
+  password: '',
   user: '',
   logged: false,
 };
