@@ -15,6 +15,7 @@ import {
   setNewPassword,
   login,
   saveTokenFromLocalStorage,
+
 } from '../../actions/login';
 
 const Login = () => {
@@ -45,13 +46,13 @@ const Login = () => {
     }
   }, []);
 
-  //! je débute mes tests ici
-  useEffect(() => {
-    if (token === '') {
-    // console.log(localStorage.getItem('token'));
-      dispatch(saveTokenFromLocalStorage(localStorage.getItem('token')));
-    }
-  }, []);
+ //! je débute mes tests ici
+ useEffect(() => {
+  if (token === '') {
+  // console.log(localStorage.getItem('token'));
+    dispatch(saveTokenFromLocalStorage(localStorage.getItem('token')));
+  }
+}, []);
 
   return (
     <>
