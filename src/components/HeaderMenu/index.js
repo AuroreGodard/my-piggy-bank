@@ -6,9 +6,7 @@ import { useEffect } from 'react';
 import './style.scss';
 
 import BurgerMenu from 'src/components/BurgerMenu';
-import {
-  logout,
-} from '../../actions/login';
+
 
 // import components
 
@@ -17,15 +15,6 @@ function HeaderMenu() {
   const navigate = useNavigate();
 
   const logged = useSelector((state) => state.login.logged);
-
-  const handleLogout = () => {
-    // console.log('je veux me déconnecter');
-    // console.log(logged);
-    dispatch(logout());
-    localStorage.clear();
-    // on se redirige vers la page d'accueil
-    navigate('/login');
-  };
 
   return (
     <header className="z-50 h-[70px] w-screen flex items-center fixed top-0 justify-between px-5 space-x-10 bg-[#C9DECE]">

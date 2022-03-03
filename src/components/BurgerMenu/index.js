@@ -1,8 +1,12 @@
 import React, { useRef } from 'react';
 import './styles.scss';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useDetectOutsideClick } from './useDetectOutsideClick';
+
+import {
+  logout,
+} from '../../actions/login';
 
 /*
  * Read the blog post here:
@@ -13,6 +17,15 @@ export default function App() {
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   const onClick = () => setIsActive(!isActive);
   const logged = useSelector((state) => state.login.logged);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    // console.log('je veux me déconnecter');
+    // console.log(logged);
+    dispatch(logout());
+    localStorage.clear();
+    // on se redirige vers la page d'accueil
+  };
 
   return (
     <>
@@ -50,8 +63,8 @@ export default function App() {
                 <NavLink to="/dashboard" className="bg-[#C9DECE] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">Tableau de bord
                 </NavLink>
 
-                <NavLink to="/dashboard" className="bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">Me déconnecter
-                </NavLink>
+                <button onClick={handleLogout} className="bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">Me déconnecter
+                </button>
               </>
             )}
         </div>
