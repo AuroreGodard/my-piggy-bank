@@ -5,9 +5,12 @@ import { useEffect } from 'react';
 // style
 import './style.scss';
 
+import BurgerMenu from 'src/components/BurgerMenu';
 import {
   logout,
 } from '../../actions/login';
+
+// import components
 
 function HeaderMenu() {
   const dispatch = useDispatch();
@@ -36,21 +39,21 @@ function HeaderMenu() {
           My Piggy Bank
         </div>
       </NavLink>
-      <nav className="gap-4 hidden
+      {/* <nav className="gap-4 hidden
       xl:flex"
       >
         <NavLink to="/dashboard">Dashboard</NavLink>
         <NavLink to="/signup">SignUp</NavLink>
         {logged ? (<span className="cursor-pointer" onClick={handleLogout} id="logout">Logout</span>) : (<NavLink to="/login">Login</NavLink>) }
 
-      </nav>
-      <div className="flex justify-center items-center h-10 w-10 rounded-full cursor-pointer bg-[#FFD9E0]">
+      </nav> */}
 
-        {/*  Burger menu  */}
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
-          <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-        </svg>
+      {/*  Burger menu  */}
+      <div className="flex justify-center items-center h-10 w-10 rounded-full cursor-pointer bg-[#FFD9E0]">
+        <BurgerMenu />
+
       </div>
+      {/*  END Burger menu  */}
 
     </header>
   );
