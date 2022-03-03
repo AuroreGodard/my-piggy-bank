@@ -11,7 +11,7 @@ import store from 'src/store';
 import Login from 'src/components/Login';
 import SignUp from 'src/components/SignUp';
 import ProtectedRoutes from 'src/components/ProtectedRoutes';
-import Faqs from 'src/components/Faqs';
+import Faq from 'src/components/Faq';
 
 // Store
 
@@ -23,7 +23,7 @@ const rootReactElement = (
     <Provider store={store}>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="faq" element={<Faqs />} />
+        <Route path="faq" element={<Faq />} />
         <Route path="signup" element={<SignUp />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="dashboard" element={<Dashboard />} />
