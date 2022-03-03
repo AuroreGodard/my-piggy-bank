@@ -1,4 +1,3 @@
-
 import PotsCards from '../PotsCards';
 import RecentActivity from '../RecentActivity';
 import HeaderMenu from '../HeaderMenu';

@@ -1,11 +1,12 @@
 import { Outlet } from 'react-router';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Login from '../Login';
 
 function ProtectedRoutes() {
   const logged = useSelector((state) => state.login.logged);
+  const token = useSelector((state) => state.login.token);
   return (
-    logged ? <Outlet /> : <Login />
+    (logged && token) ? <Outlet /> : <Login />
   );
 }
 
