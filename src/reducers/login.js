@@ -1,5 +1,5 @@
 import {
-  SAVE_TOKEN, SET_NEW_USERNAME, SET_NEW_PASSWORD, SAVE_USERS_API, LOGOUT,
+  SAVE_TOKEN, SET_NEW_USERNAME, SET_NEW_PASSWORD, SAVE_USERS_API, LOGOUT, SAVE_TOKEN_FROM_LOCALSTORAGE,
 } from '../actions/login';
 
 const initialState = {
@@ -7,6 +7,7 @@ const initialState = {
   password: 'admin',
   user: '',
   logged: false,
+  token: '',
 };
 
 /* const initialState = {
@@ -44,6 +45,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         logged: false,
+        token: null,
+      };
+      case SAVE_TOKEN_FROM_LOCALSTORAGE:
+      return {
+        ...state,
+        token: action.tokenfls,
+        logged: true,
       };
     default:
       return state;
