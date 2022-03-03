@@ -36,7 +36,6 @@ const Login = () => {
     // on empêche le rechargement de ma page
     event.preventDefault();
     dispatch(login());
-    dispatch(fetchUsers());
     navigate('/dashboard');
   };
 

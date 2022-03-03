@@ -20,32 +20,14 @@ const apiMiddleWare = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(saveToken(response.data.token));
-          console.log(response.data);
-          // console.log('success', response);
+          store.dispatch(saveUserApi(response.data.user));
+          console.log(response.data.user, 'c est mon user');
+          console.log(response.data.token, 'c est mon token');
           axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
-
-          const { login: { logged } } = store.getState();
-
-          /* const getUserStatus = {
-            token: response.data.token,
-            logged: logged,
-          }; */
-
-          /* localStorage.setItem('userStatus', JSON.stringify(getUserStatus)); */
           localStorage.setItem('token', response.data.token);
-          localStorage.setItem('logged', logged);
         })
         .then((response) => {
-          const { login: { logged } } = store.getState();
-
-          /* const getUserStatus = {
-            token: response.data.token,
-            logged: logged,
-          }; */
-
-          /* localStorage.setItem('userStatus', JSON.stringify(getUserStatus)); */
-          localStorage.setItem('token', response.data.token);
-          localStorage.setItem('logged', logged);
+          localStorage.setItem('token', response.token);
         })
 
         .catch((error) => {
