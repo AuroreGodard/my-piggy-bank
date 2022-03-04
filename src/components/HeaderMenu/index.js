@@ -1,6 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
 
 // style
 import './style.scss';
@@ -14,6 +13,7 @@ function HeaderMenu() {
   const navigate = useNavigate();
 
   const logged = useSelector((state) => state.login.logged);
+  const token = useSelector((state) => state.login.token);
 
   const handleLogout = () => {
     // console.log('je veux me déconnecter');
@@ -41,7 +41,7 @@ function HeaderMenu() {
       >
         <NavLink to="/dashboard">Dashboard</NavLink>
         <NavLink to="/signup">SignUp</NavLink>
-        {logged ? (<span className="cursor-pointer" onClick={handleLogout} id="logout">Logout</span>) : (<NavLink to="/login">Login</NavLink>) }
+        {logged && (token !== null) ? (<span className="cursor-pointer" onClick={handleLogout} id="logout">Logout</span>) : (<NavLink to="/login">Login</NavLink>) }
 
       </nav>
       <div className="flex justify-center items-center h-10 w-10 rounded-full cursor-pointer bg-[#FFD9E0]">

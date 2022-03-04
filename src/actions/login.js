@@ -58,3 +58,12 @@ export const LOGOUT = 'LOGOUT';
 export const logout = () => ({
   type: LOGOUT,
 });
+
+//! ACTION TYPE SAVE_USER
+export const SAVE_TOKEN_FROM_LOCALSTORAGE = 'SAVE_TOKEN_FROM_LOCALSTORAGE';
+
+//! ACTION CREATOR saveUser
+export const saveTokenFromLocalStorage = (tokenfls) => ({
+  type: SAVE_TOKEN_FROM_LOCALSTORAGE,
+  tokenfls,
+});
