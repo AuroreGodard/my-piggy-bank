@@ -18,6 +18,8 @@ import {
 
 } from '../../actions/login';
 
+import { pots } from '../../actions/pots';
+
 const Login = () => {
   const username = useSelector((state) => state.login.username);
   console.log(username);
@@ -37,6 +39,7 @@ const Login = () => {
     // on empêche le rechargement de ma page
     event.preventDefault();
     dispatch(login());
+    dispatch(pots());
     navigate('/dashboard');
   };
 
