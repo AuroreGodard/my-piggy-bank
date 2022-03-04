@@ -21,13 +21,10 @@ const apiMiddleWare = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveToken(response.data.token));
           store.dispatch(saveUserApi(response.data.user));
-          console.log(response.data.user, 'c est mon user');
-          console.log(response.data.token, 'c est mon token');
+          // console.log(response.data.user, 'c est mon user');
+          // console.log(response.data.token, 'c est mon token');
           axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
           localStorage.setItem('token', response.data.token);
-        })
-        .then((response) => {
-          localStorage.setItem('token', response.token);
         })
 
         .catch((error) => {
