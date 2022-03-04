@@ -1749,6 +1749,7 @@
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.3.1"
 
+
 "babel-runtime@^6.26.0":
   "integrity" "sha1-llxwWGaOgrVde/4E/yM3vItWR/4="
   "resolved" "https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.26.0.tgz"
@@ -1850,6 +1851,7 @@
   "integrity" "sha512-7SjMPkd2F9Ox+7tBIq4s9Q0teKd3HNXYvywE9SaJy8gmNgv2OxGoqKGQhJpK9zmCsf35M+kwz9+4A0zyHht0aQ=="
   "resolved" "https://registry.npmjs.org/bundle-stats-webpack-plugin/-/bundle-stats-webpack-plugin-3.2.5.tgz"
   "version" "3.2.5"
+
   dependencies:
     "@bundle-stats/cli-utils" "^3.2.5"
     "@bundle-stats/utils" "^3.2.5"
