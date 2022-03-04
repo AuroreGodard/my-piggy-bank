@@ -21,8 +21,8 @@ const potsMiddleWare = (store) => (next) => (action) => {
         )
         .then(
           (response) => {
-            store.dispatch(savePotsApi(response));
-            console.log('c est ma reponse ', response);
+            store.dispatch(savePotsApi(response.data));
+            console.log('c est ma reponse ', response.data);
           },
         ).catch(
           () => console.log('error'),

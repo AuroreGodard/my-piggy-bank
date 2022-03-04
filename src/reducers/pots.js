@@ -1,7 +1,7 @@
-import { SAVE_POTS_API } from "../actions/pots";
+import { SAVE_POTS_API } from '../actions/pots';
 
 const initialState = {
-  pots: '',
+  pots: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
