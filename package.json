@@ -49,12 +49,10 @@
   "dependencies": {
     "autoprefixer": "^10.4.2",
     "axios": "^0.26.0",
-    "bootstrap-icons": "^1.8.1",
     "postcss": "^8.4.7",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-lottie": "^1.2.3",
     "react-redux": "^7.2.6",
     "react-router": "^6.2.1",
     "react-router-dom": "6",

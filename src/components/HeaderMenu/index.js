@@ -6,16 +6,9 @@ import './style.scss';
 
 import BurgerMenu from 'src/components/BurgerMenu';
 
-
 // import components
 
 function HeaderMenu() {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const logged = useSelector((state) => state.login.logged);
-  const token = useSelector((state) => state.login.token);
-
   return (
     <header className="z-50 h-[70px] w-screen flex items-center fixed top-0 justify-between px-5 space-x-10 bg-[#C9DECE]">
 
