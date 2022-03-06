@@ -1,13 +1,11 @@
 import axios from 'axios';
 import {
-  LOGIN, saveToken, LOGOUT, FETCH_USERS, saveUserApi,
+  LOGIN, saveToken, LOGOUT, saveUserApi,
 } from 'src/actions/login';
 
 const axiosInstance = axios.create({
   baseURL: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',
 });
-
-const token = localStorage.getItem('token');
 
 const apiMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {
