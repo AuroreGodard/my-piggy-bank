@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { POTS, savePotsApi } from 'src/actions/pots';
+import { POTS, savePotsApi } from '../actions/pots';
 
 const axiosInstance = axios.create({
   baseURL: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',

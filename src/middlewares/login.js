@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {
   LOGIN, saveToken, LOGOUT, saveUserApi,
-} from 'src/actions/login';
+} from '../actions/login';
 
 const axiosInstance = axios.create({
   baseURL: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',

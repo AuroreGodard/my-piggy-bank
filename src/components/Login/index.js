@@ -27,7 +27,6 @@ const Login = () => {
 
   // is user logged or not ?
   const logged = useSelector((state) => state.login.logged);
-  const token = useSelector((state) => state.login.token);
 
   const navigate = useNavigate();
 
@@ -39,8 +38,8 @@ const Login = () => {
     // on empêche le rechargement de ma page
     event.preventDefault();
     dispatch(login());
-    dispatch(pots());
     navigate('/dashboard');
+    dispatch(pots());
   };
 
   useEffect(() => {
@@ -51,7 +50,7 @@ const Login = () => {
 
   //! je débute mes tests ici
   useEffect(() => {
-    if (token === '') {
+    if (localStorage.getItem('token') !== null) {
     // console.log(localStorage.getItem('token'));
       dispatch(saveTokenFromLocalStorage(localStorage.getItem('token')));
     }
