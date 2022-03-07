@@ -16,7 +16,7 @@ export default function App() {
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   const onClick = () => setIsActive(!isActive);
-  const logged = useSelector((state) => state.login.logged);
+  const logged = localStorage.getItem('token');
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -40,30 +40,27 @@ export default function App() {
       >
         {/* AUTH buttons */}
         <div className="flex flex-col gap-2 justify-center items-center mx-4">
-          {/* <div>
-            <input type="checkbox" className="checkbox" id="chk" />
-            <label className="label" htmlFor="chk">
-              <i className="bi bi-moon" />
-              <i className="bi bi-brightness-high" />
-              <div className="ball" />
-            </label>
-          </div> */}
+
           {!logged
             ? (
               <>
-                <NavLink to="/signup" className="mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">M'inscrire
+                <NavLink to="/signup" className="mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+                  M'inscrire
                 </NavLink>
 
-                <NavLink to="/login" className="bg-[#C9DECE] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">Me connecter
+                <NavLink to="/login" className="bg-[#C9DECE] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+                  Me connecter
                 </NavLink>
               </>
             )
             : (
               <>
-                <NavLink to="/dashboard" className="bg-[#C9DECE] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">Tableau de bord
+                <NavLink to="/dashboard" className="bg-[#C9DECE] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+                  Tableau de bord
                 </NavLink>
 
-                <button onClick={handleLogout} className="bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">Me déconnecter
+                <button onClick={handleLogout} className="bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+                  Me déconnecter
                 </button>
               </>
             )}
@@ -73,15 +70,18 @@ export default function App() {
         <div className="uppercase text-[1em]">
           <ul className="flex flex-col gap-2">
             <li>
-              <NavLink to="/" className="bg-[#CFB6E5] w-full text-slate-600 font-bold text-center px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">Le concept
+              <NavLink to="/" className="bg-[#CFB6E5] w-full text-slate-600 font-bold text-center px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+                Le concept
               </NavLink>
             </li>
             <li>
-              <button className="bg-[#CFB6E5] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">FAQ
+              <button className="bg-[#CFB6E5] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+                FAQ
               </button>
             </li>
             <li>
-              <button className="bg-[#CFB6E5] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">Nous contacter
+              <button className="bg-[#CFB6E5] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+                Nous contacter
               </button>
             </li>
           </ul>

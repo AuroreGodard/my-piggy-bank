@@ -18,9 +18,13 @@ import {
 
 } from '../../actions/login';
 
+
 import { pots } from '../../actions/pots';
 
-const Login = () => {
+
+
+function Login() {
+
   const username = useSelector((state) => state.login.username);
   console.log(username);
   const password = useSelector((state) => state.login.password);
@@ -107,6 +111,6 @@ const Login = () => {
       </div>
     </>
   );
-};
+}
 
 export default Login;
