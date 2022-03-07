@@ -5,6 +5,20 @@ import './style.scss';
 function PotsCards() {
   const pots = useSelector((state) => state.pots.pots);
 
+  const progressBarFullPotNull = (percentage) => {
+    if (percentage > 100) {
+      return '100';
+    }
+    return percentage;
+  };
+
+  const amoutGoalNull = (amountGoal) => {
+    if (amountGoal === null) {
+      return "Pas d'objectif de montant";
+    }
+    return "Objectif cagnotte: "+ (amountGoal) +" €";
+  };
+
   return (
     <>
       {
@@ -18,7 +32,7 @@ function PotsCards() {
                 <div className="flex flex-col w-2/3">
                   <h4 className=" font-bold uppercase my-4 ">{pot.name}</h4>
                   <p>
-                    Objectif cagnotte : {pot.amountGoal} €
+                   {amoutGoalNull(pot.amountGoal)}
 
                   </p>
                 </div>
@@ -28,7 +42,7 @@ function PotsCards() {
               </div>
               <div className="mt-2 mx-2 bg-gray-400 rounded-full">
                 {/* Progress bar */}
-                <div className="w-8/12 mt-2 bg-[#FFD9E0] text-center rounded-full " style={{width: `${Math.round((pot.amount / pot.amountGoal)* 100)}`+'%'}} ><div className="text-black text-sm inline-block px-2 rounded-full">{Math.round((pot.amount / pot.amountGoal)* 100)}%
+                <div className="w-8/12 mt-2 bg-[#FFD9E0] text-center rounded-full " style={{width: `${progressBarFullPotNull(Math.round((pot.amount / pot.amountGoal)* 100))}`+'%'}} ><div className="text-black text-sm inline-block px-2 rounded-full">{progressBarFullPotNull(Math.round((pot.amount / pot.amountGoal)* 100))}%
                 </div>
               </div>
               </div>
