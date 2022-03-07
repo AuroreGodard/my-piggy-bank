@@ -12,6 +12,7 @@ import Login from 'src/components/Login';
 import SignUp from 'src/components/SignUp';
 import ProtectedRoutes from 'src/components/ProtectedRoutes';
 import Faq from 'src/components/Faq';
+import UserProfile from 'src/components/UserProfile';
 
 // Store
 
@@ -28,6 +29,7 @@ const rootReactElement = (
         <Route element={<ProtectedRoutes />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="login" element={<Login />} />
+          <Route path="userprofile" element={<UserProfile />} />
         </Route>
 
       </Routes>
