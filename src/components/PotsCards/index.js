@@ -18,17 +18,19 @@ function PotsCards() {
                 <div className="flex flex-col w-2/3">
                   <h4 className=" font-bold uppercase my-4 ">{pot.name}</h4>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                    Duis bibendum leo risus, a ultrices ligula pretium ut.
+                    Objectif cagnotte : {pot.amountGoal} €
+
                   </p>
                 </div>
               </div>
               <div className="flex justify-end text-4xl text-slate-800 w-full px-4">
-                <div className="bg-[#C9DECE] rounded-md px-2">{pot.amountGoal} <span className="font-bold">€</span></div>
+                <div className="bg-[#C9DECE] rounded-md px-2">{pot.amount} <span className="font-bold">€</span></div>
               </div>
               <div className="mt-2 mx-2 bg-gray-400 rounded-full">
                 {/* Progress bar */}
-                <div className="w-8/12 mt-2 bg-[#FFD9E0] text-center rounded-full"><div className="text-black text-sm inline-block px-2 rounded-full">75%</div></div>
+                <div className="w-8/12 mt-2 bg-[#FFD9E0] text-center rounded-full " style={{width: '%'}} ><div className="text-black text-sm inline-block px-2 rounded-full">{Math.round((pot.amount / pot.amountGoal)* 100)}%
+                </div>
+              </div>
               </div>
             </div>
           ),

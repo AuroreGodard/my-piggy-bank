@@ -1,4 +1,3 @@
-import animationData from 'src/assets/lottiefiles/piggy';
 import HeaderMenu from '../HeaderMenu';
 
 // CSS
