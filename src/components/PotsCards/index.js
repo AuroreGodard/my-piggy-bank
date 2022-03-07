@@ -28,7 +28,7 @@ function PotsCards() {
               </div>
               <div className="mt-2 mx-2 bg-gray-400 rounded-full">
                 {/* Progress bar */}
-                <div className="w-8/12 mt-2 bg-[#FFD9E0] text-center rounded-full " style={{width: '%'}} ><div className="text-black text-sm inline-block px-2 rounded-full">{Math.round((pot.amount / pot.amountGoal)* 100)}%
+                <div className="w-8/12 mt-2 bg-[#FFD9E0] text-center rounded-full " style={{width: `${Math.round((pot.amount / pot.amountGoal)* 100)}`+'%'}} ><div className="text-black text-sm inline-block px-2 rounded-full">{Math.round((pot.amount / pot.amountGoal)* 100)}%
                 </div>
               </div>
               </div>
