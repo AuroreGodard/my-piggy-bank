@@ -18,7 +18,7 @@ import {
   signUp,
 } from '../../actions/signUp';
 
-const SignUp = () => {
+function SignUp() {
   const email = useSelector((state) => state.signUp.email);
   const password = useSelector((state) => state.signUp.password);
   const birthDate = useSelector((state) => state.signUp.birthDate);
@@ -143,6 +143,6 @@ const SignUp = () => {
       </div>
     </>
   );
-};
+}
 
 export default SignUp;
