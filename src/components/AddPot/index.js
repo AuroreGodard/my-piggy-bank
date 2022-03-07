@@ -1,1 +1,76 @@
-105,109,112,111,114,116,32,123,32,117,115,101,68,105,115,112,97,116,99,104,44,32,117,115,101,83,101,108,101,99,116,111,114,32,125,32,102,114,111,109,32,39,114,101,97,99,116,45,114,101,100,117,120,39,59,13,10,105,109,112,111,114,116,32,39,46,47,115,116,121,108,101,46,115,99,115,115,39,59,13,10,13,10,47,47,32,105,109,112,111,114,116,32,99,111,109,112,111,110,101,110,116,115,13,10,105,109,112,111,114,116,32,72,101,97,100,101,114,77,101,110,117,32,102,114,111,109,32,39,46,46,47,72,101,97,100,101,114,77,101,110,117,39,59,13,10,105,109,112,111,114,116,32,83,105,100,101,98,97,114,32,102,114,111,109,32,39,46,46,47,83,105,100,101,98,97,114,39,59,13,10,105,109,112,111,114,116,32,66,111,116,116,111,109,77,101,110,117,32,102,114,111,109,32,39,46,46,47,66,111,116,116,111,109,77,101,110,117,39,59,13,10,13,10,13,10,101,120,112,111,114,116,32,100,101,102,97,117,108,116,32,65,100,100,80,111,116,59,13,10,13,10
+import PotsCards from '../PotsCards';
+import RecentActivity from '../RecentActivity';
+import HeaderMenu from '../HeaderMenu';
+import Sidebar from '../Sidebar';
+import BottomMenu from '../BottomMenu';
+
+function AddPot() {
+  return (
+    <>
+      <HeaderMenu />
+      <main className="ml-2 mx-2
+      md:mx-8 md:ml-8
+      xl:ml-24 xl:mx-16
+      lg:ml-24"
+      >
+
+        <h3 className="w-fit underline-userprofile-informations uppercase text-[1.4em] mb-4
+          lg:mb-8
+          "
+        >
+          Créer ma cagnotte
+        </h3>
+
+        {/* FORM SECTION */}
+        <form className="w-full flex gap-8
+        md:w-[500px]
+        "
+        >
+
+          <div>
+            <div>
+              <label htmlFor="potname" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Nom de ma cagnotte</label>
+              <input type="text" name="potname" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Anniversaire" required />
+            </div>
+
+            <div>
+              <label htmlFor="goalamount" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Objectif de somme</label>
+              <input type="text" name="goalamount" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="1.000 €" required />
+            </div>
+
+            <div>
+              <label htmlFor="goaldate" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Objectif de date</label>
+              <input type="date" name="goaldate" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+            </div>
+
+            <button className="mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+              Je crée ma cagnotte !
+            </button>
+          </div>
+
+          {/* ICONS LIST */}
+          <div>
+            <label htmlFor="avatar" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Choisir une icône</label>
+            <div className="grid grid-cols-4 gap-2">
+              <div className="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" fill="currentColor" className="bi bi-piggy-bank-fill" viewBox="0 0 16 16">
+                  <path d="M7.964 1.527c-2.977 0-5.571 1.704-6.32 4.125h-.55A1 1 0 0 0 .11 6.824l.254 1.46a1.5 1.5 0 0 0 1.478 1.243h.263c.3.513.688.978 1.145 1.382l-.729 2.477a.5.5 0 0 0 .48.641h2a.5.5 0 0 0 .471-.332l.482-1.351c.635.173 1.31.267 2.011.267.707 0 1.388-.095 2.028-.272l.543 1.372a.5.5 0 0 0 .465.316h2a.5.5 0 0 0 .478-.645l-.761-2.506C13.81 9.895 14.5 8.559 14.5 7.069c0-.145-.007-.29-.02-.431.261-.11.508-.266.705-.444.315.306.815.306.815-.417 0 .223-.5.223-.461-.026a.95.95 0 0 0 .09-.255.7.7 0 0 0-.202-.645.58.58 0 0 0-.707-.098.735.735 0 0 0-.375.562c-.024.243.082.48.32.654a2.112 2.112 0 0 1-.259.153c-.534-2.664-3.284-4.595-6.442-4.595Zm7.173 3.876a.565.565 0 0 1-.098.21.704.704 0 0 1-.044-.025c-.146-.09-.157-.175-.152-.223a.236.236 0 0 1 .117-.173c.049-.027.08-.021.113.012a.202.202 0 0 1 .064.199Zm-8.999-.65a.5.5 0 1 1-.276-.96A7.613 7.613 0 0 1 7.964 3.5c.763 0 1.497.11 2.18.315a.5.5 0 1 1-.287.958A6.602 6.602 0 0 0 7.964 4.5c-.64 0-1.255.09-1.826.254ZM5 6.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+                </svg>
+              </div>
+
+            </div>
+          </div>
+          {/* END ICONS LIST */}
+
+        </form>
+        {/* END FORM SECTION */}
+
+      </main>
+
+      <Sidebar />
+      <BottomMenu />
+    </>
+  );
+}
+
+export default AddPot;
