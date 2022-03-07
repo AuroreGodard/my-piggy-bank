@@ -1,4 +1,3 @@
-import Lottie from 'react-lottie';
 import animationData from 'src/assets/lottiefiles/piggy';
 import HeaderMenu from '../HeaderMenu';
 
@@ -9,14 +8,6 @@ import './style.scss';
 import piggybank from '../../assets/images/piggybank.gif';
 
 function ConceptLanding() {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
-    },
-  };
   return (
     /* HOMEPAGE container */
     <div className="flex flex-col w-full -mt-8">
