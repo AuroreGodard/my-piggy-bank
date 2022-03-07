@@ -26,7 +26,6 @@ const rootReactElement = (
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="faq" element={<Faq />} />
-        <Route path="signup" element={<SignUp />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="login" element={<Login />} />
