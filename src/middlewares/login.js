@@ -1,13 +1,11 @@
 import axios from 'axios';
 import {
-  LOGIN, saveToken, LOGOUT, FETCH_USERS, saveUserApi,
-} from 'src/actions/login';
+  LOGIN, saveToken, LOGOUT, saveUserApi,
+} from '../actions/login';
 
 const axiosInstance = axios.create({
   baseURL: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',
 });
-
-const token = localStorage.getItem('token');
 
 const apiMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {
@@ -21,8 +19,8 @@ const apiMiddleWare = (store) => (next) => (action) => {
         .then((response) => {
           store.dispatch(saveToken(response.data.token));
           store.dispatch(saveUserApi(response.data.user));
-          // console.log(response.data.user, 'c est mon user');
-          // console.log(response.data.token, 'c est mon token');
+          console.log(response.data.user, 'c est mon user');
+          console.log(response.data.token, 'c est mon token');
           axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
           localStorage.setItem('token', response.data.token);
         })
@@ -30,27 +28,6 @@ const apiMiddleWare = (store) => (next) => (action) => {
         .catch((error) => {
           console.log('error', error);
         });
-      next(action);
-      break;
-    }
-    case FETCH_USERS: {
-      axiosInstance
-        .get(
-          '/users',
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          },
-        )
-        .then(
-          (response) => {
-            store.dispatch(saveUserApi(response));
-            console.log(response.data);
-          },
-        ).catch(
-          () => console.log('error'),
-        );
       next(action);
       break;
     }

@@ -10,7 +10,7 @@ import {
 const initialState = {
   username: 'admin@admin.com',
   password: 'admin',
-  user: '',
+  user: [],
   logged: false,
   token: '',
 };
@@ -51,6 +51,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         logged: false,
         token: null,
+        user: [],
       };
     case SAVE_TOKEN_FROM_LOCALSTORAGE:
       return {

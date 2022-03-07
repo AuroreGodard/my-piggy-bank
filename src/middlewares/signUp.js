@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SIGN_UP } from 'src/actions/signUp';
+import { SIGN_UP } from '../actions/signUp';
 
 const axiosInstance = axios.create({
   baseURL: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',

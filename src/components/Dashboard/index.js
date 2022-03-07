@@ -19,11 +19,6 @@ function index() {
         xl:grid-cols-3 xl:gap-10"
         >
           <PotsCards />
-          <PotsCards />
-          <PotsCards />
-          <PotsCards />
-          <PotsCards />
-          <PotsCards />
         </div>
 
         {/* Global pots activity */}

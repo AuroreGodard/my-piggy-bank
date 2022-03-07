@@ -18,14 +18,19 @@ import {
 
 } from '../../actions/login';
 
+
+import { pots } from '../../actions/pots';
+
+
+
 function Login() {
+
   const username = useSelector((state) => state.login.username);
   console.log(username);
   const password = useSelector((state) => state.login.password);
 
   // is user logged or not ?
   const logged = useSelector((state) => state.login.logged);
-  const token = useSelector((state) => state.login.token);
 
   const navigate = useNavigate();
 
@@ -38,6 +43,7 @@ function Login() {
     event.preventDefault();
     dispatch(login());
     navigate('/dashboard');
+    dispatch(pots());
   };
 
   useEffect(() => {
@@ -48,7 +54,7 @@ function Login() {
 
   //! je débute mes tests ici
   useEffect(() => {
-    if (token === '') {
+    if (localStorage.getItem('token') !== null) {
     // console.log(localStorage.getItem('token'));
       dispatch(saveTokenFromLocalStorage(localStorage.getItem('token')));
     }
