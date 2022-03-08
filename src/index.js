@@ -10,6 +10,7 @@ import Dashboard from 'src/components/Dashboard';
 import store from 'src/store';
 import Login from 'src/components/Login';
 import SignUp from 'src/components/SignUp';
+import AddPot from 'src/components/AddPot';
 import ProtectedRoutes from 'src/components/ProtectedRoutes';
 import Faq from 'src/components/Faq';
 import UserProfile from 'src/components/UserProfile';
@@ -26,10 +27,12 @@ const rootReactElement = (
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="faq" element={<Faq />} />
+        <Route path="signup" element={<SignUp />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="login" element={<Login />} />
           <Route path="userprofile" element={<UserProfile />} />
+          <Route path="addpot" element={<AddPot />} />
           <Route path="actionshistory" element={<PotsActionsHistory />} />
         </Route>
 
