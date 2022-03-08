@@ -12,7 +12,6 @@ export const ADD_POT = 'ADD_POT';
 // ACTION CREATOR ADD_POT
 export const addPot = () => ({
   type: ADD_POT,
-
 });
 
 // ACTION TYPE listPotsApi

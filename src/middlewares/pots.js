@@ -24,7 +24,7 @@ const potsMiddleWare = (store) => (next) => (action) => {
         .then(
           (response) => {
             store.dispatch(listPotsApi(response.data));
-            // console.log('c est ma reponse ', response.data);
+            console.log('ce sont mes cagnottes ', response.data);
           },
         ).catch(
           () => console.log('error'),
@@ -32,30 +32,48 @@ const potsMiddleWare = (store) => (next) => (action) => {
       next(action);
       break;
     }
+    case ADD_POT: {
+      const {
+        pots: {
+          pots, name, amountGoal, dateGoal,
+        },
+      } = store.getState();
 
-    case ADD_POT:
-      // read addpot form values and insert into DB with API call
-      axiosInstance
-        .post(
-          '/pots',
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          },
-        )
-        .then(
-          console.log(token, 'token addPot'),
-
-        )
-        .catch(
-          () => console.log('error'),
-        );
+      axiosInstance.post('/pots', {
+         headers: {
+          Authorization: (`Bearer ${token}`),
+        },
+      }, {
+        pots,
+        name,
+        amountGoal,
+        dateGoal,
+      })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log('error', error);
+        });
       next(action);
       break;
+    }
     default:
       next(action);
   }
 };
 
 export default potsMiddleWare;
+// code Aurore et Alexis
+/* axiosInstance
+.post(
+  '/pots',
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  },
+)
+.then(
+  console.log(token, 'token addPot'),
+ */
