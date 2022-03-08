@@ -1,10 +1,31 @@
-import PotsCards from '../PotsCards';
-import RecentActivity from '../RecentActivity';
+import { useSelector, useDispatch } from 'react-redux';
 import HeaderMenu from '../HeaderMenu';
 import Sidebar from '../Sidebar';
 import BottomMenu from '../BottomMenu';
 
+// import actions
+import {
+  setPotName,
+  setPotGoal,
+  setPotDateGoal,
+  addPot,
+}
+  from '../../actions/pots';
+
 function AddPot() {
+  const dispatch = useDispatch();
+
+  // calls from selectorssp
+  const name = useSelector((state) => state.pots.name);
+  const amountGoal = useSelector((state) => state.pots.amountGoal);
+  const dateGoal = useSelector((state) => state.pots.dateGoal);
+
+  const handleSubmit = (event) => {
+    // on empêche le rechargement de ma page
+    event.preventDefault();
+    dispatch(addPot());
+  };
+
   return (
     <>
       <HeaderMenu />
@@ -22,30 +43,65 @@ function AddPot() {
         </h3>
 
         {/* FORM SECTION */}
-        <form className="w-full flex gap-8
+        <form
+          onSubmit={handleSubmit}
+          className="w-full flex gap-8
         md:w-[500px]
         "
         >
 
-          <div>
+          <div className="flex flex-col gap-3">
             <div>
               <label htmlFor="potname" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Nom de ma cagnotte</label>
-              <input type="text" name="potname" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Anniversaire" required />
+              <input
+                value={name}
+                onChange={
+                        (event) => {
+                          dispatch(setPotName(event.target.value));
+                        }
+                    }
+                type="text"
+                name="potname"
+                className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                placeholder="Anniversaire"
+                required
+              />
             </div>
 
             <div>
               <label htmlFor="goalamount" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Objectif de somme</label>
-              <input type="text" name="goalamount" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="1.000 €" required />
+              <input
+                value={amountGoal}
+                onChange={
+                        (event) => {
+                          dispatch(setPotGoal(event.target.value));
+                        }
+                    }
+                type="number"
+                name="goalamount"
+                className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                placeholder="1.000 €"
+                required
+              />
             </div>
 
             <div>
-              <label htmlFor="goaldate" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Objectif de date</label>
-              <input type="date" name="goaldate" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+              <label htmlFor="dateGoal" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Objectif de date</label>
+              <input
+                value={dateGoal}
+                onChange={
+                      (event) => {
+                        dispatch(setPotDateGoal(event.target.value));
+                      }
+                  }
+                type="date"
+                name="goaldate"
+                className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                required
+              />
             </div>
 
-            <button className="mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
-              Je crée ma cagnotte !
-            </button>
+            <input type="submit" className="mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Je crée ma cagnotte !" />
           </div>
 
           {/* ICONS LIST */}
