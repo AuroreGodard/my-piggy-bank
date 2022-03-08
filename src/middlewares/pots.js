@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { POTS, savePotsApi } from '../actions/pots';
+import {
+  POTS, ADD_POT, listPotsApi,
+} from '../actions/pots';
 
 const axiosInstance = axios.create({
   baseURL: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',
@@ -21,8 +23,8 @@ const potsMiddleWare = (store) => (next) => (action) => {
         )
         .then(
           (response) => {
-            store.dispatch(savePotsApi(response.data));
-            console.log('c est ma reponse ', response.data);
+            store.dispatch(listPotsApi(response.data));
+            // console.log('c est ma reponse ', response.data);
           },
         ).catch(
           () => console.log('error'),
@@ -30,6 +32,27 @@ const potsMiddleWare = (store) => (next) => (action) => {
       next(action);
       break;
     }
+
+    case ADD_POT:
+      // read addpot form values and insert into DB with API call
+      axiosInstance
+        .post(
+          '/pots',
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        )
+        .then(
+          console.log(token, 'token addPot'),
+
+        )
+        .catch(
+          () => console.log('error'),
+        );
+      next(action);
+      break;
     default:
       next(action);
   }
