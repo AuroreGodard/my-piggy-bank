@@ -9,7 +9,7 @@ function PotsCards() {
 
   const date = (dateFormat) => {
     const formatFr = new Date(dateFormat).toLocaleString('fr');
-    return 'Création de le cagnotte : ' + (formatFr.substr(0, 10));
+    return `Création de le cagnotte : ${formatFr.substr(0, 10)}`;
   };
 
   const progressBarFullPotNull = (percentage) => {
@@ -32,7 +32,7 @@ function PotsCards() {
       {
        pots.map(
          (pot) => (
-           <div key={pot.id} className="cards-shadows h-60 rounded-lg flex-col cursor-pointer bg-white">
+           <div key={pot.id} className="cards-shadows min-h-64 rounded-lg flex-col cursor-pointer bg-white pb-2">
              <div className="flex">
                <div className="flex justify-center items-center h-32 w-32 bg-sky-100 m-2 p-2 rounded-lg">
                  photo
@@ -50,8 +50,7 @@ function PotsCards() {
              <div className="flex justify-end text-4xl text-slate-800 w-full px-4">
                <div className="bg-[#C9DECE] rounded-md px-2">
                  {pot.amount}
-                 {' '}
-                 <span className="font-bold">€</span>
+                 <span className="font-bold pl-1">€</span>
                </div>
              </div>
              <div style={{ display: `${bar}` }} className="mt-2 mx-2 bg-gray-400 rounded-full">
