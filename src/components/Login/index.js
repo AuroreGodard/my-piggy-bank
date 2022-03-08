@@ -43,7 +43,8 @@ function Login() {
     event.preventDefault();
     dispatch(login());
     navigate('/dashboard');
-    dispatch(pots());
+    //* je commente cette ligne car je fais le dispatch directement dans le second .then de login middleware
+    // dispatch(pots());
   };
 
   useEffect(() => {
