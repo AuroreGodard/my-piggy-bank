@@ -7,6 +7,11 @@ function PotsCards() {
 
   let bar = 'block';
 
+  const date = (dateFormat) => {
+    const formatFr = new Date(dateFormat).toLocaleString('fr');
+    return 'Création de le cagnotte : ' + (formatFr.substr(0, 10));
+  };
+
   const progressBarFullPotNull = (percentage) => {
     if (percentage > 100) {
       return '100';
@@ -36,7 +41,9 @@ function PotsCards() {
                  <h4 className=" font-bold uppercase my-4 ">{pot.name}</h4>
                  <p>
                    {amoutGoalNull(pot.amountGoal)}
-
+                 </p>
+                 <p>
+                   {date(pot.createdAt)}
                  </p>
                </div>
              </div>
