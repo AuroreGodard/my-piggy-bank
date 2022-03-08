@@ -5,9 +5,9 @@ const axiosInstance = axios.create({
   baseURL: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',
 });
 
-const token = localStorage.getItem('token');
-
 const potsMiddleWare = (store) => (next) => (action) => {
+  //* yanis: j'ai déplacé la const token dans la const potsMiddleware (anciennement elle était à l'extérieur)
+  const token = localStorage.getItem('token');
   switch (action.type) {
     case POTS: {
       axiosInstance
