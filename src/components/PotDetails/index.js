@@ -36,6 +36,13 @@ function PotDetails() {
     return `Objectif cagnotte: ${amountGoal} €`;
   };
 
+  // ici on récupère tous les pots du user sur lesquels il faudra filtrer l'id actuelle venant de l'URL
+  console.log(pots);
+  /* console.log(filter(pots => pot.id = idDeNotrePot)) */
+
+  // ceci permet de récupérer la partie de l'url après la base (localhost), soit /potdetails/id
+  console.log(window.location.pathname);
+
   return (
 
     <>
