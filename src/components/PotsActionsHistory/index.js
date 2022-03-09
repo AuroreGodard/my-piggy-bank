@@ -22,7 +22,7 @@ function PotsActionsHistory() {
         <section className="w-full uppercase text-[1.5em] mb-4 flex
             "
         >
-          <h3 className="w-fit underline-step-title uppercase text-[1.5em]
+          <h3 className="w-fit underline-potDetailsHistory-title uppercase text-[1.5em]
           "
           >
             Vos dernières actions
