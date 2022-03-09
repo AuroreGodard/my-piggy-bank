@@ -1,3 +1,4 @@
+// Import
 import React, { useRef } from 'react';
 import './styles.scss';
 import { NavLink } from 'react-router-dom';
@@ -12,6 +13,7 @@ import {
  * Read the blog post here:
  * https://letsbuildui.dev/articles/building-a-dropdown-menu-component-with-react-hooks
  */
+
 export default function App() {
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);

@@ -1,7 +1,9 @@
+// Import
 import {
   LIST_POTS_API, SET_POT_NAME, SET_POT_GOAL, SET_POT_DATE_GOAL,
 } from '../actions/pots';
 
+// initialState
 const initialState = {
   pots: [],
   name: 'Luc',
@@ -9,6 +11,7 @@ const initialState = {
   dateGoal: '2000-03-05',
 };
 
+// Pots Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case LIST_POTS_API:
@@ -37,4 +40,5 @@ const reducer = (state = initialState, action = {}) => {
   }
 };
 
+// Export
 export default reducer;

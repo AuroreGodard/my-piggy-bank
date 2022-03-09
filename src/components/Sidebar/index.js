@@ -1,5 +1,7 @@
+// Import
 import { NavLink } from 'react-router-dom';
 
+// Component
 function Sidebar() {
   return (
     <aside className="hidden h-full w-16 flex-col space-y-10 items-center justify-start pt-24 fixed top-[70px] bg-[#C9DECE] text-black
@@ -42,4 +44,5 @@ function Sidebar() {
   );
 }
 
+// Export
 export default Sidebar;

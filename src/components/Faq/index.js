@@ -1,7 +1,7 @@
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/react-in-jsx-scope */
+// Import
 import HeaderMenu from 'src/components/HeaderMenu';
 
+// Component
 function Faq() {
   const dataFaq = [
     {
@@ -41,7 +41,7 @@ function Faq() {
 
         {dataFaq.map((faq) => (
           <div key={faq.title}>
-            <h2>{faq.title}</h2>
+            <h2 className="">{faq.title}</h2>
             <p>{faq.content}</p>
           </div>
         ))}
@@ -51,4 +51,5 @@ function Faq() {
   );
 }
 
+// Export
 export default Faq;
