@@ -7,10 +7,7 @@ import {
   pots,
 } from '../actions/pots';
 
-// instance of axios for baseURL
-const axiosInstance = axios.create({
-  baseURL: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',
-});
+import { axiosInstance } from '../components/App';
 
 // APImiddleWare
 const apiMiddleWare = (store) => (next) => (action) => {

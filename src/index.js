@@ -11,6 +11,7 @@ import store from 'src/store';
 import Login from 'src/components/Login';
 import SignUp from 'src/components/SignUp';
 import AddPot from 'src/components/AddPot';
+import PotDetails from 'src/components/PotDetails';
 import ProtectedRoutes from 'src/components/ProtectedRoutes';
 import Faq from 'src/components/Faq';
 import UserProfile from 'src/components/UserProfile';

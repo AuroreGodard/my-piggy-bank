@@ -1,5 +1,6 @@
 // Import
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import './style.scss';
 
 // Component
@@ -32,6 +33,7 @@ function PotsCards() {
     <>
       {
        pots.map(
+
          (pot) => {
            console.log(pot.amountGoal);
            return (

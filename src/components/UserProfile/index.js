@@ -53,56 +53,62 @@ function UserProfile() {
         <h3 className="w-fit underline-userprofile-informations uppercase text-[1.4em] mb-4
           lg:mb-8
           "
-        >
-          Vos informations personnelles
-        </h3>
-        <div>
-          <label htmlFor="firstname" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Votre prénom</label>
-          <input type="text" name="firstname" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" value={firstname} required />
-        </div>
 
-        <div>
-          <label htmlFor="lastname" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Votre nom</label>
-          <input type="text" name="lastname" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Dupont" required />
-        </div>
+          >
+            Vos informations personnelles
+          </h3>
+          <div>
+            <label htmlFor="firstname" className="text-sm font-medium text-gray-900 block mb-2 ">Votre prénom</label>
+            <input type="text" name="firstname" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " value={firstname} required />
+          </div>
 
-        <div>
-          <label htmlFor="email" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Votre email</label>
-          <input type="email" name="email" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="luciendupont@gmail.com" required />
-        </div>
+          <div>
+            <label htmlFor="lastname" className="text-sm font-medium text-gray-900 block mb-2 ">Votre nom</label>
+            <input type="text" name="lastname" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " placeholder="Dupont" required />
+          </div>
 
-        <div>
-          <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Votre mot de passe</label>
-          <input type="text" name="password" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="********" required />
-        </div>
-        <div>
-          <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Confirmer votre mot de passe</label>
-          <input type="text" name="password" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="********" required />
-        </div>
+          <div>
+            <label htmlFor="email" className="text-sm font-medium text-gray-900 block mb-2 ">Votre email</label>
+            <input type="email" name="email" className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " placeholder="luciendupont@gmail.com" required />
+          </div>
 
-        <div>
-          <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Confirmer votre mot de passe</label>
-          <input type="text" name="password" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="********" required />
-        </div>
+          <div>
+            <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2">Votre mot de passe</label>
+            <input type="text" name="password" className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " placeholder="********" required />
+          </div>
+          <div>
+            <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 ">Confirmer votre mot de passe</label>
+            <input type="text" name="password" className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " placeholder="********" required />
+          </div>
 
-        <div>
-          <label htmlFor="phone" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Votre téléphone</label>
-          <input type="text" name="phone" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="+33 601020304" required />
-        </div>
+          <div>
+            <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 ">Confirmer votre mot de passe</label>
+            <input type="text" name="password" className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " placeholder="********" required />
+          </div>
 
-        <div>
-          <label htmlFor="birthdate" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Votre date de naissance</label>
-          <input type="date" name="birthdate" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
-        </div>
+          <div>
+            <label htmlFor="phone" className="text-sm font-medium text-gray-900 block mb-2 ">Votre téléphone</label>
+            <input type="text" name="phone" className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 d" placeholder="+33 601020304" required />
+          </div>
 
-        <NavLink to="/signup" className="mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
-          Modifier mes informations
-        </NavLink>
+          <div>
+            <label htmlFor="birthdate" className="text-sm font-medium text-gray-900 block mb-2">Votre date de naissance</label>
+            <input type="date" name="birthdate" className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " required />
+          </div>
 
-      </section>
-      {/* END FORM SECTION */}
+          <NavLink to="/signup" className="mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+            Modifier mes informations
+          </NavLink>
 
-    </main>
+        </section>
+        {/* END FORM SECTION */}
+
+      </main>
+
+      <Sidebar />
+      <BottomMenu />
+    </>
+
   );
 }
 
