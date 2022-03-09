@@ -1,16 +1,20 @@
+// Import
 import axios from 'axios';
 import {
   POTS, ADD_POT, listPotsApi,
 } from '../actions/pots';
 
+// instance of axios for baseURL
 const axiosInstance = axios.create({
   baseURL: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',
 });
 
+// POTSmiddleWare
 const potsMiddleWare = (store) => (next) => (action) => {
-  //* yanis: j'ai déplacé la const token dans la const potsMiddleware (anciennement elle était à l'extérieur)
+  // read token in localstorage ???
   const token = localStorage.getItem('token');
   switch (action.type) {
+    // for POTS
     case POTS: {
       axiosInstance
         .get(
@@ -32,7 +36,7 @@ const potsMiddleWare = (store) => (next) => (action) => {
       next(action);
       break;
     }
-
+    // for ADD POTS
     case ADD_POT:
       // read addpot form values and insert into DB with API call
       axiosInstance
@@ -58,4 +62,5 @@ const potsMiddleWare = (store) => (next) => (action) => {
   }
 };
 
+// Export
 export default potsMiddleWare;

@@ -19,8 +19,7 @@ import PotsActionsHistory from 'src/components/PotsActionsHistory';
 // Store
 
 // == Render
-// 1. Élément React racine (celui qui contient l'ensemble de l'app)
-//    => crée une structure d'objets imbriqués (DOM virtuel)
+// 1. Root React element (the one that contains the whole app => structure DOM virtuel)
 const rootReactElement = (
   <BrowserRouter>
     <Provider store={store}>
@@ -35,12 +34,12 @@ const rootReactElement = (
           <Route path="addpot" element={<AddPot />} />
           <Route path="actionshistory" element={<PotsActionsHistory />} />
         </Route>
-
       </Routes>
     </Provider>
   </BrowserRouter>
 );
-// 2. La cible du DOM (là où la structure doit prendre vie dans le DOM)
+// 2. Target where structure comes to life in the DOM
 const target = document.getElementById('root');
-// 3. Déclenchement du rendu de React (virtuel) => DOM (page web)
+
+// 3. render from react (virtuel) => DOM (Web page)
 render(rootReactElement, target);

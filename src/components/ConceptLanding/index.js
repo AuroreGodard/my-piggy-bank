@@ -1,12 +1,14 @@
+// Import
 import { Link } from 'react-router-dom';
 import HeaderMenu from '../HeaderMenu';
 
-// CSS
+// Import CSS
 import './style.scss';
 
-// assets
+// Import assets
 import piggybank from '../../assets/images/piggybank.gif';
 
+// Component
 function ConceptLanding() {
   return (
     /* HOMEPAGE container */
@@ -215,4 +217,5 @@ function ConceptLanding() {
   );
 }
 
+// Export
 export default ConceptLanding;

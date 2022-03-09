@@ -1,3 +1,4 @@
+// Import
 import { useDispatch, useSelector } from 'react-redux';
 import './style.scss';
 
@@ -6,6 +7,7 @@ import HeaderMenu from '../HeaderMenu';
 import Sidebar from '../Sidebar';
 import BottomMenu from '../BottomMenu';
 
+// Component
 function PotsActionsHistory() {
   return (
     <>
@@ -152,4 +154,5 @@ function PotsActionsHistory() {
   );
 }
 
+// Export
 export default PotsActionsHistory;

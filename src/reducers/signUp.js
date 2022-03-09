@@ -1,3 +1,4 @@
+// Import
 import {
   SET_NEW_BIRTHDATE,
   SET_NEW_EMAIL,
@@ -7,15 +8,7 @@ import {
   SET_NEW_PHONE,
 } from '../actions/signUp';
 
-/* const initialState = {
-  email: 'admin@admin.com',
-  password: 'admin',
-  firstname: 'user',
-  lastname: 'bonjour',
-  birthDate: '1991-07-15',
-  phone: '6417637373',
-}; */
-
+// initialState
 const initialState = {
   email: '',
   password: '',
@@ -25,6 +18,7 @@ const initialState = {
   phone: '',
 };
 
+// SignUp Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SET_NEW_EMAIL:
@@ -62,4 +56,5 @@ const reducer = (state = initialState, action = {}) => {
   }
 };
 
+// Export
 export default reducer;
