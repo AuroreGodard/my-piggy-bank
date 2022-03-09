@@ -33,6 +33,17 @@ const rootReactElement = (
         <Route path="signup" element={<SignUp />} />
         <Route element={<ProtectedRoutes />}>
           <Route
+            path="potdetails/:id"
+            element={(
+              <>
+                <HeaderMenu />
+                <PotDetails />
+                <BottomMenu />
+                <Sidebar />
+              </>
+)}
+          />
+          <Route
             path="dashboard"
             element={(
               <>
