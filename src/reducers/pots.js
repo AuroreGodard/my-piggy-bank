@@ -1,9 +1,10 @@
 import {
-  LIST_POTS_API, SET_POT_NAME, SET_POT_GOAL, SET_POT_DATE_GOAL,
+  LIST_POTS_API, SET_POT_NAME, SET_POT_GOAL, SET_POT_DATE_GOAL,SAVE_POTS_FROM_LOCALSTORAGE
 } from '../actions/pots';
 
 const initialState = {
   pots: [],
+  potsLs: '',
   name: 'Luc',
   amountGoal: 1000,
   dateGoal: '2000-03-05',
@@ -31,6 +32,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         dateGoal: action.PotDateGoal,
+      };
+    case SAVE_POTS_FROM_LOCALSTORAGE:
+      return {
+        ...state,
+        pots: action.potsUser,
+        logged: true,
       };
     default:
       return state;

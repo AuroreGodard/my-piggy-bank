@@ -5,6 +5,7 @@ import {
   SAVE_USERS_API,
   LOGOUT,
   SAVE_TOKEN_FROM_LOCALSTORAGE,
+  SAVE_USER_FROM_LOCALSTORAGE,
 } from '../actions/login';
 
 const initialState = {
@@ -57,6 +58,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         token: action.tokenfls,
+        logged: true,
+      };
+    case SAVE_USER_FROM_LOCALSTORAGE:
+      return {
+        ...state,
+        user: action.user,
         logged: true,
       };
     default:

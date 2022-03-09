@@ -15,16 +15,12 @@ import {
   setNewPassword,
   login,
   saveTokenFromLocalStorage,
-
+  saveUserFromLocalStorage,
 } from '../../actions/login';
 
-
-import { pots } from '../../actions/pots';
-
-
+import { savePotsFromLocalStorage } from '../../actions/pots';
 
 function Login() {
-
   const username = useSelector((state) => state.login.username);
   console.log(username);
   const password = useSelector((state) => state.login.password);
@@ -43,8 +39,6 @@ function Login() {
     event.preventDefault();
     dispatch(login());
     navigate('/dashboard');
-    //* je commente cette ligne car je fais le dispatch directement dans le second .then de login middleware
-    // dispatch(pots());
   };
 
   useEffect(() => {
@@ -54,10 +48,15 @@ function Login() {
   }, []);
 
   //! je débute mes tests ici
+  const JsonToken = localStorage.getItem('token');
+  const JsonUser = localStorage.getItem('user');
+  const JsonPots = localStorage.getItem('pots');
   useEffect(() => {
     if (localStorage.getItem('token') !== null) {
     // console.log(localStorage.getItem('token'));
-      dispatch(saveTokenFromLocalStorage(localStorage.getItem('token')));
+      dispatch(saveTokenFromLocalStorage(JsonToken));
+      dispatch(saveUserFromLocalStorage(JSON.parse(JsonUser)));
+      dispatch(savePotsFromLocalStorage(JSON.parse(JsonPots)));
     }
   }, []);
 

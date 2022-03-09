@@ -8,7 +8,6 @@ const axiosInstance = axios.create({
 });
 
 const potsMiddleWare = (store) => (next) => (action) => {
-  //* yanis: j'ai déplacé la const token dans la const potsMiddleware (anciennement elle était à l'extérieur)
   const token = localStorage.getItem('token');
   switch (action.type) {
     case POTS: {
@@ -25,6 +24,8 @@ const potsMiddleWare = (store) => (next) => (action) => {
           (response) => {
             store.dispatch(listPotsApi(response.data));
             console.log('ce sont mes cagnottes ', response.data);
+            localStorage.setItem('pots', JSON.stringify(response.data));
+            console.log('ce sont mes cagnottes du ls ', localStorage.getItem('pots'));
           },
         ).catch(
           () => console.log('error'),
@@ -35,12 +36,11 @@ const potsMiddleWare = (store) => (next) => (action) => {
     case ADD_POT: {
       const {
         pots: {
-          pots, name, amountGoal, dateGoal,
+          name, amountGoal, dateGoal,
         },
       } = store.getState();
 
       axiosInstance.post('/pots', {
-        pots,
         name,
         amountGoal,
         dateGoal,
@@ -64,16 +64,3 @@ const potsMiddleWare = (store) => (next) => (action) => {
 };
 
 export default potsMiddleWare;
-// code Aurore et Alexis
-/* axiosInstance
-.post(
-  '/pots',
-  {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  },
-)
-.then(
-  console.log(token, 'token addPot'),
- */
