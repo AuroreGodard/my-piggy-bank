@@ -10,7 +10,7 @@ function PotsCards() {
 
   const date = (dateFormat) => {
     const formatFr = new Date(dateFormat).toLocaleString('fr');
-    return `Création de le cagnotte : ${formatFr.substr(0, 10)}`;
+    return `${formatFr.substr(0, 10)}`;
   };
 
   const progressBarFullPotNull = (percentage) => {
@@ -23,9 +23,9 @@ function PotsCards() {
   const amoutGoalNull = (amountGoal) => {
     if (amountGoal === null) {
       bar = 'none';
-      return "Pas d'objectif de montant";
+      return 'Objectif cagnotte : non';
     }
-    return `Objectif cagnotte: ${amountGoal} €`;
+    return `Objectif cagnotte : ${amountGoal} €`;
   };
 
   return (
@@ -41,10 +41,13 @@ function PotsCards() {
                <div className="flex flex-col w-2/3">
                  <h4 className=" font-bold uppercase my-4 ">{pot.name}</h4>
                  <p>
+                   Création de la cagnotte : { date(pot.createdAt) }
+                 </p>
+                 <p>
                    {amoutGoalNull(pot.amountGoal)}
                  </p>
                  <p>
-                   {date(pot.createdAt)}
+                   Date de l'objectif : {date(pot.dateGoal)}
                  </p>
                </div>
              </div>
