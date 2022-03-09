@@ -29,24 +29,23 @@ function AddPot() {
   };
 
   return (
-    <>
-      <HeaderMenu />
-      <main className="ml-2 mx-2
+    <main className="ml-2 mx-2
       md:mx-8 md:ml-8
       xl:ml-24 xl:mx-16
       lg:ml-24"
-      >
+    >
 
-        <h3 className="w-fit underline-userprofile-informations uppercase text-[1.4em] mb-4 lg:mb-8">
-          Créer ma cagnotte
-        </h3>
+      <h3 className="w-fit underline-userprofile-informations uppercase text-[1.4em] mb-4 lg:mb-8">
+        Créer ma cagnotte
+      </h3>
 
-        {/* FORM SECTION */}
-        <form
-          onSubmit={handleSubmit}
-          className="w-full flex gap-8
+      {/* FORM SECTION */}
+      <form
+        onSubmit={handleSubmit}
+        className="w-full flex gap-8
         md:w-[500px]
         "
+
         >
 
           <div className="flex flex-col gap-3">
@@ -55,10 +54,12 @@ function AddPot() {
               <input
                 value={name}
                 onChange={
+
                         (event) => {
                           dispatch(setPotName(event.target.value));
                         }
                     }
+
                 type="text"
                 name="potname"
                 className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
@@ -72,10 +73,12 @@ function AddPot() {
               <input
                 value={amountGoal}
                 onChange={
+
                         (event) => {
                           dispatch(setPotGoal(parseInt(event.target.value, 10)));
                         }
                     }
+
                 type="number"
                 name="goalamount"
                 className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
@@ -89,10 +92,12 @@ function AddPot() {
               <input
                 value={dateGoal}
                 onChange={
+
                       (event) => {
                         dispatch(setPotDateGoal(event.target.value));
                       }
                   }
+
                 type="date"
                 name="goaldate"
                 className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
@@ -113,18 +118,17 @@ function AddPot() {
                 </svg>
               </div>
 
+
             </div>
+
           </div>
-          {/* END ICONS LIST */}
+        </div>
+        {/* END ICONS LIST */}
 
-        </form>
-        {/* END FORM SECTION */}
+      </form>
+      {/* END FORM SECTION */}
 
-      </main>
-
-      <Sidebar />
-      <BottomMenu />
-    </>
+    </main>
   );
 }
 
