@@ -1,5 +1,6 @@
 // Import
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import './style.scss';
 
 // Component
@@ -33,7 +34,8 @@ function PotsCards() {
       {
        pots.map(
          (pot) => (
-           <div key={pot.id} className="cards-shadows min-h-64 rounded-lg flex-col cursor-pointer bg-white pb-2">
+           // Link to component 'Potdetail' with id
+           <NavLink to={`/potdetails/${pot.id}`} key={pot.id} className="cards-shadows min-h-64 rounded-lg flex-col cursor-pointer bg-white pb-2">
              <div className="flex">
                <div className="flex justify-center items-center h-32 w-32 bg-sky-100 m-2 p-2 rounded-lg">
                  photo
@@ -63,7 +65,7 @@ function PotsCards() {
                  </div>
                </div>
              </div>
-           </div>
+           </NavLink>
          ),
        )
        }

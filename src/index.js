@@ -33,7 +33,7 @@ const rootReactElement = (
           <Route path="login" element={<Login />} />
           <Route path="userprofile" element={<UserProfile />} />
           <Route path="addpot" element={<AddPot />} />
-          <Route path="potdetails" element={<PotDetails />} />
+          <Route path="potdetails/:id" element={<PotDetails />} />
           <Route path="actionshistory" element={<PotsActionsHistory />} />
         </Route>
       </Routes>
