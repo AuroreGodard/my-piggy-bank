@@ -1,7 +1,10 @@
 // Import
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 // Import component
+import { axiosInstance } from 'src/components/App';
 import HeaderMenu from '../HeaderMenu';
 import Sidebar from '../Sidebar';
 import BottomMenu from '../BottomMenu';
@@ -13,6 +16,25 @@ import './style.scss';
 // Component
 function PotDetails() {
   const pots = useSelector((state) => state.pots.pots);
+
+  // use of useParams hook to get the variable parameter of the url (id)
+  const params = useParams();
+
+  // place datas from API in state
+  const [potDatas, setPotDatas] = useState([]);
+
+  // use of useEffect hook to make an asynchronous call to API with the given id of the URL
+  // (from the single card we clicked)
+  useEffect(() => {
+    axiosInstance.get(`/pots/${params.id}`)
+      .then((res) => {
+        console.log(res.data);
+        setPotDatas(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [params.id]);
 
   let bar = 'block';
 
@@ -35,13 +57,6 @@ function PotDetails() {
     }
     return `Objectif cagnotte: ${amountGoal} €`;
   };
-
-  // ici on récupère tous les pots du user sur lesquels il faudra filtrer l'id actuelle venant de l'URL
-  console.log(pots);
-  /* console.log(filter(pots => pot.id = idDeNotrePot)) */
-
-  // ceci permet de récupérer la partie de l'url après la base (localhost), soit /potdetails/id
-  console.log(window.location.pathname);
 
   return (
 
@@ -67,7 +82,7 @@ function PotDetails() {
             <span className="uppercase text-[1.5em] username-welcome-msg
             "
             >
-              Nom de la cagnotte
+              {potDatas.name}
             </span>
           </div>
           {/* End Pot Card Title */}
@@ -84,34 +99,30 @@ function PotDetails() {
                 <div className="flex justify-center items-center h-32 w-32 bg-sky-100 m-2 p-2 rounded-lg">
                   photo
                 </div>
-                <div className="flex flex-col w-2/3">
-                  <h4 className=" font-bold uppercase my-4 ">
-                    Anniversaire
-                    {/* {pot.name} */}
-                  </h4>
+                <div className="flex flex-col w-2/3 mt-4 gap-2">
+
                   <p>
-                    1000
-                    {/* {amoutGoalNull(pot.amountGoal)} */}
+                    {amoutGoalNull(potDatas.amountGoal)}
                   </p>
                   <p>
-                    08/03/2022
-                    {/* {date(pot.createdAt)} */}
+                    {date(potDatas.createdAt)}
                   </p>
                 </div>
               </div>
               <div className="flex justify-end text-4xl text-slate-800 w-full px-4">
                 <div className="bg-[#C9DECE] rounded-md px-2">
-                  300
-                  {/* {pot.amount} */}
+                  {potDatas.amount}
                   <span className="font-bold pl-1">€</span>
                 </div>
               </div>
               <div style={{ display: `${bar}` }} className="mt-2 mx-2 bg-gray-300 rounded-full">
                 {/* Progress bar */}
-                <div className="w-8/12 mt-2 bg-[#CFB6E5] text-center rounded-full ">
-                  <div className="text-black text-sm inline-block px-2 rounded-full">
-                    {/* {progressBarFullPotNull(Math.round((pot.amount / pot.amountGoal) * 100))}
-                  % */}
+                <div className="mt-2 flex justify-start text-center rounded-full ">
+                  <div className=" bg-[#CFB6E5] text-black text-sm inline-block px-2 rounded-full" style={{ width: `${progressBarFullPotNull(Math.round((potDatas.amount / potDatas.amountGoal) * 100))}` + '%', minWidth: '15%' }}>
+                    {progressBarFullPotNull(
+                      Math.round((potDatas.amount / potDatas.amountGoal) * 100),
+                    )}
+                    %
                   </div>
                 </div>
               </div>
