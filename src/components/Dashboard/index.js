@@ -8,30 +8,24 @@ import BottomMenu from '../BottomMenu';
 // Component
 function index() {
   return (
-    <>
-      <HeaderMenu />
-      <main className="ml-2 mx-2
+    <main className="ml-2 mx-2
       md:mx-8 md:ml-8
       xl:ml-24 xl:mx-16
       lg:ml-24"
-      >
-        {/* Pots listing */}
-        <div className="w-full grid gap-4 justify-center
+    >
+      {/* Pots listing */}
+      <div className="w-full grid gap-4 justify-center
         sm:grid-cols-2
         md:grid-cols-2
         lg:grid-cols-2
         xl:grid-cols-3 xl:gap-10"
-        >
-          <PotsCards />
-        </div>
+      >
+        <PotsCards />
+      </div>
 
-        {/* Global pots activity */}
-        <RecentActivity />
-      </main>
-
-      <Sidebar />
-      <BottomMenu />
-    </>
+      {/* Global pots activity */}
+      <RecentActivity />
+    </main>
   );
 }
 
