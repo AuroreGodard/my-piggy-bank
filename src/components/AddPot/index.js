@@ -51,7 +51,7 @@ function AddPot() {
 
           <div className="flex flex-col gap-3">
             <div>
-              <label htmlFor="potname" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Nom de ma cagnotte</label>
+              <label htmlFor="potname" className="text-sm font-medium text-gray-900 block mb-2">Nom de ma cagnotte</label>
               <input
                 value={name}
                 onChange={
@@ -61,14 +61,14 @@ function AddPot() {
                     }
                 type="text"
                 name="potname"
-                className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
                 placeholder="Anniversaire"
                 required
               />
             </div>
 
             <div>
-              <label htmlFor="goalamount" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Objectif de somme</label>
+              <label htmlFor="goalamount" className="text-sm font-medium text-gray-900 block mb-2">Objectif de somme</label>
               <input
                 value={amountGoal}
                 onChange={
@@ -78,14 +78,14 @@ function AddPot() {
                     }
                 type="number"
                 name="goalamount"
-                className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
                 placeholder="1.000 €"
                 required
               />
             </div>
 
             <div>
-              <label htmlFor="dateGoal" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Objectif de date</label>
+              <label htmlFor="dateGoal" className="text-sm font-medium text-gray-900 block mb-2">Objectif de date</label>
               <input
                 value={dateGoal}
                 onChange={
@@ -95,7 +95,7 @@ function AddPot() {
                   }
                 type="date"
                 name="goaldate"
-                className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
                 required
               />
             </div>
@@ -105,7 +105,7 @@ function AddPot() {
 
           {/* ICONS LIST */}
           <div>
-            <label htmlFor="avatar" className="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Choisir une icône</label>
+            <label htmlFor="avatar" className="text-sm font-medium text-gray-900 block mb-2">Choisir une icône</label>
             <div className="grid grid-cols-4 gap-2">
               <div className="">
                 <svg xmlns="http://www.w3.org/2000/svg" width="48" fill="currentColor" className="bi bi-piggy-bank-fill" viewBox="0 0 16 16">
