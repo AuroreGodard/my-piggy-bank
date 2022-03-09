@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import './style.scss';
 
 // Component
+
 function PotsCards() {
   const pots = useSelector((state) => state.pots.pots);
 

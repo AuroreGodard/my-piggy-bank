@@ -15,6 +15,9 @@ import ProtectedRoutes from 'src/components/ProtectedRoutes';
 import Faq from 'src/components/Faq';
 import UserProfile from 'src/components/UserProfile';
 import PotsActionsHistory from 'src/components/PotsActionsHistory';
+import HeaderMenu from 'src/components/HeaderMenu';
+import BottomMenu from 'src/components/BottomMenu';
+import Sidebar from './components/Sidebar';
 
 // Store
 
@@ -28,11 +31,53 @@ const rootReactElement = (
         <Route path="faq" element={<Faq />} />
         <Route path="signup" element={<SignUp />} />
         <Route element={<ProtectedRoutes />}>
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="login" element={<Login />} />
-          <Route path="userprofile" element={<UserProfile />} />
-          <Route path="addpot" element={<AddPot />} />
-          <Route path="actionshistory" element={<PotsActionsHistory />} />
+          <Route
+            path="dashboard"
+            element={(
+              <>
+                <HeaderMenu />
+                <Dashboard />
+                <BottomMenu />
+                <Sidebar />
+              </>
+)}
+          />
+          <Route
+            path="login"
+          />
+          <Route
+            path="userprofile"
+            element={(
+              <>
+                <HeaderMenu />
+                <UserProfile />
+                <BottomMenu />
+                <Sidebar />
+              </>
+)}
+          />
+          <Route
+            path="addpot"
+            element={(
+              <>
+                <HeaderMenu />
+                <AddPot />
+                <BottomMenu />
+                <Sidebar />
+              </>
+)}
+          />
+          <Route
+            path="actionshistory"
+            element={(
+              <>
+                <HeaderMenu />
+                <PotsActionsHistory />
+                <BottomMenu />
+                <Sidebar />
+              </>
+)}
+          />
         </Route>
       </Routes>
     </Provider>
