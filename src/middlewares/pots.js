@@ -28,7 +28,7 @@ const potsMiddleWare = (store) => (next) => (action) => {
         .then(
           (response) => {
             store.dispatch(listPotsApi(response.data));
-            // console.log('c est ma reponse ', response.data);
+            console.log('ce sont mes cagnottes ', response.data);
           },
         ).catch(
           () => console.log('error'),
@@ -36,27 +36,35 @@ const potsMiddleWare = (store) => (next) => (action) => {
       next(action);
       break;
     }
-    // for ADD POTS
-    case ADD_POT:
-      // read addpot form values and insert into DB with API call
-      axiosInstance
-        .post(
-          '/pots',
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          },
-        )
-        .then(
-          console.log(token, 'token addPot'),
 
-        )
-        .catch(
-          () => console.log('error'),
-        );
+   // for ADD POTS
+    case ADD_POT: {
+      const {
+        pots: {
+          pots, name, amountGoal, dateGoal,
+        },
+      } = store.getState();
+      // read addpot form values and insert into DB with API call
+      axiosInstance.post('/pots', {
+        pots,
+        name,
+        amountGoal,
+        dateGoal,
+      }, {
+        headers: {
+          Authorization: (`Bearer ${token}`),
+        },
+      })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log('error', error);
+        });
+
       next(action);
       break;
+    }
     default:
       next(action);
   }
@@ -64,3 +72,16 @@ const potsMiddleWare = (store) => (next) => (action) => {
 
 // Export
 export default potsMiddleWare;
+// code Aurore et Alexis
+/* axiosInstance
+.post(
+  '/pots',
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  },
+)
+.then(
+  console.log(token, 'token addPot'),
+ */

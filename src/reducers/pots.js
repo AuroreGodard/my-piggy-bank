@@ -7,8 +7,8 @@ import {
 const initialState = {
   pots: [],
   name: 'Luc',
-  amountGoal: '1000',
-  dateGoal: '',
+  amountGoal: 1000,
+  dateGoal: '2000-03-05',
 };
 
 // Pots Reducer
