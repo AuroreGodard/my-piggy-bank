@@ -40,14 +40,14 @@ const potsMiddleWare = (store) => (next) => (action) => {
       } = store.getState();
 
       axiosInstance.post('/pots', {
-         headers: {
-          Authorization: (`Bearer ${token}`),
-        },
-      }, {
         pots,
         name,
         amountGoal,
         dateGoal,
+      }, {
+        headers: {
+          Authorization: (`Bearer ${token}`),
+        },
       })
         .then((response) => {
           console.log(response);
