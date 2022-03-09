@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { POTS, savePotsApi } from '../actions/pots';
+import {
+  POTS, ADD_POT, listPotsApi,
+} from '../actions/pots';
 
 const axiosInstance = axios.create({
   baseURL: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',
@@ -21,12 +23,38 @@ const potsMiddleWare = (store) => (next) => (action) => {
         )
         .then(
           (response) => {
-            store.dispatch(savePotsApi(response.data));
-            console.log('c est ma reponse ', response.data);
+            store.dispatch(listPotsApi(response.data));
+            console.log('ce sont mes cagnottes ', response.data);
           },
         ).catch(
           () => console.log('error'),
         );
+      next(action);
+      break;
+    }
+    case ADD_POT: {
+      const {
+        pots: {
+          pots, name, amountGoal, dateGoal,
+        },
+      } = store.getState();
+
+      axiosInstance.post('/pots', {
+        pots,
+        name,
+        amountGoal,
+        dateGoal,
+      }, {
+        headers: {
+          Authorization: (`Bearer ${token}`),
+        },
+      })
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.log('error', error);
+        });
       next(action);
       break;
     }
@@ -36,3 +64,16 @@ const potsMiddleWare = (store) => (next) => (action) => {
 };
 
 export default potsMiddleWare;
+// code Aurore et Alexis
+/* axiosInstance
+.post(
+  '/pots',
+  {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  },
+)
+.then(
+  console.log(token, 'token addPot'),
+ */
