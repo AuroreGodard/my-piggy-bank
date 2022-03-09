@@ -1,9 +1,11 @@
+// Import
 import PotsCards from '../PotsCards';
 import RecentActivity from '../RecentActivity';
 import HeaderMenu from '../HeaderMenu';
 import Sidebar from '../Sidebar';
 import BottomMenu from '../BottomMenu';
 
+// Component
 function index() {
   return (
     <>
@@ -33,4 +35,5 @@ function index() {
   );
 }
 
+// Export
 export default index;

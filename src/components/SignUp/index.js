@@ -18,6 +18,7 @@ import {
   signUp,
 } from '../../actions/signUp';
 
+// Component
 function SignUp() {
   const email = useSelector((state) => state.signUp.email);
   const password = useSelector((state) => state.signUp.password);
@@ -145,4 +146,5 @@ function SignUp() {
   );
 }
 
+// Export
 export default SignUp;

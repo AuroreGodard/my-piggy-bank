@@ -1,3 +1,4 @@
+// Import
 import {
   SAVE_TOKEN,
   SET_NEW_USERNAME,
@@ -8,6 +9,7 @@ import {
   SAVE_USER_FROM_LOCALSTORAGE,
 } from '../actions/login';
 
+// initialState
 const initialState = {
   username: 'admin@admin.com',
   password: 'admin',
@@ -16,13 +18,7 @@ const initialState = {
   token: '',
 };
 
-/* const initialState = {
-  username: '',
-  password: '',
-  user: '',
-  logged: false,
-}; */
-
+// Login Reducer
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case SET_NEW_USERNAME:
@@ -71,4 +67,5 @@ const reducer = (state = initialState, action = {}) => {
   }
 };
 
+// Export
 export default reducer;

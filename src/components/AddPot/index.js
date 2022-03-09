@@ -1,3 +1,4 @@
+// import
 import { useSelector, useDispatch } from 'react-redux';
 import HeaderMenu from '../HeaderMenu';
 import Sidebar from '../Sidebar';
@@ -12,6 +13,7 @@ import {
 }
   from '../../actions/pots';
 
+// Component
 function AddPot() {
   const dispatch = useDispatch();
 
@@ -21,7 +23,7 @@ function AddPot() {
   const dateGoal = useSelector((state) => state.pots.dateGoal);
 
   const handleSubmit = (event) => {
-    // on empêche le rechargement de ma page
+    // prevent the reloading of my page
     event.preventDefault();
     dispatch(addPot());
   };
@@ -35,10 +37,7 @@ function AddPot() {
       lg:ml-24"
       >
 
-        <h3 className="w-fit underline-userprofile-informations uppercase text-[1.4em] mb-4
-          lg:mb-8
-          "
-        >
+        <h3 className="w-fit underline-userprofile-informations uppercase text-[1.4em] mb-4 lg:mb-8">
           Créer ma cagnotte
         </h3>
 
@@ -74,7 +73,7 @@ function AddPot() {
                 value={amountGoal}
                 onChange={
                         (event) => {
-                          dispatch(setPotGoal(event.target.value));
+                          dispatch(setPotGoal(parseInt(event.target.value, 10)));
                         }
                     }
                 type="number"
@@ -129,4 +128,5 @@ function AddPot() {
   );
 }
 
+// == Export
 export default AddPot;

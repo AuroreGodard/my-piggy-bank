@@ -1,19 +1,15 @@
-// Styles
+// Import
 import './styles.css';
 import ConceptLanding from 'src/components/ConceptLanding';
 
-// Components
+// Component
+function App() {
+  return (
+    <div className=" flex justify-center items-center">
+      <ConceptLanding />
+    </div>
+  );
+}
 
-// == Composant
-const App = () => (
-  <div className=" flex justify-center items-center">
-    <ConceptLanding />
-  </div>
-
-);
-
-// == Export
+// Export
 export default App;
-
-
-//!ceci est un commentaire

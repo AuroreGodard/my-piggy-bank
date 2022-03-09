@@ -7,6 +7,7 @@ import HeaderMenu from '../HeaderMenu';
 import Sidebar from '../Sidebar';
 import BottomMenu from '../BottomMenu';
 
+// Component
 function UserProfile() {
   const username = useSelector((state) => state.login.username);
   const firstname = useSelector((state) => state.login.user.firstname);
@@ -111,4 +112,5 @@ function UserProfile() {
   );
 }
 
+// Export
 export default UserProfile;

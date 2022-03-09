@@ -1,5 +1,7 @@
+// import
 import { NavLink } from 'react-router-dom';
 
+// Component
 function BottomMenu() {
   return (
     <aside className="w-full h-14 px-8 flex items-center justify-between fixed bottom-0 bg-slate-600 text-white
@@ -41,4 +43,5 @@ function BottomMenu() {
   );
 }
 
+// Export
 export default BottomMenu;
