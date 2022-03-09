@@ -73,7 +73,7 @@ function AddPot() {
                 value={amountGoal}
                 onChange={
                         (event) => {
-                          dispatch(setPotGoal(event.target.value));
+                          dispatch(setPotGoal(parseInt(event.target.value, 10)));
                         }
                     }
                 type="number"

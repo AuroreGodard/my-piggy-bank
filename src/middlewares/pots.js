@@ -37,16 +37,15 @@ const potsMiddleWare = (store) => (next) => (action) => {
       break;
     }
 
-   // for ADD POTS
+    // for ADD POTS
     case ADD_POT: {
       const {
         pots: {
-          pots, name, amountGoal, dateGoal,
+          name, amountGoal, dateGoal,
         },
       } = store.getState();
       // read addpot form values and insert into DB with API call
       axiosInstance.post('/pots', {
-        pots,
         name,
         amountGoal,
         dateGoal,
