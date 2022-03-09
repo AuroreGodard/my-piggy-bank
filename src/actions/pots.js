@@ -49,3 +49,12 @@ export const setPotDateGoal = (PotDateGoal) => ({
   type: SET_POT_DATE_GOAL,
   PotDateGoal,
 });
+
+// ACTION TYPE SAVE_USER_FROM_LOCSAVE_POTS_FROM_LOCALSTORAGEALSTORAGE
+export const SAVE_POTS_FROM_LOCALSTORAGE = 'SAVE_POTS_FROM_LOCALSTORAGE';
+
+// ACTION CREATOR savePotsFromLocalStorage
+export const savePotsFromLocalStorage = (potsUser) => ({
+  type: SAVE_POTS_FROM_LOCALSTORAGE,
+  potsUser,
+});

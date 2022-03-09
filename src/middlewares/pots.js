@@ -29,6 +29,8 @@ const potsMiddleWare = (store) => (next) => (action) => {
           (response) => {
             store.dispatch(listPotsApi(response.data));
             console.log('ce sont mes cagnottes ', response.data);
+            localStorage.setItem('pots', JSON.stringify(response.data));
+            console.log('ce sont mes cagnottes du ls ', localStorage.getItem('pots'));
           },
         ).catch(
           () => console.log('error'),
@@ -71,16 +73,3 @@ const potsMiddleWare = (store) => (next) => (action) => {
 
 // Export
 export default potsMiddleWare;
-// code Aurore et Alexis
-/* axiosInstance
-.post(
-  '/pots',
-  {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  },
-)
-.then(
-  console.log(token, 'token addPot'),
- */

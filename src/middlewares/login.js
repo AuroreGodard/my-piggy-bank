@@ -33,15 +33,13 @@ const apiMiddleWare = (store) => (next) => (action) => {
           localStorage.setItem('token', response.data.token);
           // then push token into state
           store.dispatch(saveUserApi(response.data.user));
-
-          // console.log(response.data.user, 'c est mon user');
-          console.log(response.data.token, 'token login');
-          axiosInstance.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
-          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('user', JSON.stringify(response.data.user));
+          console.log('ceci est ma reponse data.user', response.data.user);
+          console.log('ceci est la lecture de mon localstorage user', localStorage.getItem('user'));
+          console.log('ceci est ma reponse data.token', response.data.token);
         })
         .then(() => {
           store.dispatch(pots());
-          console.log('second then');
         })
         .catch((error) => {
           console.log('error', error);

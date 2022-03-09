@@ -59,11 +59,20 @@ export const logout = () => ({
   type: LOGOUT,
 });
 
-//! ACTION TYPE SAVE_USER
+// ACTION TYPE SAVE_TOKEN_FROM_LOCALSTORAGE
 export const SAVE_TOKEN_FROM_LOCALSTORAGE = 'SAVE_TOKEN_FROM_LOCALSTORAGE';
 
-//! ACTION CREATOR saveUser
+// ACTION CREATOR saveTokenFromLocalStorage
 export const saveTokenFromLocalStorage = (tokenfls) => ({
   type: SAVE_TOKEN_FROM_LOCALSTORAGE,
   tokenfls,
+});
+
+// ACTION TYPE SAVE_USER_FROM_LOCALSTORAGE
+export const SAVE_USER_FROM_LOCALSTORAGE = 'SAVE_USER_FROM_LOCALSTORAGE';
+
+// ACTION CREATOR saveUserFromLocalStorage
+export const saveUserFromLocalStorage = (user) => ({
+  type: SAVE_USER_FROM_LOCALSTORAGE,
+  user,
 });
