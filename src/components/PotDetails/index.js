@@ -2,6 +2,8 @@
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Modal from 'react-modal';
+import ReactDOM from 'react-dom';
 
 // Import component
 import { axiosInstance } from 'src/components/App';
@@ -9,6 +11,9 @@ import CardDetailActivityHistory from '../CardDetailActivityHistory';
 
 // Import style
 import './style.scss';
+
+// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
+Modal.setAppElement('#root');
 
 // Component
 function PotDetails() {
@@ -57,6 +62,33 @@ function PotDetails() {
       return "Pas d'objectif de montant";
     }
     return `Objectif cagnotte: ${amountGoal} €`;
+  };
+
+  let subtitle;
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    subtitle.style.color = '#f00';
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    },
   };
 
   return (
@@ -133,10 +165,10 @@ function PotDetails() {
             md:justify-start
             lg:flex-col lg:w-1/4 lg:px-8 lg:gap-0 lg:justify-center "
           >
-            <button to="/signup" className="mt-4 bg-[#C9DECE] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+            <button onClick={openModal} className="mt-4 bg-[#C9DECE] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
               Ajouter
             </button>
-            <button to="/signup" className="mt-4 bg-[#FFD9E0] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+            <button onClick={openModal} className="mt-4 bg-[#FFD9E0] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
               Retirer
             </button>
           </div>
@@ -153,7 +185,25 @@ function PotDetails() {
         <CardDetailActivityHistory />
       </section>
       {/* End Card details Activity */}
-
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+        overlayClassName="Overlay"
+      >
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
+        <button onClick={closeModal}>close</button>
+        <div>I am a modal</div>
+        <form>
+          <input />
+          <button>tab navigation</button>
+          <button>stays</button>
+          <button>inside</button>
+          <button>the modal</button>
+        </form>
+      </Modal>
     </main>
   );
 }
