@@ -1,8 +1,5 @@
 // import
 import { useSelector, useDispatch } from 'react-redux';
-import HeaderMenu from '../HeaderMenu';
-import Sidebar from '../Sidebar';
-import BottomMenu from '../BottomMenu';
 
 // import actions
 import {

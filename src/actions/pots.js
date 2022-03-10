@@ -58,3 +58,20 @@ export const savePotsFromLocalStorage = (potsUser) => ({
   type: SAVE_POTS_FROM_LOCALSTORAGE,
   potsUser,
 });
+
+// ACTION TYPE HISTORY
+export const HISTORY = 'HISTORY';
+
+// ACTION CREATOR login
+export const history = () => ({
+  type: HISTORY,
+});
+
+// ACTION TYPE HISTORY_API
+export const HISTORY_API = 'HISTORY_API';
+
+// ACTION CREATOR historyApi
+export const historyApi = (historys) => ({
+  type: HISTORY_API,
+  historys,
+});

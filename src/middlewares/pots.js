@@ -1,7 +1,7 @@
 // Import
 import axios from 'axios';
 import {
-  POTS, ADD_POT, listPotsApi,
+  POTS, ADD_POT, listPotsApi, HISTORY, historyApi,
 } from '../actions/pots';
 
 import { axiosInstance } from '../components/App';
@@ -64,6 +64,24 @@ const potsMiddleWare = (store) => (next) => (action) => {
       next(action);
       break;
     }
+    case HISTORY: {
+      axiosInstance.get('/operations', {
+        headers: {
+          Authorization: (`Bearer ${token}`),
+        },
+      })
+        .then((response) => {
+          store.dispatch(historyApi(response.data));
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log('error', error);
+        });
+
+      next(action);
+      break;
+    }
+
     default:
       next(action);
   }

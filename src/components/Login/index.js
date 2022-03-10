@@ -22,7 +22,7 @@ import { savePotsFromLocalStorage } from '../../actions/pots';
 
 function Login() {
   const username = useSelector((state) => state.login.username);
-  console.log(username);
+  //console.log(username);
   const password = useSelector((state) => state.login.password);
 
   // is user logged or not ?
@@ -30,7 +30,7 @@ function Login() {
 
   const navigate = useNavigate();
 
-  console.log(logged);
+  //console.log(logged);
 
   const dispatch = useDispatch();
 

@@ -43,13 +43,15 @@ function PotsCards() {
                <div className="flex flex-col w-2/3">
                  <h4 className=" font-bold uppercase my-4 ">{pot.name}</h4>
                  <p>
-                   Création de la cagnotte : { date(pot.createdAt) }
+                   Création de la cagnotte :
+                   { date(pot.createdAt) }
                  </p>
                  <p>
                    {amoutGoalNull(pot.amountGoal)}
                  </p>
                  <p>
-                   Date de l'objectif : {date(pot.dateGoal)}
+                   Date de l'objectif :
+                   {date(pot.dateGoal)}
                  </p>
                </div>
              </div>
