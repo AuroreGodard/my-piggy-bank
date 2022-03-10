@@ -6,6 +6,8 @@ import {
   SET_POT_DATE_GOAL,
   SAVE_POTS_FROM_LOCALSTORAGE,
   HISTORY_API,
+  SET_AMOUNT_ADD,
+  SET_AMOUNT_WITHDRAW,
 } from '../actions/pots';
 
 // initialState
@@ -16,6 +18,9 @@ const initialState = {
   amountGoal: 1000,
   dateGoal: '',
   history: [],
+  // for add and withddraw button
+  amountAdd: 20,
+  amountWithdraw: 20,
 };
 
 // Pots Reducer
@@ -53,6 +58,16 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         pots: action.potsUser,
         logged: true,
+      };
+    case SET_AMOUNT_ADD:
+      return {
+        ...state,
+        amountAdd: action.amountAdd,
+      };
+    case SET_AMOUNT_WITHDRAW:
+      return {
+        ...state,
+        amountWithdraw: action.amountWithdraw,
       };
     default:
       return state;
