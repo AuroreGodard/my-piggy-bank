@@ -182,7 +182,7 @@ function PotDetails() {
         style={customStyles}
         contentLabel="Example Modal"
         overlayClassName="Overlay"
-        className="test"
+        className="modal"
       >
         <div className="flex flex-col gap-4">
           <h3 className="w-fit underline-modal-add uppercase text-[1.4em] text-center mb-4 lg:mb-8">
@@ -213,7 +213,7 @@ function PotDetails() {
         style={customStyles}
         contentLabel="Example Modal"
         overlayClassName="Overlay"
-        className="test"
+        className="modal"
       >
         <div className="flex flex-col gap-4">
           <h3 className="w-fit underline-modal-withdraw uppercase text-[1.4em] text-center mb-4 lg:mb-8">

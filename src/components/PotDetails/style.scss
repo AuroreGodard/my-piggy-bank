@@ -24,7 +24,7 @@
 }
 
 
-.test {
+.modal {
   background-color: white;
   height: fit-content;
   width:300px;
@@ -32,6 +32,7 @@
   left: calc(50% - 4em);
   position:absolute;
   border-radius: 0.5em;
+  border:none;
   display:flex;
   flex-direction: column;
   justify-content: center;
