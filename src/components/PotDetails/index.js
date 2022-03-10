@@ -2,7 +2,7 @@
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Modal from 'react-modal';
+import ReactModal from 'react-modal';
 import ReactDOM from 'react-dom';
 
 // Import component
@@ -13,7 +13,7 @@ import CardDetailActivityHistory from '../CardDetailActivityHistory';
 import './style.scss';
 
 // Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement('#root');
+ReactModal.setAppElement('#root');
 
 // Component
 function PotDetails() {
@@ -65,11 +65,9 @@ function PotDetails() {
   };
 
   let subtitle;
-  const [modalIsOpen, setIsOpen] = useState(false);
 
-  function openModal() {
-    setIsOpen(true);
-  }
+  const [showModalAdd, setShowModalAdd] = useState(false);
+  const [showModalWithdraw, setShowModalWithdraw] = useState(false);
 
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
@@ -165,10 +163,10 @@ function PotDetails() {
             md:justify-start
             lg:flex-col lg:w-1/4 lg:px-8 lg:gap-0 lg:justify-center "
           >
-            <button onClick={openModal} className="mt-4 bg-[#C9DECE] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+            <button onClick={() => setShowModalAdd(true)} className="mt-4 bg-[#C9DECE] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
               Ajouter
             </button>
-            <button onClick={openModal} className="mt-4 bg-[#FFD9E0] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+            <button onClick={() => setShowModalWithdraw(true)} className="mt-4 bg-[#FFD9E0] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
               Retirer
             </button>
           </div>
@@ -185,25 +183,32 @@ function PotDetails() {
         <CardDetailActivityHistory />
       </section>
       {/* End Card details Activity */}
-      <Modal
-        isOpen={modalIsOpen}
+      <ReactModal
+        isOpen={showModalAdd}
         onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
+        onRequestClose={() => setShowModalAdd(false)}
         style={customStyles}
         contentLabel="Example Modal"
         overlayClassName="Overlay"
       >
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
-      </Modal>
+        <button onClick={() => setShowModalAdd(false)}>close</button>
+        <div>Modal add</div>
+
+      </ReactModal>
+      <ReactModal
+        isOpen={showModalWithdraw}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={() => setShowModalWithdraw(false)}
+        style={customStyles}
+        contentLabel="Example Modal"
+        overlayClassName="Overlay"
+      >
+        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
+        <button onClick={() => setShowModalWithdraw(false)}>close</button>
+        <div>Modal Withdraw</div>
+
+      </ReactModal>
     </main>
   );
 }
