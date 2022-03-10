@@ -2,6 +2,8 @@
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import ReactModal from 'react-modal';
+import ReactDOM from 'react-dom';
 
 // Import component
 import { axiosInstance } from 'src/components/App';
@@ -9,6 +11,9 @@ import CardDetailActivityHistory from '../CardDetailActivityHistory';
 
 // Import style
 import './style.scss';
+
+// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
+ReactModal.setAppElement('#root');
 
 // Component
 function PotDetails() {
@@ -57,6 +62,20 @@ function PotDetails() {
       return "Pas d'objectif de montant";
     }
     return `Objectif cagnotte: ${amountGoal} €`;
+  };
+
+  const [showModalAdd, setShowModalAdd] = useState(false);
+  const [showModalWithdraw, setShowModalWithdraw] = useState(false);
+
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    },
   };
 
   return (
@@ -133,10 +152,10 @@ function PotDetails() {
             md:justify-start
             lg:flex-col lg:w-1/4 lg:px-8 lg:gap-0 lg:justify-center "
           >
-            <button to="/signup" className="mt-4 bg-[#C9DECE] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+            <button onClick={() => setShowModalAdd(true)} className="mt-4 bg-[#C9DECE] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
               Ajouter
             </button>
-            <button to="/signup" className="mt-4 bg-[#FFD9E0] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+            <button onClick={() => setShowModalWithdraw(true)} className="mt-4 bg-[#FFD9E0] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
               Retirer
             </button>
           </div>
@@ -154,6 +173,69 @@ function PotDetails() {
       </section>
       {/* End Card details Activity */}
 
+      {/* Modal for 'Ajouter' et 'Retirer' buttons */}
+
+      {/* Modal for 'Ajouter' button */}
+      <ReactModal
+        isOpen={showModalAdd}
+        onRequestClose={() => setShowModalAdd(false)}
+        style={customStyles}
+        contentLabel="Example Modal"
+        overlayClassName="Overlay"
+        className="test"
+      >
+        <div className="flex flex-col gap-4">
+          <h3 className="w-fit underline-modal-add uppercase text-[1.4em] text-center mb-4 lg:mb-8">
+            Ajouter de l'argent
+          </h3>
+          <div>
+            <label htmlFor="goalamount" className="text-sm font-medium text-gray-900 block mb-2">Montant à ajouter</label>
+            <input
+              type="number"
+              name="goalamount"
+              className="bg-gray-50 border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
+              placeholder="1.000 €"
+              required
+            />
+            <p className="my-4 text-gray-500 text-xs italic">Indiquez ci-dessus le montant que vous souhaiter ajouter à votre cagnotte.</p>
+          </div>
+          <div className="flex gap-4">
+            <input onClick={() => setShowModalAdd(false)} type="submit" className="mt-4 w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Fermer" />
+            <input type="submit" className="mt-4 bg-[#C9DECE] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Ajouter" />
+          </div>
+        </div>
+      </ReactModal>
+
+      {/* Modal for 'Retirer' button */}
+      <ReactModal
+        isOpen={showModalWithdraw}
+        onRequestClose={() => setShowModalWithdraw(false)}
+        style={customStyles}
+        contentLabel="Example Modal"
+        overlayClassName="Overlay"
+        className="test"
+      >
+        <div className="flex flex-col gap-4">
+          <h3 className="w-fit underline-modal-withdraw uppercase text-[1.4em] text-center mb-4 lg:mb-8">
+            Retirer de l'argent
+          </h3>
+          <div>
+            <label htmlFor="goalamount" className="text-sm font-medium text-gray-900 block mb-2">Montant à retirer</label>
+            <input
+              type="number"
+              name="goalamount"
+              className="bg-gray-50 border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
+              placeholder="1.000 €"
+              required
+            />
+            <p className="my-4 text-gray-500 text-xs italic">Indiquez ci-dessus le montant que vous souhaiter retirer de votre cagnotte.</p>
+          </div>
+          <div className="flex gap-4">
+            <input onClick={() => setShowModalWithdraw(false)} type="submit" className="mt-4 w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Fermer" />
+            <input type="submit" className="mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Retirer" />
+          </div>
+        </div>
+      </ReactModal>
     </main>
   );
 }

@@ -14,4 +14,47 @@
 }
 
 
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #00000080;
+}
 
+
+.test {
+  background-color: white;
+  height: fit-content;
+  width:300px;
+  top: calc(50% - 4em);
+  left: calc(50% - 4em);
+  position:absolute;
+  border-radius: 0.5em;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  padding:1em;
+}
+
+
+.underline-modal-add{
+  font-weight: 300;
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+  background-position: 0 88%;
+  padding: 0 0.1em ;
+  font-family: 'Oswald', sans-serif;
+  background-image: linear-gradient(#C9DECE 0%, #C9DECE 100%);
+}
+
+.underline-modal-withdraw{
+  font-weight: 300;
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+  background-position: 0 88%;
+  padding: 0 0.1em ;
+  font-family: 'Oswald', sans-serif;
+  background-image: linear-gradient(#FFD9E0 0%, #FFD9E0 100%);
+}
