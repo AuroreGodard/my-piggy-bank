@@ -75,3 +75,21 @@ export const historyApi = (historys) => ({
   type: HISTORY_API,
   historys,
 });
+
+// ACTION TYPE SET_AMOUNT_ADD
+export const SET_AMOUNT_ADD = 'SET_AMOUNT_ADD';
+
+// ACTION CREATOR setAmountAdd
+export const setAmountAdd = (amountAdd) => ({
+  type: SET_AMOUNT_ADD,
+  amountAdd,
+});
+
+// ACTION TYPE SET_AMOUNT_WITHDRAW
+export const SET_AMOUNT_WITHDRAW = 'SET_AMOUNT_WITHDRAW';
+
+// ACTION CREATOR setAmountWithdraw
+export const setAmountWithdraw = (amountWithdraw) => ({
+  type: SET_AMOUNT_WITHDRAW,
+  amountWithdraw,
+});

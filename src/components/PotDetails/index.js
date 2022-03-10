@@ -1,12 +1,13 @@
 // Import
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ReactModal from 'react-modal';
 import ReactDOM from 'react-dom';
+import { axiosInstance } from 'src/components/App';
+import { setAmountAdd, setAmountWithdraw } from '../../actions/pots';
 
 // Import component
-import { axiosInstance } from 'src/components/App';
 import CardDetailActivityHistory from '../CardDetailActivityHistory';
 
 // Import style
@@ -19,6 +20,7 @@ ReactModal.setAppElement('#root');
 function PotDetails() {
   // use of useParams hook to get the variable parameter of the url (id)
   const params = useParams();
+  const dispatch = useDispatch();
 
   // place datas from API in state
   const [potDatas, setPotDatas] = useState([]);
@@ -77,6 +79,9 @@ function PotDetails() {
       transform: 'translate(-50%, -50%)',
     },
   };
+
+  const amountadd = useSelector((state) => state.pots.amountAdd);
+  const amountwithdraw = useSelector((state) => state.pots.amountWithdraw);
 
   return (
 
@@ -180,7 +185,6 @@ function PotDetails() {
         isOpen={showModalAdd}
         onRequestClose={() => setShowModalAdd(false)}
         style={customStyles}
-        contentLabel="Example Modal"
         overlayClassName="Overlay"
         className="modal"
       >
@@ -192,10 +196,16 @@ function PotDetails() {
             <label htmlFor="goalamount" className="text-sm font-medium text-gray-900 block mb-2">Montant à ajouter</label>
             <input
               type="number"
+              value={amountadd}
               name="goalamount"
               className="bg-gray-50 border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
               placeholder="1.000 €"
               required
+              onChange={
+                (event) => {
+                  dispatch(setAmountAdd(event.target.value));
+                }
+            }
             />
             <p className="my-4 text-gray-500 text-xs italic">Indiquez ci-dessus le montant que vous souhaiter ajouter à votre cagnotte.</p>
           </div>
@@ -223,10 +233,17 @@ function PotDetails() {
             <label htmlFor="goalamount" className="text-sm font-medium text-gray-900 block mb-2">Montant à retirer</label>
             <input
               type="number"
+              value={amountwithdraw}
               name="goalamount"
               className="bg-gray-50 border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
               placeholder="1.000 €"
               required
+              onChange={
+                (event) => {
+                  dispatch(setAmountWithdraw(event.target.value));
+                }
+            }
+
             />
             <p className="my-4 text-gray-500 text-xs italic">Indiquez ci-dessus le montant que vous souhaiter retirer de votre cagnotte.</p>
           </div>
