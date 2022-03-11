@@ -59,3 +59,21 @@ export const setNewPhone = (phone) => ({
   type: SET_NEW_PHONE,
   phone,
 });
+
+// ACTION TYPE SET_SAVE_FIRSTNAME
+export const SET_SAVE_FIRSTNAME = 'SET_SAVE_FIRSTNAME';
+
+// ACTION CREATOR setSaveFirstName
+export const setSaveFirstName = (newFirstName) => ({
+  type: SET_SAVE_FIRSTNAME,
+  newFirstName,
+});
+
+// ACTION TYPE SET_SAVE_LASTNAME
+export const SET_SAVE_LASTNAME = 'SET_SAVE_LASTNAME';
+
+// ACTION CREATOR setSaveLastName
+export const setSaveLastName = (saveFirstName) => ({
+  type: SET_SAVE_LASTNAME,
+  saveFirstName,
+});

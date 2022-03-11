@@ -20,6 +20,7 @@ ReactModal.setAppElement('#root');
 function PotDetails() {
   // use of useParams hook to get the variable parameter of the url (id)
   const params = useParams();
+
   const dispatch = useDispatch();
 
   // place datas from API in state

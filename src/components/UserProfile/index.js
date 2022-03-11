@@ -1,16 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './style.scss';
 import { NavLink } from 'react-router-dom';
-
-// import components
-import HeaderMenu from '../HeaderMenu';
-import Sidebar from '../Sidebar';
-import BottomMenu from '../BottomMenu';
+import { setSaveFirstName, setSaveLastName } from '../../actions/signUp';
 
 // Component
 function UserProfile() {
-  const username = useSelector((state) => state.login.username);
+  const dispatch = useDispatch();
   const firstname = useSelector((state) => state.login.user.firstname);
+  const lastname = useSelector((state) => state.login.user.lastname);
 
   return (
     <main className="h-full ml-2 mx-2 mb-16
@@ -55,31 +52,38 @@ function UserProfile() {
         </h3>
         <div>
           <label htmlFor="firstname" className="text-sm font-medium text-gray-900 block mb-2 ">Votre prénom</label>
-          <input type="text" name="firstname" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " value={firstname} required />
+          <input
+            type="text"
+            name="firstname"
+            className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
+            value={firstname}
+            onChange={
+            (event) => {
+              dispatch(setSaveFirstName(event.target.value));
+            }
+        }
+          />
         </div>
 
         <div>
           <label htmlFor="lastname" className="text-sm font-medium text-gray-900 block mb-2 ">Votre nom</label>
-          <input type="text" name="lastname" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " placeholder="Dupont" required />
+          <input
+            type="text"
+            name="lastname"
+            className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
+            placeholder="Dupont"
+            value={lastname}
+            onChange={
+            (event) => {
+              dispatch(setSaveLastName(event.target.value));
+            }
+        }
+          />
         </div>
 
         <div>
           <label htmlFor="email" className="text-sm font-medium text-gray-900 block mb-2 ">Votre email</label>
           <input type="email" name="email" className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " placeholder="luciendupont@gmail.com" required />
-        </div>
-
-        <div>
-          <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2">Votre mot de passe</label>
-          <input type="text" name="password" className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " placeholder="********" required />
-        </div>
-        <div>
-          <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 ">Confirmer votre mot de passe</label>
-          <input type="text" name="password" className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " placeholder="********" required />
-        </div>
-
-        <div>
-          <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 ">Confirmer votre mot de passe</label>
-          <input type="text" name="password" className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " placeholder="********" required />
         </div>
 
         <div>

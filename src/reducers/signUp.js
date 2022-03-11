@@ -6,6 +6,8 @@ import {
   SET_NEW_LASTNAME,
   SET_NEW_PASSWORD,
   SET_NEW_PHONE,
+  SET_SAVE_FIRSTNAME,
+  SET_SAVE_LASTNAME,
 } from '../actions/signUp';
 
 // initialState
@@ -50,6 +52,16 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         phone: action.phone,
+      };
+    case SET_SAVE_FIRSTNAME:
+      return {
+        ...state,
+        firstname: action.newFirstName,
+      };
+    case SET_SAVE_LASTNAME:
+      return {
+        ...state,
+        firstname: action.newLastName,
       };
     default:
       return state;
