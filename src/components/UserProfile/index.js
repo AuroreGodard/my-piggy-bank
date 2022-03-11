@@ -1,13 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import './style.scss';
 import { NavLink } from 'react-router-dom';
-import { setSaveFirstName, setSaveLastName } from '../../actions/signUp';
+import { setSaveFirstName } from '../../actions/userProfile';
 
 // Component
 function UserProfile() {
   const dispatch = useDispatch();
-  const firstname = useSelector((state) => state.login.user.firstname);
-  const lastname = useSelector((state) => state.login.user.lastname);
+  const saveFirstname = useSelector((state) => state.userProfile.saveFirstname);
 
   return (
     <main className="h-full ml-2 mx-2 mb-16
@@ -30,7 +29,7 @@ function UserProfile() {
 
           </h3>
           <span className="uppercase text-[1.5em] username-welcome-msg">
-            {firstname}
+            {saveFirstname}
             ,
           </span>
 
@@ -56,7 +55,7 @@ function UserProfile() {
             type="text"
             name="firstname"
             className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
-            value={firstname}
+            value={saveFirstname}
             onChange={
             (event) => {
               dispatch(setSaveFirstName(event.target.value));
@@ -72,10 +71,10 @@ function UserProfile() {
             name="lastname"
             className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
             placeholder="Dupont"
-            value={lastname}
+            value=""
             onChange={
             (event) => {
-              dispatch(setSaveLastName(event.target.value));
+              // dispatch(setSaveLastName(event.target.value));
             }
         }
           />
