@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 // import assets
-import mpbInline from 'src/assets/images/mpb-logo-inline.png';
+import mpbInline from 'src/assets/images/mpb-logo-inline.svg';
 
 // Import style
 import './style.scss';
@@ -16,7 +16,7 @@ function HeaderMenu() {
 
       {/* Logo */}
       <NavLink to="/">
-        <div id="logo" className="text-slate-600 p-2 rounded-sm uppercase flex gap-2 items-center">
+        <div id="logo" className="text-slate-600 p-2 rounded-sm uppercase flex gap-2 items-center w-48">
           <img className="" src={mpbInline} alt="" />
         </div>
       </NavLink>

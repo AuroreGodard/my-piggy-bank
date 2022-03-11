@@ -8,7 +8,7 @@ import julien from 'src/assets/images/alexis.png';
 import tristan from 'src/assets/images/tristan.png';
 import aurore from 'src/assets/images/aurore.png';
 
-import mpbFull from 'src/assets/images/mpb-full-green-200px.png';
+import mpbFull from 'src/assets/images/mpb-logo-full.svg';
 
 import HeaderMenu from '../HeaderMenu';
 import MemberCard from './MemberCard';
@@ -76,7 +76,9 @@ function ConceptLanding() {
                 <p className=" mt-8 text-gray-600
                 "
                 >
-                  Fixez-vous des objectifs
+                  Challengez votre épargne
+                  <br />
+                  en vous fixant des objectifs.
                 </p>
               </div>
 
@@ -285,7 +287,7 @@ function ConceptLanding() {
           </div>
 
           <div className="w-1/3  flex justify-center">
-            <Link to="/"><img className="h-full" src={mpbFull} alt="" /></Link>
+            <Link to="/"><img className="h-36" src={mpbFull} alt="" /></Link>
           </div>
 
           <div className="w-1/3 flex justify-end">
