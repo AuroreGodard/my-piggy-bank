@@ -1,6 +1,17 @@
 // Import
 import { Link } from 'react-router-dom';
+
+// import assets
+import alexis from 'src/assets/images/alexis.png';
+import martin from 'src/assets/images/alexis.png';
+import julien from 'src/assets/images/alexis.png';
+import tristan from 'src/assets/images/tristan.png';
+import aurore from 'src/assets/images/aurore.png';
+
 import HeaderMenu from '../HeaderMenu';
+import MemberCard from './MemberCard';
+
+// import assets
 
 // Import CSS
 import './style.scss';
@@ -201,6 +212,54 @@ function ConceptLanding() {
 
       </section>
       {/* END STEPS main container */}
+
+      {/* ---------------------------------------------------------------- */}
+
+      {/* TEAM main container */}
+      <section className="w-full flex justify-center relative px-4
+      "
+      >
+
+        {/* TEAM limited container */}
+        <div className="w-full pt-16 flex flex-col gap-8 items-center
+        xl:w-[1100px]
+        lg:mx-8
+        md:items-start
+        "
+        >
+
+          <h3 className="w-fit underline-team-title uppercase text-[1.5em]
+          "
+          >
+            Qui sommes-nous ?
+          </h3>
+          <p className="text-gray-600">
+            Nous avons tous suivi une formation au sein de l'école O'Clock d'une durée de 5 mois dont 1 d'une spécialité différente.
+            <br />
+            Notre équipe est composée de 2 développeurs back-end et 3 développeurs.euse front-end.
+          </p>
+
+          {/* TEAM cards */}
+          <div className="pb-32 gap-12 grid grid-cols-1 justify-between
+          lg:grid-cols-5
+          md:grid-cols-3
+          sm:grid-cols-2
+          xs:grid-cols-1
+          "
+          >
+            <MemberCard name="Tristan B" title="Développeur back-end" role="Product Owner / Git master back" color="bg-[#CFB6E5]" photo={tristan} />
+            <MemberCard name="Martin F" title="Développeur back-end" role="Lead dev back" color="bg-[#CFB6E5]" />
+            <MemberCard name="Aurore G" title="Développeur front-end" role="Scrum Master" color="bg-[#FFD9E0]" photo={aurore} />
+            <MemberCard name="Julien P" title="Développeur front-end" role="Lead dev Front / Git master front" color="bg-[#C1E3FE]" />
+            <MemberCard name="Alexis K" title="Développeur front-end" role="Référent technique" color="bg-[#CFB6E5]" photo={alexis} />
+          </div>
+          {/* END TEAM cards */}
+
+        </div>
+        {/* END TEAM limited container */}
+
+      </section>
+      {/* END TEAM main container */}
 
       {/* ---------------------------------------------------------------- */}
 

@@ -87,11 +87,20 @@ h1 {
 
 }
 
+.underline-team-title{
+  font-weight: 300;
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+  background-position: 0 88%;
+  font-family: 'Oswald', sans-serif;
+  background-image: linear-gradient(#CFB6E5 0%, #CFB6E5 100%);
+
+}
+
 
 
 /* END STEPS container */
 
-
-.lottie-piggy{
-  height:50px;
+.member-card {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
