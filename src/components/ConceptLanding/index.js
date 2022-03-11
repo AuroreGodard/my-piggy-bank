@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 
 // import assets
 import alexis from 'src/assets/images/alexis.png';
-import martin from 'src/assets/images/alexis.png';
+import martin from 'src/assets/images/martin.png';
 import julien from 'src/assets/images/alexis.png';
 import tristan from 'src/assets/images/tristan.png';
 import aurore from 'src/assets/images/aurore.png';
+
+import mpbFull from 'src/assets/images/mpb-full-green-200px.png';
 
 import HeaderMenu from '../HeaderMenu';
 import MemberCard from './MemberCard';
@@ -247,11 +249,11 @@ function ConceptLanding() {
           xs:grid-cols-1
           "
           >
-            <MemberCard name="Tristan B" title="Développeur back-end" role="Product Owner / Git master back" color="bg-[#CFB6E5]" photo={tristan} />
-            <MemberCard name="Martin F" title="Développeur back-end" role="Lead dev back" color="bg-[#CFB6E5]" />
-            <MemberCard name="Aurore G" title="Développeur front-end" role="Scrum Master" color="bg-[#FFD9E0]" photo={aurore} />
-            <MemberCard name="Julien P" title="Développeur front-end" role="Lead dev Front / Git master front" color="bg-[#C1E3FE]" />
-            <MemberCard name="Alexis K" title="Développeur front-end" role="Référent technique" color="bg-[#CFB6E5]" photo={alexis} />
+            <MemberCard name="Tristan B" title="Développeur back-end" teamRole="Product Owner / Git master back" color="bg-[#CFB6E5]" photo={tristan} linkedin="https://www.linkedin.com/in/tristan-bonnal-597534204/" />
+            <MemberCard name="Martin F" title="Développeur back-end" teamRole="Lead dev back" color="bg-[#C1E3FE]" photo={martin} linkedin="https://www.linkedin.com/in/martin-ferret/" />
+            <MemberCard name="Aurore G" title="Développeur front-end" teamRole="Scrum Master" color="bg-[#FFD9E0]" photo={aurore} linkedin="https://www.linkedin.com/in/aurore-godard/" />
+            <MemberCard name="Julien P" title="Développeur front-end" teamRole="Lead dev Front / Git master front" color="bg-[#C1E3FE]" linkedin="https://www.linkedin.com/in/pernotjulien/" />
+            <MemberCard name="Alexis K" title="Développeur front-end" teamRole="Référent technique" color="bg-[#F1EECD]" photo={alexis} linkedin="https://www.linkedin.com/in/alexiskapetanovic/" />
           </div>
           {/* END TEAM cards */}
 
@@ -264,8 +266,36 @@ function ConceptLanding() {
       {/* ---------------------------------------------------------------- */}
 
       {/* FOOTER container */}
-      <section>
-        <div>test</div>
+      <section className="bg-[#C9DECE] flex justify-center py-8 items-start">
+        <div className="w-full flex justify-between
+        xl:w-[1100px]
+        "
+        >
+          <div className="w-1/3 flex flex-col gap-4">
+            <h3 className="w-fit underline-footer-nav-title uppercase text-[1.5em]
+          "
+            >
+              Navigation
+            </h3>
+            <ul className="flex flex-col gap-1">
+              <li>Le concept</li>
+              <li>FAQ</li>
+              <li>Nous contacter</li>
+            </ul>
+          </div>
+
+          <div className="w-1/3  flex justify-center">
+            <Link to="/"><img className="h-full" src={mpbFull} alt="" /></Link>
+          </div>
+
+          <div className="w-1/3 flex justify-end">
+            <h3 className="w-fit h-fit underline-footer-nav-title uppercase text-[1.5em] text-right
+          "
+            >
+              Nous contacter
+            </h3>
+          </div>
+        </div>
       </section>
       {/* END FOOTER container */}
 

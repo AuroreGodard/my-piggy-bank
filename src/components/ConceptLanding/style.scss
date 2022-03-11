@@ -94,7 +94,15 @@ h1 {
   background-position: 0 88%;
   font-family: 'Oswald', sans-serif;
   background-image: linear-gradient(#CFB6E5 0%, #CFB6E5 100%);
+}
 
+.underline-footer-nav-title{
+  font-weight: 300;
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+  background-position: 0 88%;
+  font-family: 'Oswald', sans-serif;
+  background-image: linear-gradient(#CFB6E5 0%, #CFB6E5 100%);
 }
 
 
@@ -103,4 +111,11 @@ h1 {
 
 .member-card {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+  border: 1px solid transparent;
+  transition: transform 250ms;
+
+  &:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 10px 10px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    transform: translateY(-10px);
+   }
 }
