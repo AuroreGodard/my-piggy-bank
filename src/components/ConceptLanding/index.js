@@ -253,7 +253,7 @@ function ConceptLanding() {
           >
             <MemberCard name="Tristan B" title="Développeur back-end" teamRole="Product Owner / Git master back" color="bg-[#CFB6E5]" photo={tristan} linkedin="https://www.linkedin.com/in/tristan-bonnal-597534204/" />
             <MemberCard name="Martin F" title="Développeur back-end" teamRole="Lead dev back" color="bg-[#C1E3FE]" photo={martin} linkedin="https://www.linkedin.com/in/martin-ferret/" />
-            <MemberCard name="Aurore G" title="Développeur front-end" teamRole="Scrum Master" color="bg-[#FFD9E0]" photo={aurore} linkedin="https://www.linkedin.com/in/aurore-godard/" />
+            <MemberCard name="Aurore G" title="Développeuse front-end" teamRole="Scrum Master" color="bg-[#FFD9E0]" photo={aurore} linkedin="https://www.linkedin.com/in/aurore-godard/" />
             <MemberCard name="Julien P" title="Développeur front-end" teamRole="Lead dev Front / Git master front" color="bg-[#C1E3FE]" linkedin="https://www.linkedin.com/in/pernotjulien/" />
             <MemberCard name="Alexis K" title="Développeur front-end" teamRole="Référent technique" color="bg-[#F1EECD]" photo={alexis} linkedin="https://www.linkedin.com/in/alexiskapetanovic/" />
           </div>
@@ -273,16 +273,18 @@ function ConceptLanding() {
         xl:w-[1100px]
         "
         >
-          <div className="w-1/3 flex flex-col gap-4">
+          <div className="w-1/3 flex flex-col gap-8">
             <h3 className="w-fit underline-footer-nav-title uppercase text-[1.5em]
           "
             >
               Navigation
             </h3>
-            <ul className="flex flex-col gap-1">
-              <li>Le concept</li>
-              <li>FAQ</li>
-              <li>Nous contacter</li>
+            <ul className="flex flex-col gap-2">
+              <li>
+                {' '}
+                <a href="#concept">Le concept</a>
+              </li>
+              <li><Link to="/faq">FAQ</Link></li>
             </ul>
           </div>
 
@@ -290,12 +292,13 @@ function ConceptLanding() {
             <Link to="/"><img className="h-36" src={mpbFull} alt="" /></Link>
           </div>
 
-          <div className="w-1/3 flex justify-end">
+          <div className="w-1/3 flex flex-col justify-start items-end gap-8">
             <h3 className="w-fit h-fit underline-footer-nav-title uppercase text-[1.5em] text-right
           "
             >
               Nous contacter
             </h3>
+            <p className="cursor-pointer">hello@mypiggybank.fr</p>
           </div>
         </div>
       </section>
