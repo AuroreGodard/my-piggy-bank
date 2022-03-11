@@ -1,5 +1,4 @@
 // Import
-import axios from 'axios';
 import { SIGN_UP } from '../actions/signUp';
 import { axiosInstance } from '../components/App';
 

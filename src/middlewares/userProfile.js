@@ -5,20 +5,33 @@ import { axiosInstance } from '../components/App';
 // USERPROFILEmiddleWare
 const userProfileMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {
+    // for SAVE PROFILE
     case SAVE_PROFILE: {
       const {
         userProfile: {
-          saveFirstname,
+          SaveFirstName,
+          SaveLastname,
+          SaveEmail,
+          SaveBirthDate,
+          SavePhone,
         },
       } = store.getState();
-      // read addpot form values and insert into DB with API call
-      axiosInstance.patch('/userprofile', {
-        saveFirstname,
-      }, {
-        headers: {
-          Authorization: (`Bearer ${token}`),
+
+      axiosInstance.patch(
+        '/userprofile',
+        {
+          SaveFirstName,
+          SaveLastname,
+          SaveEmail,
+          SaveBirthDate,
+          SavePhone,
         },
-      })
+        {
+          headers: {
+            Authorization: (`Bearer ${token}`),
+          },
+        },
+      )
         .then((response) => {
           console.log(response);
         })

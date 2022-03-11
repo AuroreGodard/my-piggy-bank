@@ -2,16 +2,18 @@
 import {
   SET_SAVE_FIRSTNAME,
   SET_SAVE_LASTNAME,
-} from '../actions/signUp';
+  SET_SAVE_EMAIL,
+  SET_SAVE_BIRTHDATE,
+  SET_SAVE_PHONE,
+} from '../actions/userProfile';
 
 // initialState
 const initialState = {
-  email: '',
-  password: '',
-  saveFirstname: 'Polo',
-  lastname: '',
-  birthDate: '',
-  phone: '',
+  saveEmail: '',
+  saveFirstname: '',
+  saveLastname: '',
+  saveBirthDate: '',
+  savePhone: '',
 };
 
 // UserProfile Reducer
@@ -21,6 +23,26 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         saveFirstname: action.value,
+      };
+    case SET_SAVE_LASTNAME:
+      return {
+        ...state,
+        saveLastname: action.value,
+      };
+    case SET_SAVE_EMAIL:
+      return {
+        ...state,
+        saveEmail: action.value,
+      };
+    case SET_SAVE_BIRTHDATE:
+      return {
+        ...state,
+        saveBirthDate: action.value,
+      };
+    case SET_SAVE_PHONE:
+      return {
+        ...state,
+        savePhone: action.value,
       };
 
     default:
