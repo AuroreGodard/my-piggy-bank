@@ -7,16 +7,30 @@ import {
   setSaveEmail,
   setSaveBirthDate,
   setSavePhone,
+  saveProfile,
 } from '../../actions/userProfile';
 
 // Component
 function UserProfile() {
   const dispatch = useDispatch();
+  const firstname = useSelector((state) => state.login.user.firstname);
+  const lastname = useSelector((state) => state.login.user.lastname);
+  const email = useSelector((state) => state.login.user.email);
+  const birthDate = useSelector((state) => state.login.user.birthDate.date);
+  const phone = useSelector((state) => state.login.user.phone);
+
+  console.log(firstname);
   const saveFirstname = useSelector((state) => state.userProfile.saveFirstname);
   const saveLastname = useSelector((state) => state.userProfile.saveLastname);
   const saveEmail = useSelector((state) => state.userProfile.saveEmail);
   const saveBirthDate = useSelector((state) => state.userProfile.saveBirthDate);
   const savePhone = useSelector((state) => state.userProfile.savePhone);
+
+  const handleSubmit = (event) => {
+    // prevent the reloading of my page
+    event.preventDefault();
+    dispatch(saveProfile());
+  };
 
   return (
     <main className="h-full ml-2 mx-2 mb-16
@@ -39,7 +53,7 @@ function UserProfile() {
 
           </h3>
           <span className="uppercase text-[1.5em] username-welcome-msg">
-            {saveFirstname}
+            {firstname}
             ,
           </span>
 
@@ -48,9 +62,11 @@ function UserProfile() {
       {/* END WELCOME TITLE */}
 
       {/* FORM SECTION */}
-      <section className="w-full flex flex-col gap-2
+      <form
+        className="w-full flex flex-col gap-2
         md:w-[500px]
         "
+        onSubmit={handleSubmit}
       >
 
         <h3 className="w-fit underline-userprofile-informations uppercase text-[1.4em] mb-4
@@ -65,7 +81,7 @@ function UserProfile() {
             type="text"
             name="firstname"
             className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
-            placeholder="Lucien"
+            placeholder={firstname}
             value={saveFirstname}
             onChange={
             (event) => {
@@ -81,7 +97,7 @@ function UserProfile() {
             type="text"
             name="lastname"
             className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
-            placeholder="Dupont"
+            placeholder={lastname}
             value={saveLastname}
             onChange={
             (event) => {
@@ -97,7 +113,7 @@ function UserProfile() {
             type="email"
             name="email"
             className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
-            placeholder="luciendupont@gmail.com"
+            placeholder={email}
             value={saveEmail}
             onChange={
             (event) => {
@@ -113,7 +129,7 @@ function UserProfile() {
             type="text"
             name="phone"
             className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 d"
-            placeholder="+33 601020304"
+            placeholder={phone}
             value={savePhone}
             onChange={
           (event) => {
@@ -128,6 +144,7 @@ function UserProfile() {
           <input
             type="date"
             name="birthdate"
+            placeholder={birthDate}
             className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
             value={saveBirthDate}
             onChange={
@@ -138,11 +155,13 @@ function UserProfile() {
           />
         </div>
 
-        <NavLink to="/signup" className="mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
-          Modifier mes informations
-        </NavLink>
+        <input
+          className="mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2"
+          type="submit"
+          value="Modifier mes informations"
+        />
 
-      </section>
+      </form>
       {/* END FORM SECTION */}
 
     </main>

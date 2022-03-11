@@ -4,6 +4,9 @@ import { axiosInstance } from '../components/App';
 
 // USERPROFILEmiddleWare
 const userProfileMiddleWare = (store) => (next) => (action) => {
+  // read token in localstorage
+  const token = localStorage.getItem('token');
+
   switch (action.type) {
     // for SAVE PROFILE
     case SAVE_PROFILE: {

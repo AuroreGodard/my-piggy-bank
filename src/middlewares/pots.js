@@ -8,9 +8,9 @@ import { axiosInstance } from '../components/App';
 
 // POTSmiddleWare
 const potsMiddleWare = (store) => (next) => (action) => {
-  // read token in localstorage ???
+  // read token in localstorage
   const token = localStorage.getItem('token');
-  
+
   switch (action.type) {
     // for POTS
     case POTS: {
