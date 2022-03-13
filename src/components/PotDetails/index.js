@@ -93,17 +93,38 @@ function PotDetails() {
       method: 'POST',
       url: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api/operations',
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2NDcxODc0NjEsImV4cCI6MTY1MDc4NzQ2MSwicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJ1c2VybmFtZSI6ImFkbWluQGFkbWluLmNvbSJ9.WuGrP4vXzUDOcNuiuac45bocPjOp17EXzU5OUIpnc_QW5ioOda1crBxlluxv7yRFOFtIaydQVFK3Ko4-dKLaiOKHk0_k1c_5hE3zYq64cFV1HJfI_5B7L6cJXrmbqUlleulU9r6jhnjnFZpj98hiL659Lp2nEH8wbmrcbHL-ySt7BnHbi1Ct8xWPtZhqwBrB-t7azoYO4xpcwniJ9ocFg8waRcmVMRduprBjw7i-XzNr4a-RpTwFxFYgH1j8vD42YDT7WeYjAKxpq-Hf3Sm0YqUO22D9RVG2_lIabNT5B-7OXQNT_vXhXSByZwbNA4d3BJVWLtsh_z8JIepJbExSHw',
+        Authorization: `Bearer ${token}`,
       },
       data: { type: true, amount: amountAdd, pot: params.id },
     };
 
-    axios.request(options).then((response) => {
-      console.log(response.data);
-    }).catch((error) => {
-      console.error(error);
-    });
+    axios.request(options)
+      .then((response) => {
+        console.log(response.data);
+      }).catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const OnSubmitAmountWithdraw = (event) => {
+    const token = localStorage.getItem('token');
+    event.preventDefault();
+
+    const options = {
+      method: 'POST',
+      url: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api/operations',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      data: { type: false, amount: amountWithdraw, pot: params.id },
+    };
+
+    axios.request(options)
+      .then((response) => {
+        console.log(response.data);
+      }).catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -220,7 +241,7 @@ function PotDetails() {
             <input
               type="number"
               value={amountAdd}
-              name="goalamount"
+              name="amountAdd"
               className="bg-gray-50 border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
               placeholder="1.000 €"
               required
@@ -248,7 +269,7 @@ function PotDetails() {
         overlayClassName="Overlay"
         className="modal"
       >
-        <div className="flex flex-col gap-4">
+        <form onSubmit={OnSubmitAmountWithdraw} className="flex flex-col gap-4">
           <h3 className="w-fit underline-modal-withdraw uppercase text-[1.4em] text-center mb-4 lg:mb-8">
             Retirer de l'argent
           </h3>
@@ -257,7 +278,7 @@ function PotDetails() {
             <input
               type="number"
               value={amountWithdraw}
-              name="goalamount"
+              name="amountWithdraw"
               className="bg-gray-50 border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
               placeholder="1.000 €"
               required
@@ -274,7 +295,7 @@ function PotDetails() {
             <input onClick={() => setShowModalWithdraw(false)} type="submit" className="mt-4 w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Fermer" />
             <input type="submit" className="mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Retirer" />
           </div>
-        </div>
+        </form>
       </ReactModal>
     </main>
   );
