@@ -1,13 +1,22 @@
 // Import
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import './style.scss';
+import { pots } from '../../actions/pots';
 
 // Component
 function PotsCards() {
-  const pots = useSelector((state) => state.pots.pots);
+  
+  const potsMap = useSelector((state) => state.pots.pots);
+  const dispatch = useDispatch();
+
 
   let bar = 'block';
+
+  useEffect(() => {
+    dispatch(pots());
+  }, []);
 
   const date = (dateFormat) => {
     const formatFr = new Date(dateFormat).toLocaleString('fr');
@@ -32,7 +41,7 @@ function PotsCards() {
   return (
     <>
       {
-       pots.map(
+       potsMap.map(
          (pot) => (
            // Link to component 'Potdetail' with id
            <NavLink to={`/potdetails/${pot.id}`} key={pot.id} className="cards-shadows min-h-64 rounded-lg flex-col cursor-pointer bg-white pb-2">
