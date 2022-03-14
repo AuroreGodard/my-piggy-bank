@@ -5,10 +5,11 @@ import { useState, useEffect } from 'react';
 import { axiosInstance } from '../App';
 
 // Component
-function CardDetailActivitymoveory() {
+function CardDetailActivitymoveory({ withdrawFunds, addFunds }) {
   const [moves, setMoves] = useState([]);
   const withdraw = 'px-2 inline-flex text-xs leading-5 rounded-full withdraw';
   const pay = 'px-2 inline-flex text-xs leading-5 rounded-full pay';
+  const token = localStorage.getItem('token');
 
   const actionType = (action) => {
     if (action === true) {
@@ -17,24 +18,25 @@ function CardDetailActivitymoveory() {
     return 'Retrait';
   };
 
+  const params = useParams();
+
   const options = {
     method: 'GET',
-    url: '/pots/1/operations',
+    url: `/pots/${params.id}/operations`,
     headers: {
-      Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2NDcyNTUzNzcsImV4cCI6MTY1MDg1NTM3Nywicm9sZXMiOlsiUk9MRV9BRE1JTiJdLCJ1c2VybmFtZSI6ImFkbWluQGFkbWluLmNvbSJ9.Bzlhg98tj4PzxAxh6bskujnoP1ZGIQ3GE_lYc2C0--ubukqzeixwm9rtf2AxYe6YB_FxSgI36uitu88dZNkFB7wreRmaRA8bjFWgYFOntoCTus7ecYkXVWsO8mYf2VD7hhCRQQZU6kra3UYPpbAyWQJ4M_K4Fs6Kh9V6WRih37o8ws36h1fNQPOcrVjF8QrKwEWsSYYHPBuBlY5EjmFXvFfLpIYtE12wiSumIs14I8zvYSocgCLJaglgURpRE7WPfxd77ZalQrlhSKGFgqX9-r4BcQW9dtCZi21dhGlsBQL5YK0ib8WY8pABQxc07vDPAWnpD0-pI6EfG5s7Uk0AaA',
+      Authorization: `Bearer ${token}`,
     },
   };
   useEffect(() => {
     axiosInstance.request(options)
       .then((response) => {
-        // console.log('mes operations', response.data.slice(0).reverse().map((moveory) => moveory));
         setMoves(response.data);
-        // console.log(moves);
+        console.log(moves);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, [moves]);
+  }, [withdrawFunds, addFunds]);
 
   return (
     <div className="flex flex-col gap-4">
