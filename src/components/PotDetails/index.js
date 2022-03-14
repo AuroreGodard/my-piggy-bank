@@ -6,6 +6,7 @@ import ReactModal from 'react-modal';
 import ReactDOM from 'react-dom';
 import { axiosInstance } from 'src/components/App';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import { setAmountAdd, setAmountWithdraw } from '../../actions/pots';
 
 // Import component
@@ -102,9 +103,37 @@ function PotDetails() {
       .then((response) => {
         console.log(response.data);
         setShowModalAdd(false);
-        window.location.reload(true);
+        // window.location.reload(true);
+        Swal.fire({
+          position: 'bottom-left',
+          icon: 'success',
+          title: `Dépôt de ${amountAdd}€ réussi`,
+          showConfirmButton: false,
+          timer: 2000,
+          toast: true,
+          timerProgressBar: true,
+          showclass: {
+            popup: 'swal2-show',
+            backdrop: 'swal2-backdrop-show',
+            icon: 'modal-login-success',
+          },
+        });
       }).catch((error) => {
         console.error(error);
+        Swal.fire({
+          position: 'bottom-left',
+          icon: 'error',
+          title: "Une erreur s'est produite",
+          showConfirmButton: false,
+          timer: 2000,
+          toast: true,
+          timerProgressBar: true,
+          showclass: {
+            popup: 'swal2-show',
+            backdrop: 'swal2-backdrop-show',
+            icon: 'modal-login-success',
+          },
+        });
       });
   };
 
@@ -125,9 +154,37 @@ function PotDetails() {
       .then((response) => {
         console.log(response.data);
         setShowModalWithdraw(false);
-        window.location.reload(true);
+        // window.location.reload(true);
+        Swal.fire({
+          position: 'bottom-left',
+          icon: 'success',
+          title: `Retrait de ${amountWithdraw}€ réussi`,
+          showConfirmButton: false,
+          timer: 2000,
+          toast: true,
+          timerProgressBar: true,
+          showclass: {
+            popup: 'swal2-show',
+            backdrop: 'swal2-backdrop-show',
+            icon: 'modal-login-success',
+          },
+        });
       }).catch((error) => {
         console.error(error);
+        Swal.fire({
+          position: 'bottom-left',
+          icon: 'error',
+          title: 'Montant du retrait trop important',
+          showConfirmButton: false,
+          timer: 2000,
+          toast: true,
+          timerProgressBar: true,
+          showclass: {
+            popup: 'swal2-show',
+            backdrop: 'swal2-backdrop-show',
+            icon: 'modal-login-success',
+          },
+        });
       });
   };
 
