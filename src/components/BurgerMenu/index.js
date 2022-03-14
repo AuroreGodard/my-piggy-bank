@@ -19,6 +19,7 @@ export default function App() {
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   const onClick = () => setIsActive(!isActive);
   const logged = localStorage.getItem('token');
+
   const dispatch = useDispatch();
 
   const handleLogout = () => {
@@ -60,6 +61,34 @@ export default function App() {
                 <NavLink to="/dashboard" className="bg-[#C9DECE] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
                   Tableau de bord
                 </NavLink>
+
+                <button onClick={handleLogout} className="bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+                  Me déconnecter
+                </button>
+              </>
+            )}
+
+          {!logged
+            ? (
+              <>
+                <NavLink to="/signup" className="mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+                  M'inscrire
+                </NavLink>
+
+                <NavLink to="/login" className="bg-[#C9DECE] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+                  Me connecter
+                </NavLink>
+              </>
+            )
+            : (
+              <>
+                <NavLink to="/dashboard" className="bg-[#C9DECE] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+                  Tableau de bord
+                </NavLink>
+
+                <a href="http://martin-ferret.vpnuser.lan:8080/admin" className="bg-[#C9DECE] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center text-center items-center gap-2" type="button">
+                  Back-Office
+                </a>
 
                 <button onClick={handleLogout} className="bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
                   Me déconnecter
