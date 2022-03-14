@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import ReactModal from 'react-modal';
 import ReactDOM from 'react-dom';
 import { axiosInstance } from 'src/components/App';
+import axios from 'axios';
 import { setAmountAdd, setAmountWithdraw } from '../../actions/pots';
 
 // Import component
@@ -20,6 +21,7 @@ ReactModal.setAppElement('#root');
 function PotDetails() {
   // use of useParams hook to get the variable parameter of the url (id)
   const params = useParams();
+
   const dispatch = useDispatch();
 
   // place datas from API in state
@@ -80,8 +82,50 @@ function PotDetails() {
     },
   };
 
-  const amountadd = useSelector((state) => state.pots.amountAdd);
-  const amountwithdraw = useSelector((state) => state.pots.amountWithdraw);
+  const amountAdd = useSelector((state) => state.pots.amountAdd);
+  const amountWithdraw = useSelector((state) => state.pots.amountWithdraw);
+
+  const OnSubmitAmountAdd = (event) => {
+    const token = localStorage.getItem('token');
+    event.preventDefault();
+
+    const options = {
+      method: 'POST',
+      url: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api/operations',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      data: { type: true, amount: amountAdd, pot: params.id },
+    };
+
+    axios.request(options)
+      .then((response) => {
+        console.log(response.data);
+      }).catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const OnSubmitAmountWithdraw = (event) => {
+    const token = localStorage.getItem('token');
+    event.preventDefault();
+
+    const options = {
+      method: 'POST',
+      url: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api/operations',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      data: { type: false, amount: amountWithdraw, pot: params.id },
+    };
+
+    axios.request(options)
+      .then((response) => {
+        console.log(response.data);
+      }).catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
 
@@ -188,7 +232,7 @@ function PotDetails() {
         overlayClassName="Overlay"
         className="modal"
       >
-        <div className="flex flex-col gap-4">
+        <form onSubmit={OnSubmitAmountAdd} className="flex flex-col gap-4">
           <h3 className="w-fit underline-modal-add uppercase text-[1.4em] text-center mb-4 lg:mb-8">
             Ajouter de l'argent
           </h3>
@@ -196,14 +240,14 @@ function PotDetails() {
             <label htmlFor="goalamount" className="text-sm font-medium text-gray-900 block mb-2">Montant à ajouter</label>
             <input
               type="number"
-              value={amountadd}
-              name="goalamount"
+              value={amountAdd}
+              name="amountAdd"
               className="bg-gray-50 border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
               placeholder="1.000 €"
               required
               onChange={
                 (event) => {
-                  dispatch(setAmountAdd(event.target.value));
+                  dispatch(setAmountAdd(parseInt(event.target.value, 10)));
                 }
             }
             />
@@ -213,7 +257,7 @@ function PotDetails() {
             <input onClick={() => setShowModalAdd(false)} type="submit" className="mt-4 w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Fermer" />
             <input type="submit" className="mt-4 bg-[#C9DECE] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Ajouter" />
           </div>
-        </div>
+        </form>
       </ReactModal>
 
       {/* Modal for 'Retirer' button */}
@@ -225,7 +269,7 @@ function PotDetails() {
         overlayClassName="Overlay"
         className="modal"
       >
-        <div className="flex flex-col gap-4">
+        <form onSubmit={OnSubmitAmountWithdraw} className="flex flex-col gap-4">
           <h3 className="w-fit underline-modal-withdraw uppercase text-[1.4em] text-center mb-4 lg:mb-8">
             Retirer de l'argent
           </h3>
@@ -233,14 +277,14 @@ function PotDetails() {
             <label htmlFor="goalamount" className="text-sm font-medium text-gray-900 block mb-2">Montant à retirer</label>
             <input
               type="number"
-              value={amountwithdraw}
-              name="goalamount"
+              value={amountWithdraw}
+              name="amountWithdraw"
               className="bg-gray-50 border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
               placeholder="1.000 €"
               required
               onChange={
                 (event) => {
-                  dispatch(setAmountWithdraw(event.target.value));
+                  dispatch(setAmountWithdraw(parseInt(event.target.value, 10)));
                 }
             }
 
@@ -251,7 +295,7 @@ function PotDetails() {
             <input onClick={() => setShowModalWithdraw(false)} type="submit" className="mt-4 w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Fermer" />
             <input type="submit" className="mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Retirer" />
           </div>
-        </div>
+        </form>
       </ReactModal>
     </main>
   );
