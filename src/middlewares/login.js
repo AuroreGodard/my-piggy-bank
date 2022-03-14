@@ -1,5 +1,4 @@
 // Import
-import axios from 'axios';
 import {
   LOGIN, saveToken, LOGOUT, saveUserApi,
 } from '../actions/login';

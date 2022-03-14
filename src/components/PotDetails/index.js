@@ -91,16 +91,18 @@ function PotDetails() {
 
     const options = {
       method: 'POST',
-      url: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api/operations',
+      url: '/operations',
       headers: {
         Authorization: `Bearer ${token}`,
       },
       data: { type: true, amount: amountAdd, pot: params.id },
     };
 
-    axios.request(options)
+    axiosInstance.request(options)
       .then((response) => {
         console.log(response.data);
+        setShowModalAdd(false);
+        window.location.reload(true);
       }).catch((error) => {
         console.error(error);
       });
@@ -112,16 +114,18 @@ function PotDetails() {
 
     const options = {
       method: 'POST',
-      url: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api/operations',
+      url: '/operations',
       headers: {
         Authorization: `Bearer ${token}`,
       },
       data: { type: false, amount: amountWithdraw, pot: params.id },
     };
 
-    axios.request(options)
+    axiosInstance.request(options)
       .then((response) => {
         console.log(response.data);
+        setShowModalWithdraw(false);
+        window.location.reload(true);
       }).catch((error) => {
         console.error(error);
       });
