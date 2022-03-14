@@ -45,7 +45,7 @@ function PotDetails() {
       .catch((err) => {
         console.log(err);
       });
-  }, [params.id]);
+  }, [params.id, potDatas]);
 
   let bar = 'block';
 
