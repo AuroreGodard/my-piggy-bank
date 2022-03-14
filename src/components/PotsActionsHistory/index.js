@@ -77,7 +77,7 @@ function PotsActionsHistory() {
                   </tr>
                 </thead>
                 {
-       historys.map(
+       historys.slice(0).reverse().map(
          (hist) => (
            <tbody key={hist.createdAt} className="bg-white">
              <tr className="hover:bg-slate-50 shadow-sm">
@@ -87,7 +87,9 @@ function PotsActionsHistory() {
                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1  4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
                    </svg>
                    <div className="text-sm leading-5 text-gray-900">
-                     { hist.user.firstname } { hist.user.lastname }
+                     { hist.user.firstname }
+                     {' '}
+                     { hist.user.lastname }
                    </div>
                  </div>
                </td>
@@ -104,7 +106,7 @@ function PotsActionsHistory() {
                <td
                  className="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500"
                >
-                 { hist.type ? '+ ' +  hist.amount + ' €' : '- ' + hist.amount + ' €' }
+                 { hist.type ? `+ ${hist.amount} €` : `- ${hist.amount} €` }
                </td>
              </tr>
            </tbody>
@@ -124,4 +126,4 @@ function PotsActionsHistory() {
 
 // Export
 export default PotsActionsHistory;
-//"px-2 inline-flex text-xs leading-5 rounded-full withdraw"
+// "px-2 inline-flex text-xs leading-5 rounded-full withdraw"

@@ -30,7 +30,8 @@ const potsMiddleWare = (store) => (next) => (action) => {
             localStorage.setItem('pots', JSON.stringify(response.data));
             console.log('ce sont mes cagnottes du ls ', localStorage.getItem('pots'));
           },
-        ).catch(
+        )
+        .catch(
           () => console.log('error'),
         );
       next(action);
