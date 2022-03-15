@@ -45,7 +45,7 @@ function CardDetailActivitymoveory({ withdrawFunds, addFunds }) {
       <section>
 
         {/* WELCOME TITLE */}
-        <section className="w-full uppercase text-[1.5em] mb-4 flex
+        <section className="w-full uppercase mb-4 flex
             "
         >
           <h3 className="w-fit underline-step-title uppercase text-[1.5em]
