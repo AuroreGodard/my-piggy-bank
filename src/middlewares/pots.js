@@ -11,6 +11,7 @@ import {
   RETRY_AMOUNT,
   setShowModalWithdrawFalse,
   savePotDatas,
+  getPotId,
 } from '../actions/pots';
 
 import { axiosInstance } from '../components/App';
@@ -142,6 +143,7 @@ const potsMiddleWare = (store) => (next) => (action) => {
         .then((response) => {
           console.log('onsubmitadd', response.data.amount);
           store.dispatch(setShowModalAddFalse());
+          store.dispatch(getPotId());
           // setShowModalAdd(false);
           // setAddFunds(response.data.amount);
           // window.location.reload(true);
@@ -181,10 +183,30 @@ const potsMiddleWare = (store) => (next) => (action) => {
     }
 
     case RETRY_AMOUNT: {
-      axiosInstance.request(options)
+      const {
+        pots: {
+          amountWithdraw,
+          id,
+        },
+      } = store.getState();
+
+      const amount = amountWithdraw;
+      const pot = id;
+      const type = false;
+
+      axiosInstance.post('/operations', {
+        type,
+        amount,
+        pot,
+      }, {
+        headers: {
+          Authorization: (`Bearer ${token}`),
+        },
+      })
         .then((response) => {
           console.log(response.data);
           store.dispatch(setShowModalWithdrawFalse());
+          store.dispatch(getPotId());
           // setShowModalWithdraw(false);
           // setWithdrawFunds(response.data.amount);
           // window.location.reload(true);

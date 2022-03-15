@@ -13,6 +13,7 @@ import {
   getIdFromPotDetail,
   getPotId,
   addAmount,
+  retryAmount,
 } from '../../actions/pots';
 
 // Import component
@@ -83,6 +84,7 @@ function PotDetails() {
   const OnSubmitAmountWithdraw = (event) => {
     event.preventDefault();
     dispatch(setShowModalWithdrawFalse());
+    dispatch(retryAmount());
   };
 
   return (
