@@ -26,9 +26,9 @@ ReactModal.setAppElement('#root');
 // Component
 function PotDetails() {
   const params = useParams();
-  console.log(params);
+  console.log(params.id);
   const dispatch = useDispatch();
-  dispatch(getIdFromPotDetail(params));
+  dispatch(getIdFromPotDetail(parseInt(params.id, 10)));
 
   const amountAdd = useSelector((state) => state.pots.amountAdd);
   const amountWithdraw = useSelector((state) => state.pots.amountWithdraw);
@@ -60,7 +60,7 @@ function PotDetails() {
 
   useEffect(() => {
     dispatch(getPotId());
-  }, []);
+  });
 
   const customStyles = {
     content: {

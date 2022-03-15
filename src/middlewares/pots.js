@@ -89,10 +89,9 @@ const potsMiddleWare = (store) => (next) => (action) => {
           id,
         },
       } = store.getState();
-      const pot = id;
       axiosInstance
         .get(
-          `/pots/${pot}`,
+          `/pots/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
