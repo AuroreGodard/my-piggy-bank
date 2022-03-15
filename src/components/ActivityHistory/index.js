@@ -1,7 +1,8 @@
 // Component
+
 function ActivityHistory() {
   return (
-    <div>test</div>
+    <div />
   );
 }
 
