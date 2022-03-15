@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import './styles.scss';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { HashLink } from 'react-router-hash-link';
 import { useDetectOutsideClick } from './useDetectOutsideClick';
 
 import {
@@ -72,9 +73,9 @@ export default function App() {
         <div className="uppercase text-[1em]">
           <ul className="flex flex-col gap-2">
             <li>
-              <NavLink to="/" className="bg-[#CFB6E5] w-full text-slate-600 font-bold text-center px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+              <HashLink to="/#concept" className="bg-[#CFB6E5] w-full text-slate-600 font-bold text-center px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
                 Le concept
-              </NavLink>
+              </HashLink>
             </li>
             <li>
               <NavLink to="/faq" className="bg-[#CFB6E5] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 text-center" type="button">
