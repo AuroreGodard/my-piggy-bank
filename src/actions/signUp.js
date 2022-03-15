@@ -77,3 +77,11 @@ export const setSaveLastName = (value) => ({
   type: SET_SAVE_LASTNAME,
   value,
 });
+
+// ACTION TYPE CLEAR_FIELDS
+export const CLEAR_FIELDS = 'CLEAR_FIELDS';
+
+// ACTION CREATOR setSaveLastName
+export const clearFields = () => ({
+  type: CLEAR_FIELDS,
+});
