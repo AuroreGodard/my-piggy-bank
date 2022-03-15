@@ -11,16 +11,19 @@ import store from 'src/store';
 import Login from 'src/components/Login';
 import SignUp from 'src/components/SignUp';
 import AddPot from 'src/components/AddPot';
+import PotDetails from 'src/components/PotDetails';
 import ProtectedRoutes from 'src/components/ProtectedRoutes';
 import Faq from 'src/components/Faq';
 import UserProfile from 'src/components/UserProfile';
 import PotsActionsHistory from 'src/components/PotsActionsHistory';
+import HeaderMenu from 'src/components/HeaderMenu';
+import BottomMenu from 'src/components/BottomMenu';
+import Sidebar from './components/Sidebar';
 
 // Store
 
 // == Render
-// 1. Élément React racine (celui qui contient l'ensemble de l'app)
-//    => crée une structure d'objets imbriqués (DOM virtuel)
+// 1. Root React element (the one that contains the whole app => structure DOM virtuel)
 const rootReactElement = (
   <BrowserRouter>
     <Provider store={store}>
@@ -29,18 +32,71 @@ const rootReactElement = (
         <Route path="faq" element={<Faq />} />
         <Route path="signup" element={<SignUp />} />
         <Route element={<ProtectedRoutes />}>
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="login" element={<Login />} />
-          <Route path="userprofile" element={<UserProfile />} />
-          <Route path="addpot" element={<AddPot />} />
-          <Route path="actionshistory" element={<PotsActionsHistory />} />
+          <Route
+            path="potdetails/:id"
+            element={(
+              <>
+                <HeaderMenu />
+                <PotDetails />
+                <BottomMenu />
+                <Sidebar />
+              </>
+)}
+          />
+          <Route
+            path="dashboard"
+            element={(
+              <>
+                <HeaderMenu />
+                <Dashboard />
+                <BottomMenu />
+                <Sidebar />
+              </>
+)}
+          />
+          <Route
+            path="login"
+          />
+          <Route
+            path="userprofile"
+            element={(
+              <>
+                <HeaderMenu />
+                <UserProfile />
+                <BottomMenu />
+                <Sidebar />
+              </>
+)}
+          />
+          <Route
+            path="addpot"
+            element={(
+              <>
+                <HeaderMenu />
+                <AddPot />
+                <BottomMenu />
+                <Sidebar />
+              </>
+)}
+          />
+          <Route
+            path="actionshistory"
+            element={(
+              <>
+                <HeaderMenu />
+                <PotsActionsHistory />
+                <BottomMenu />
+                <Sidebar />
+              </>
+)}
+          />
         </Route>
-
       </Routes>
     </Provider>
   </BrowserRouter>
 );
-// 2. La cible du DOM (là où la structure doit prendre vie dans le DOM)
+// 2. Target where structure comes to life in the DOM
 const target = document.getElementById('root');
-// 3. Déclenchement du rendu de React (virtuel) => DOM (page web)
+
+// 3. render from react (virtuel) => DOM (Web page)
 render(rootReactElement, target);

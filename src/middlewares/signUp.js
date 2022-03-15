@@ -1,12 +1,11 @@
-import axios from 'axios';
+// Import
 import { SIGN_UP } from '../actions/signUp';
+import { axiosInstance } from '../components/App';
 
-const axiosInstance = axios.create({
-  baseURL: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',
-});
-
+// SIGNUPmiddleWare
 const signUpMiddleWare = (store) => (next) => (action) => {
   switch (action.type) {
+    // for SIGNUP
     case SIGN_UP: {
       const {
         signUp: {
@@ -36,9 +35,11 @@ const signUpMiddleWare = (store) => (next) => (action) => {
     }
       next(action);
       break;
+
     default:
       next(action);
   }
 };
 
+// Export
 export default signUpMiddleWare;

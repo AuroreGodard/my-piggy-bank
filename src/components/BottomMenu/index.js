@@ -1,5 +1,7 @@
+// import
 import { NavLink } from 'react-router-dom';
 
+// Component
 function BottomMenu() {
   return (
     <aside className="w-full h-14 px-8 flex items-center justify-between fixed bottom-0 bg-slate-600 text-white
@@ -8,7 +10,7 @@ function BottomMenu() {
     >
 
       {/*  Add Pot  */}
-      <NavLink to="/dashboard" className="h-10 w-10  flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white">
+      <NavLink to="/addpot" className="h-10 w-10  flex items-center justify-center rounded-lg cursor-pointer hover:text-gray-800 hover:bg-white  hover:duration-300 hover:ease-linear focus:bg-white">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-plus-circle-fill" viewBox="0 0 16 16">
           <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
         </svg>
@@ -41,4 +43,5 @@ function BottomMenu() {
   );
 }
 
+// Export
 export default BottomMenu;

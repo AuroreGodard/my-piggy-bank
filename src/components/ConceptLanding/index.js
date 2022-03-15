@@ -1,12 +1,27 @@
+// Import
 import { Link } from 'react-router-dom';
-import HeaderMenu from '../HeaderMenu';
 
-// CSS
+// import assets
+import alexis from 'src/assets/images/alexis.png';
+import martin from 'src/assets/images/martin.png';
+import julien from 'src/assets/images/alexis.png';
+import tristan from 'src/assets/images/tristan.png';
+import aurore from 'src/assets/images/aurore.png';
+
+import mpbFull from 'src/assets/images/mpb-logo-full.svg';
+
+import HeaderMenu from '../HeaderMenu';
+import MemberCard from './MemberCard';
+
+// import assets
+
+// Import CSS
 import './style.scss';
 
-// assets
+// Import assets
 import piggybank from '../../assets/images/piggybank.gif';
 
+// Component
 function ConceptLanding() {
   return (
     /* HOMEPAGE container */
@@ -61,7 +76,9 @@ function ConceptLanding() {
                 <p className=" mt-8 text-gray-600
                 "
                 >
-                  Fixez-vous des objectifs
+                  Challengez votre épargne
+                  <br />
+                  en vous fixant des objectifs.
                 </p>
               </div>
 
@@ -70,12 +87,12 @@ function ConceptLanding() {
               md:items-center
               md:justify-start"
               >
-                <button className="bg-[#CFB6E5] w-fit text-slate-600 font-bold px-6 rounded-lg py-2 uppercase flex items-center gap-2" type="button">
-                  <Link to="/addpot">Créer ma cagnotte</Link>
+                <Link to="/addpot" className="bg-[#CFB6E5] w-fit text-slate-600 font-bold px-6 rounded-lg py-2 uppercase flex items-center gap-2" type="button">
+                  <span>Créer ma cagnotte</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-arrow-right-short" viewBox="0 0 16 16">
                     <path fillRule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
                   </svg>
-                </button>
+                </Link>
                 <div
                   className="uppercase text-xs flex flex-col gap-2 items-center text-gray-600
                 md:flex-row"
@@ -202,9 +219,88 @@ function ConceptLanding() {
 
       {/* ---------------------------------------------------------------- */}
 
+      {/* TEAM main container */}
+      <section className="w-full flex justify-center relative px-4
+      "
+      >
+
+        {/* TEAM limited container */}
+        <div className="w-full pt-16 flex flex-col gap-8 items-center
+        xl:w-[1100px]
+        lg:mx-8
+        md:items-start
+        "
+        >
+
+          <h3 className="w-fit underline-team-title uppercase text-[1.5em]
+          "
+          >
+            Qui sommes-nous ?
+          </h3>
+          <p className="text-gray-600">
+            Nous avons tous suivi une formation au sein de l'école O'Clock d'une durée de 5 mois dont 1 d'une spécialité différente.
+            <br />
+            Notre équipe est composée de 2 développeurs back-end et 3 développeurs.euse front-end.
+          </p>
+
+          {/* TEAM cards */}
+          <div className="pb-32 gap-12 grid grid-cols-1 justify-between
+          lg:grid-cols-5
+          md:grid-cols-3
+          sm:grid-cols-2
+          xs:grid-cols-1
+          "
+          >
+            <MemberCard name="Tristan B" title="Développeur back-end" teamRole="Product Owner / Git master back" color="bg-[#CFB6E5]" photo={tristan} linkedin="https://www.linkedin.com/in/tristan-bonnal-597534204/" />
+            <MemberCard name="Martin F" title="Développeur back-end" teamRole="Lead dev back" color="bg-[#C1E3FE]" photo={martin} linkedin="https://www.linkedin.com/in/martin-ferret/" />
+            <MemberCard name="Aurore G" title="Développeuse front-end" teamRole="Scrum Master" color="bg-[#FFD9E0]" photo={aurore} linkedin="https://www.linkedin.com/in/aurore-godard/" />
+            <MemberCard name="Julien P" title="Développeur front-end" teamRole="Lead dev Front / Git master front" color="bg-[#C1E3FE]" linkedin="https://www.linkedin.com/in/pernotjulien/" />
+            <MemberCard name="Alexis K" title="Développeur front-end" teamRole="Référent technique" color="bg-[#F1EECD]" photo={alexis} linkedin="https://www.linkedin.com/in/alexiskapetanovic/" />
+          </div>
+          {/* END TEAM cards */}
+
+        </div>
+        {/* END TEAM limited container */}
+
+      </section>
+      {/* END TEAM main container */}
+
+      {/* ---------------------------------------------------------------- */}
+
       {/* FOOTER container */}
-      <section>
-        <div>test</div>
+      <section className="bg-[#C9DECE] flex justify-center py-8 items-start">
+        <div className="w-full flex justify-between
+        xl:w-[1100px]
+        "
+        >
+          <div className="w-1/3 flex flex-col gap-8">
+            <h3 className="w-fit underline-footer-nav-title uppercase text-[1.5em]
+          "
+            >
+              Navigation
+            </h3>
+            <ul className="flex flex-col gap-2">
+              <li>
+                {' '}
+                <a href="#concept">Le concept</a>
+              </li>
+              <li><Link to="/faq">FAQ</Link></li>
+            </ul>
+          </div>
+
+          <div className="w-1/3  flex justify-center">
+            <Link to="/"><img className="h-36" src={mpbFull} alt="" /></Link>
+          </div>
+
+          <div className="w-1/3 flex flex-col justify-start items-end gap-8">
+            <h3 className="w-fit h-fit underline-footer-nav-title uppercase text-[1.5em] text-right
+          "
+            >
+              Nous contacter
+            </h3>
+            <p className="cursor-pointer">hello@mypiggybank.fr</p>
+          </div>
+        </div>
       </section>
       {/* END FOOTER container */}
 
@@ -215,4 +311,5 @@ function ConceptLanding() {
   );
 }
 
+// Export
 export default ConceptLanding;

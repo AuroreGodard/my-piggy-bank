@@ -1,19 +1,24 @@
-// Styles
+// Import
 import './styles.css';
 import ConceptLanding from 'src/components/ConceptLanding';
+import axios from 'axios';
 
-// Components
+export const axiosInstance = axios.create({
+  baseURL: 'http://martinferret-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',
+});
 
-// == Composant
-const App = () => (
-  <div className=" flex justify-center items-center">
-    <ConceptLanding />
-  </div>
+/* export const axiosInstance = axios.create({
+  baseURL: 'http://martin-ferret.vpnuser.lan:8080/api',
+}); */
 
-);
+// Component
+function App() {
+  return (
+    <div className=" flex justify-center items-center">
+      <ConceptLanding />
+    </div>
+  );
+}
 
-// == Export
+// Export
 export default App;
-
-
-//!ceci est un commentaire

@@ -1,3 +1,4 @@
+// Import
 import { useDispatch, useSelector } from 'react-redux';
 
 // import actions
@@ -6,6 +7,7 @@ import {
   setNewPassword,
 } from '../../actions/login';
 
+// Component
 function Form(handleSubmit) {
   const dispatch = useDispatch();
 
@@ -64,4 +66,5 @@ function Form(handleSubmit) {
   );
 }
 
+// Export
 export default Form;

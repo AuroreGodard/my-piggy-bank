@@ -1,8 +1,8 @@
-/* eslint-disable react/jsx-filename-extension */
-/* eslint-disable react/react-in-jsx-scope */
+// Import
 import HeaderMenu from 'src/components/HeaderMenu';
 import './style.scss';
 
+// Component
 function Faq() {
   const dataFaq = [
     {
@@ -54,4 +54,5 @@ function Faq() {
   );
 }
 
+// Export
 export default Faq;
