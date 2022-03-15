@@ -125,7 +125,7 @@ function AddPot() {
 
             </div>
 
-            <input type="submit" className="mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Je crée ma cagnotte !" />
+            <input type="submit" className="hover-anim mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Je crée ma cagnotte !" />
           </div>
           {/* ICONS LIST */}
           <div>

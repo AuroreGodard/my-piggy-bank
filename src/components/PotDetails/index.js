@@ -300,10 +300,10 @@ function PotDetails() {
             md:justify-start
             lg:flex-col lg:w-1/4 lg:px-8 lg:gap-0 lg:justify-center "
           >
-            <button onClick={() => setShowModalAdd(true)} className="mt-4 bg-[#C9DECE] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+            <button onClick={() => setShowModalAdd(true)} className="hover-anim mt-4 bg-[#C9DECE] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
               Ajouter
             </button>
-            <button onClick={() => setShowModalWithdraw(true)} className="mt-4 bg-[#FFD9E0] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+            <button onClick={() => setShowModalWithdraw(true)} className="hover-anim mt-4 bg-[#FFD9E0] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
               Retirer
             </button>
           </div>

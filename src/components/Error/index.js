@@ -1,5 +1,3 @@
-import Footer from 'src/components/Footer';
-import HeaderMenu from 'src/components/HeaderMenu';
 import { Link } from 'react-router-dom';
 
 import './style.scss';
@@ -9,11 +7,7 @@ function Error() {
 
   return (
     <div className="h-[calc(100vh_-_250px)] w-full flex flex-col gap-8 justify-center items-center mb-16">
-      <h1 className="w-fit pt-8 underline-404-title uppercase text-[4em]
-          "
-      >
-        404
-      </h1>
+      <h1 className="w-fit pt-8 underline-404-title uppercase text-[4em]">404</h1>
       <svg width="315" height="158" viewBox="0 0 315 158" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M131 98.5714C134.351 81.418 141.367 56.4162 163.04 55.1429C171.135 54.6673 178.224 46 185.925 46C195.842 46 205.759 46 215.676 46C232.124 46 248.943 50.3884 258.65 62.5079C263.277 68.2836 264.196 76.2878 268.822 82.0635C274.72 89.4268 270.602 97.6755 270.602 105.429C270.602 139.93 209.125 142 185.925 142C166.903 142 157.44 135.392 145.24 123.206C133.778 111.759 133.289 90.9719 133.289 73.4286" stroke={piggyColor} strokeWidth="6" strokeLinecap="round" />
         <path d="M163 133C161.239 140.652 157.327 148.494 154 155" stroke={piggyColor} strokeWidth="6" strokeLinecap="round" />
@@ -35,7 +29,7 @@ function Error() {
         <br />
         comme notre graphiste...
       </h2>
-      <Link to="/" className="bg-[#CFB6E5] w-fit text-slate-600 font-bold px-6 rounded-lg py-2 uppercase flex items-center gap-2" type="button">
+      <Link to="/" className="hover-anim bg-[#CFB6E5] w-fit text-slate-600 font-bold px-6 rounded-lg py-2 uppercase flex items-center gap-2" type="button">
         <span>Retourner à l'accueil</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-arrow-right-short" viewBox="0 0 16 16">
           <path fillRule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />

@@ -158,7 +158,7 @@ function SignUp() {
             />
           </div>
           <input
-            className="cursor-pointer inline-flex justify-center rounded-md items-center w-full text-center text-slate- h-12 bg-[#FFD9E0] uppercase mt-2 hover:bg-green-300"
+            className="hover-anim cursor-pointer inline-flex justify-center rounded-md items-center w-full text-center text-slate- h-12 bg-[#FFD9E0] uppercase mt-2 "
             type="submit"
             value="Valider"
           />

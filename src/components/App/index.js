@@ -5,8 +5,8 @@ import axios from 'axios';
 
 /* export const axiosInstance = axios.create({
   baseURL: 'http://martinferret-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',
-});
- */
+}); */
+
 /* export const axiosInstance = axios.create({
   baseURL: 'http://martin-ferret.vpnuser.lan:8080/api',
 }); */
