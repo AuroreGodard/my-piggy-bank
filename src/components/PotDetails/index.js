@@ -3,9 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import ReactModal from 'react-modal';
-import ReactDOM from 'react-dom';
 import { axiosInstance } from 'src/components/App';
-import axios from 'axios';
 import Swal from 'sweetalert2';
 import { setAmountAdd, setAmountWithdraw } from '../../actions/pots';
 
@@ -28,6 +26,15 @@ function PotDetails() {
   // place datas from API in state
   const [potDatas, setPotDatas] = useState([]);
 
+  const amountAdd = useSelector((state) => state.pots.amountAdd);
+  const amountWithdraw = useSelector((state) => state.pots.amountWithdraw);
+
+  const [addFunds, setAddFunds] = useState([]);
+  const [withdrawFunds, setWithdrawFunds] = useState([]);
+
+  const [showModalAdd, setShowModalAdd] = useState(false);
+  const [showModalWithdraw, setShowModalWithdraw] = useState(false);
+
   // use of useEffect hook to make an asynchronous call to API with the given id of the URL
   // (from the single card we clicked)
   useEffect(() => {
@@ -39,13 +46,14 @@ function PotDetails() {
       },
     })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setPotDatas(res.data);
+        console.log(potDatas);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [params.id]);
+  }, [addFunds, withdrawFunds]);
 
   let bar = 'block';
 
@@ -69,9 +77,6 @@ function PotDetails() {
     return `Objectif cagnotte: ${amountGoal} €`;
   };
 
-  const [showModalAdd, setShowModalAdd] = useState(false);
-  const [showModalWithdraw, setShowModalWithdraw] = useState(false);
-
   const customStyles = {
     content: {
       top: '50%',
@@ -82,9 +87,6 @@ function PotDetails() {
       transform: 'translate(-50%, -50%)',
     },
   };
-
-  const amountAdd = useSelector((state) => state.pots.amountAdd);
-  const amountWithdraw = useSelector((state) => state.pots.amountWithdraw);
 
   const OnSubmitAmountAdd = (event) => {
     const token = localStorage.getItem('token');
@@ -101,8 +103,9 @@ function PotDetails() {
 
     axiosInstance.request(options)
       .then((response) => {
-        console.log(response.data);
+        console.log('onsubmitadd', response.data.amount);
         setShowModalAdd(false);
+        setAddFunds(response.data.amount);
         // window.location.reload(true);
         Swal.fire({
           position: 'bottom-left',
@@ -154,6 +157,7 @@ function PotDetails() {
       .then((response) => {
         console.log(response.data);
         setShowModalWithdraw(false);
+        setWithdrawFunds(response.data.amount);
         // window.location.reload(true);
         Swal.fire({
           position: 'bottom-left',
@@ -176,7 +180,7 @@ function PotDetails() {
           icon: 'error',
           title: 'Montant du retrait trop important',
           showConfirmButton: false,
-          timer: 2000,
+          timer: 3000,
           toast: true,
           timerProgressBar: true,
           showclass: {
@@ -279,7 +283,7 @@ function PotDetails() {
 
       {/* Card details Activity */}
       <section>
-        <CardDetailActivityHistory />
+        <CardDetailActivityHistory addFunds={addFunds} withdrawFunds={withdrawFunds} />
       </section>
       {/* End Card details Activity */}
 
