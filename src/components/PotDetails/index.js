@@ -168,7 +168,7 @@ function PotDetails() {
 
     axiosInstance.request(options)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setShowModalWithdraw(false);
         setWithdrawFunds(response.data.amount);
         // window.location.reload(true);

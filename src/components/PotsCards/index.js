@@ -65,9 +65,9 @@ function PotsCards() {
                </div>
                <div className="flex flex-col gap-2 w-2/3">
                  <h4 className="tracking-widest font-bold uppercase mt-4 mb-1">{pot.name}</h4>
-                 <p>
+                 <div>
                    <span>{amoutGoalNull(pot.amountGoal)}</span>
-                 </p>
+                 </div>
                  <div className="flex items-center">
                    <p>
                      Date limite

@@ -67,7 +67,7 @@ function RecentActivity() {
         {
        historys.slice(-10).reverse().map(
          (hist) => (
-           <tbody key={hist.createdAt} className="bg-white">
+           <tbody key={hist.id} className="bg-white">
              <tr className="hover:bg-slate-50 shadow-sm">
                <td className="px-6 py-4 whitespace-no-wrap ">
                  <div className="flex gap-2 items-center">

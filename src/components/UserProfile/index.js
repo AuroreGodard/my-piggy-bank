@@ -1,15 +1,11 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './style.scss';
 import { NavLink } from 'react-router-dom';
 
 // import components
-import HeaderMenu from '../HeaderMenu';
-import Sidebar from '../Sidebar';
-import BottomMenu from '../BottomMenu';
 
 // Component
 function UserProfile() {
-  const username = useSelector((state) => state.login.username);
   const firstname = useSelector((state) => state.login.user.firstname);
 
   return (
@@ -55,7 +51,7 @@ function UserProfile() {
         </h3>
         <div>
           <label htmlFor="firstname" className="text-sm font-medium text-gray-900 block mb-2 ">Votre prénom</label>
-          <input type="text" name="firstname" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " value={firstname} required />
+          <input type="text" name="firstname" className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " placeholder="lucien" required />
         </div>
 
         <div>

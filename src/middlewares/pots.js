@@ -26,9 +26,9 @@ const potsMiddleWare = (store) => (next) => (action) => {
         .then(
           (response) => {
             store.dispatch(listPotsApi(response.data));
-            console.log('ce sont mes cagnottes ', response.data);
+            // console.log('ce sont mes cagnottes ', response.data);
             localStorage.setItem('pots', JSON.stringify(response.data));
-            console.log('ce sont mes cagnottes du ls ', localStorage.getItem('pots'));
+            // console.log('ce sont mes cagnottes du ls ', localStorage.getItem('pots'));
           },
         )
         .catch(
@@ -73,7 +73,7 @@ const potsMiddleWare = (store) => (next) => (action) => {
       })
         .then((response) => {
           store.dispatch(historyApi(response.data));
-          console.log(response.data);
+          // console.log(response.data);
         })
         .catch((error) => {
           console.log('error', error);
