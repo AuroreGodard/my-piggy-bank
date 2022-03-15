@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+h1, h2, h3, h4{
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  line-height: 1.3em;
+}
+
+
+/* END HERO container */
+.underlined-title {
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+  background-position: 0 88%;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+
+  &:first-child{
+    background-image: linear-gradient(#C1E3FE 0%, #C1E3FE 100%);
+  }
+
+  &:last-child{
+    background-image: linear-gradient(#FFD9E0 0%, #FFD9E0 100%)
+  }
+}
+
+
+.custom-shape-divider-bottom-1645895499 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1645895499 svg {
+  position: relative;
+  display: block;
+  width: calc(159% + 1.3px);
+  height: 55px;
+}
+
+.custom-shape-divider-bottom-1645895499 .shape-fill {
+  fill: #F1EECD;
+}
+/* END HERO container */
+
+
+/* STEPS container */
+
+.custom-shape-divider-bottom-1645896674 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1645896674 svg {
+  position: relative;
+  display: block;
+  width: calc(159% + 1.3px);
+  height: 55px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1645896674 .shape-fill {
+  fill: #FFFFFF;
+}
+
+
+.underline-step-title{
+  font-weight: 300;
+  background-repeat: no-repeat;
+  background-size: 100% 0.3em;
+  background-position: 0 88%;
+  font-family: 'Oswald', sans-serif;
+  background-image: linear-gradient(#C1E3FE 0%, #C1E3FE 100%);
+
+}
+
+
+
+/* END STEPS container */
+
+
+.lottie-piggy{
+  height:50px;
+}
