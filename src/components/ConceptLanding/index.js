@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // import assets
 import alexis from 'src/assets/images/alexis.png';
 import martin from 'src/assets/images/martin.png';
-import julien from 'src/assets/images/alexis.png';
+import julien from 'src/assets/images/julien.png';
 import tristan from 'src/assets/images/tristan.png';
 import aurore from 'src/assets/images/aurore.png';
 
@@ -253,7 +253,7 @@ function ConceptLanding() {
             <MemberCard name="Tristan B" title="Développeur back-end" teamRole="Product Owner / Git master back" color="bg-[#CFB6E5]" photo={tristan} linkedin="https://www.linkedin.com/in/tristan-bonnal-597534204/" />
             <MemberCard name="Martin F" title="Développeur back-end" teamRole="Lead dev back" color="bg-[#C1E3FE]" photo={martin} linkedin="https://www.linkedin.com/in/martin-ferret/" />
             <MemberCard name="Aurore G" title="Développeuse front-end" teamRole="Scrum Master" color="bg-[#FFD9E0]" photo={aurore} linkedin="https://www.linkedin.com/in/aurore-godard/" />
-            <MemberCard name="Julien P" title="Développeur front-end" teamRole="Lead dev Front / Git master front" color="bg-[#C1E3FE]" linkedin="https://www.linkedin.com/in/pernotjulien/" />
+            <MemberCard name="Julien P" title="Développeur front-end" teamRole="Lead dev Front / Git master front" color="bg-[#C1E3FE]" photo={julien} linkedin="https://www.linkedin.com/in/pernotjulien/" />
             <MemberCard name="Alexis K" title="Développeur front-end" teamRole="Référent technique" color="bg-[#F1EECD]" photo={alexis} linkedin="https://www.linkedin.com/in/alexiskapetanovic/" />
           </div>
           {/* END TEAM cards */}
