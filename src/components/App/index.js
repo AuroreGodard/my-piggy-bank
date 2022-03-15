@@ -18,7 +18,7 @@ export const axiosInstance = axios.create({
 // Component
 function App() {
   return (
-    <div className=" flex justify-center items-center">
+    <div className="flex justify-center items-center">
       <ConceptLanding />
     </div>
   );
