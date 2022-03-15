@@ -7,10 +7,8 @@ import { pots } from '../../actions/pots';
 
 // Component
 function PotsCards() {
-  
   const potsMap = useSelector((state) => state.pots.pots);
   const dispatch = useDispatch();
-
 
   let bar = 'block';
 
@@ -51,10 +49,6 @@ function PotsCards() {
                </div>
                <div className="flex flex-col w-2/3">
                  <h4 className=" font-bold uppercase my-4 ">{pot.name}</h4>
-                 <p>
-                   Création de la cagnotte :
-                   { date(pot.createdAt) }
-                 </p>
                  <p>
                    {amoutGoalNull(pot.amountGoal)}
                  </p>
