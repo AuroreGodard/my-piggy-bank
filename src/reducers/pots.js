@@ -15,12 +15,12 @@ const initialState = {
   pots: [],
   potsLs: '',
   name: 'Luc',
-  amountGoal: 1000,
+  amountGoal: '',
   dateGoal: '',
   history: [],
   // for add and withddraw button
-  amountAdd: 20,
-  amountWithdraw: 20,
+  amountAdd: '',
+  amountWithdraw: '',
 };
 
 // Pots Reducer
