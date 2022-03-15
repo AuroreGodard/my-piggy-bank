@@ -33,7 +33,7 @@ function PotsCards() {
       bar = 'none';
       return (
         <span className="bg-[#F1EECD] p-1 px-2 rounded-md">
-          Aucun objectif fixé
+          Pas d'objectif de somme
         </span>
       );
     }

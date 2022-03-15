@@ -51,7 +51,7 @@ function CardDetailActivitymoveory({ withdrawFunds, addFunds }) {
           <h3 className="w-fit underline-step-title uppercase text-[1.5em]
           "
           >
-            Vos 10 derniers mouvements
+            Dernières actions
           </h3>
         </section>
         {/* END WELCOME TITLE */}

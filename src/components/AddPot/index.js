@@ -116,7 +116,7 @@ function AddPot() {
           </div>
           {/* ICONS LIST */}
           <div>
-            <label htmlFor="avatar" className="text-sm font-medium text-gray-900 block mb-2">Choisir une icône</label>
+            <label htmlFor="avatar" className="text-sm font-medium text-gray-900 block mb-2">Icône de la cagnotte</label>
             <div className="grid grid-cols-4 gap-2">
               <div className="">
                 <svg xmlns="http://www.w3.org/2000/svg" width="54" height="54" fill="currentColor" className="bi bi-piggy-bank" viewBox="0 0 16 16">
