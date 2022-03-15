@@ -77,9 +77,9 @@ export default function App() {
               </NavLink>
             </li>
             <li>
-              <button className="bg-[#CFB6E5] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+              <NavLink to="/faq" className="bg-[#CFB6E5] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 text-center" type="button">
                 FAQ
-              </button>
+              </NavLink>
             </li>
             <li>
               <button className="bg-[#CFB6E5] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">

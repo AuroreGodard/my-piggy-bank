@@ -18,6 +18,7 @@ import UserProfile from 'src/components/UserProfile';
 import PotsActionsHistory from 'src/components/PotsActionsHistory';
 import HeaderMenu from 'src/components/HeaderMenu';
 import BottomMenu from 'src/components/BottomMenu';
+import Footer from 'src/components/Footer';
 import Sidebar from './components/Sidebar';
 
 // Store
@@ -29,7 +30,16 @@ const rootReactElement = (
     <Provider store={store}>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="faq" element={<Faq />} />
+        <Route
+          path="faq"
+          element={(
+            <>
+              <HeaderMenu />
+              <Faq />
+              <Footer />
+            </>
+)}
+        />
         <Route path="signup" element={<SignUp />} />
         <Route element={<ProtectedRoutes />}>
           <Route

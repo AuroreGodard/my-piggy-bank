@@ -36,21 +36,17 @@ function Faq() {
   ];
 
   return (
-    <>
-      <HeaderMenu />
+    <div className="container mx-auto p-4">
+      <h3 className="w-fit underline-step-title uppercase text-[1.5em] mb-5">FAQ</h3>
 
-      <div className="container mx-auto p-4">
-        <h3 className="w-fit underline-step-title uppercase text-[1.5em] mb-5">FAQ</h3>
+      {dataFaq.map((faq) => (
+        <div className="mb-7 shadow-md p-3 rounded-md" key={faq.title}>
+          <h2 className="mb-3">{faq.title}</h2>
+          <p>{faq.content}</p>
+        </div>
+      ))}
 
-        {dataFaq.map((faq) => (
-          <div className="mb-7 shadow-md p-3 rounded-md" key={faq.title}>
-            <h2 className="mb-3">{faq.title}</h2>
-            <p>{faq.content}</p>
-          </div>
-        ))}
-
-      </div>
-    </>
+    </div>
   );
 }
 
