@@ -53,11 +53,13 @@ function SignUp() {
             Créer mon compte
           </h3>
 
-          <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
+          <div className="w-full">
+            <label htmlFor="email" className="text-sm font-medium text-gray-900 block mb-2 ">Votre email</label>
             <input
-              required
-              className="w-4/5 flex align-middle justify-center p-2 rounded-md"
-              placeholder="Email"
+              type="email"
+              name="email"
+              className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
+              placeholder="lucien.dupont@gmail.com"
               type="email"
               value={email}
               onChange={
@@ -68,12 +70,13 @@ function SignUp() {
             />
           </div>
 
-          <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
+          <div className="w-full">
+            <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 ">Votre mot de passe</label>
             <input
-              required
-              className="w-4/5 flex align-middle justify-center p-2 rounded-md"
-              placeholder="Mot de passe"
               type="password"
+              name="password"
+              className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
+              placeholder="****"
               minLength="4"
               value={password}
               onChange={
@@ -84,11 +87,13 @@ function SignUp() {
             />
           </div>
 
-          <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
+          <div className="w-full">
+            <label htmlFor="prenom" className="text-sm font-medium text-gray-900 block mb-2 ">Votre prénom</label>
             <input
-              required
-              className="w-4/5 flex align-middle justify-center p-2 rounded-md"
-              placeholder="Prénom"
+              type="prenom"
+              name="prenom"
+              className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
+              placeholder="Lucien"
               type="text"
               minLength="2"
               value={firstname}
@@ -100,11 +105,13 @@ function SignUp() {
             />
           </div>
 
-          <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
+          <div className="w-full">
+            <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 ">Votre nom</label>
             <input
-              required
-              className="w-4/5 flex align-middle justify-center p-2 rounded-md"
-              placeholder="Nom"
+              type="nom"
+              name="nom"
+              className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
+              placeholder="Dupont"
               type="text"
               minLength="2"
               value={lastname}
@@ -116,9 +123,12 @@ function SignUp() {
             />
           </div>
 
-          <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
+          <div className="w-full">
+            <label htmlFor="date" className="text-sm font-medium text-gray-900 block mb-2 ">Votre date de naissance</label>
             <input
-              className="w-4/5 flex align-middle justify-center p-2 rounded-md"
+              type="date"
+              name="date"
+              className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
               placeholder="Date de naissance"
               type="date"
               required
@@ -131,10 +141,13 @@ function SignUp() {
             />
           </div>
 
-          <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
+          <div className="w-full">
+            <label htmlFor="numero" className="text-sm font-medium text-gray-900 block mb-2 ">Votre numéro de téléphone</label>
             <input
-              className="w-4/5 flex align-middle justify-center p-2 rounded-md"
-              placeholder="Mobile"
+              type="numero"
+              name="numero"
+              className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
+              placeholder="0601020304"
               type="text"
               value={phone}
               onChange={
