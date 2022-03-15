@@ -12,6 +12,7 @@ import {
   setShowModalWithdrawTrue,
   getIdFromPotDetail,
   getPotId,
+  addAmount,
 } from '../../actions/pots';
 
 // Import component
@@ -76,6 +77,7 @@ function PotDetails() {
   const OnSubmitAmountAdd = (event) => {
     event.preventDefault();
     dispatch(setShowModalAddFalse());
+    dispatch(addAmount());
   };
 
   const OnSubmitAmountWithdraw = (event) => {

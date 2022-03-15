@@ -35,9 +35,9 @@ const potsMiddleWare = (store) => (next) => (action) => {
         .then(
           (response) => {
             store.dispatch(listPotsApi(response.data));
-            console.log('ce sont mes cagnottes ', response.data);
+            //console.log('ce sont mes cagnottes ', response.data);
             localStorage.setItem('pots', JSON.stringify(response.data));
-            console.log('ce sont mes cagnottes du ls ', localStorage.getItem('pots'));
+            //console.log('ce sont mes cagnottes du ls ', localStorage.getItem('pots'));
           },
         )
         .catch(
@@ -108,7 +108,7 @@ const potsMiddleWare = (store) => (next) => (action) => {
           },
         )
         .then((response) => {
-          console.log('mon resultat' + (response.data));
+          console.log('mon resultat', response.data);
           store.dispatch(savePotDatas(response.data));
         })
         .catch((error) => {
@@ -121,12 +121,14 @@ const potsMiddleWare = (store) => (next) => (action) => {
     case ADD_AMOUNT: {
       const {
         pots: {
-          type, amountAdd, id,
+          amountAdd,
+          id,
         },
       } = store.getState();
 
       const amount = amountAdd;
       const pot = id;
+      const type = true;
 
       axiosInstance.post('/operations', {
         type,

@@ -27,7 +27,6 @@ const initialState = {
   history: [],
   // for add and withddraw button
   amountAdd: '',
-  type: false,
   id: 0,
   amountWithdraw: '',
   showModalAdd: false,
