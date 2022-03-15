@@ -6,6 +6,14 @@ export const pots = () => ({
   type: POTS,
 });
 
+// ACTION TYPE ADFD_AMOUNT
+export const ADD_AMOUNT = 'ADD_AMOUNT';
+
+// ACTION CREATOR ADFD_AMOUNT
+export const addAmount = () => ({
+  type: ADD_AMOUNT,
+});
+
 // ACTION TYPE ADD_POT
 export const ADD_POT = 'ADD_POT';
 
@@ -92,4 +100,36 @@ export const SET_AMOUNT_WITHDRAW = 'SET_AMOUNT_WITHDRAW';
 export const setAmountWithdraw = (amountWithdraw) => ({
   type: SET_AMOUNT_WITHDRAW,
   amountWithdraw,
+});
+
+// ACTION TYPE SET_SHOW_MODAL_ADD
+export const SET_SHOW_MODAL_ADD_TRUE = 'SET_SHOW_MODAL_ADD_TRUE';
+
+// ACTION CREATOR setAmountWithdraw
+export const setShowModalAddTrue = () => ({
+  type: SET_SHOW_MODAL_ADD_TRUE,
+});
+
+// ACTION TYPE SET_SHOW_MODAL_ADD
+export const SET_SHOW_MODAL_ADD_FALSE = 'SET_SHOW_MODAL_ADD_FALSE';
+
+// ACTION CREATOR setAmountWithdraw
+export const setShowModalAddFalse = () => ({
+  type: SET_SHOW_MODAL_ADD_FALSE,
+});
+
+// ACTION TYPE SET_SHOW_MODAL_WITHDRAW_TRUE
+export const SET_SHOW_MODAL_WITHDRAW_TRUE = 'SET_SHOW_MODAL_WITHDRAW_TRUE';
+
+// ACTION CREATOR setShowModalWithdrawTrue
+export const setShowModalWithdrawTrue = () => ({
+  type: SET_SHOW_MODAL_WITHDRAW_TRUE,
+});
+
+// ACTION TYPE SET_SHOW_MODAL_WITHDRAW_TRUE
+export const SET_SHOW_MODAL_WITHDRAW_FALSE = 'SET_SHOW_MODAL_WITHDRAW_FALSE';
+
+// ACTION CREATOR setShowModalWithdrawFalse
+export const setShowModalWithdrawFalse = () => ({
+  type: SET_SHOW_MODAL_WITHDRAW_FALSE,
 });

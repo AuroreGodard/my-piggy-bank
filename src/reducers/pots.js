@@ -8,6 +8,11 @@ import {
   HISTORY_API,
   SET_AMOUNT_ADD,
   SET_AMOUNT_WITHDRAW,
+  SET_SHOW_MODAL_ADD_TRUE,
+  SET_SHOW_MODAL_ADD_FALSE,
+  SET_SHOW_MODAL_WITHDRAW_FALSE,
+  SET_SHOW_MODAL_WITHDRAW_TRUE,
+
 } from '../actions/pots';
 
 // initialState
@@ -20,7 +25,12 @@ const initialState = {
   history: [],
   // for add and withddraw button
   amountAdd: '',
+  type: false,
+  id: '',
   amountWithdraw: '',
+  showModalAdd: false,
+  showModalWithdraw: false,
+  potDatas: [],
 };
 
 // Pots Reducer
@@ -68,6 +78,26 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         amountWithdraw: action.amountWithdraw,
+      };
+    case SET_SHOW_MODAL_ADD_TRUE:
+      return {
+        ...state,
+        showModalAdd: true,
+      };
+    case SET_SHOW_MODAL_ADD_FALSE:
+      return {
+        ...state,
+        showModalAdd: false,
+      };
+    case SET_SHOW_MODAL_WITHDRAW_FALSE:
+      return {
+        ...state,
+        showModalWithdraw: false,
+      };
+    case SET_SHOW_MODAL_WITHDRAW_TRUE:
+      return {
+        ...state,
+        showModalWithdraw: true,
       };
     default:
       return state;

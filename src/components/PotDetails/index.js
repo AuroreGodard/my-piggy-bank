@@ -1,11 +1,7 @@
 // Import
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import ReactModal from 'react-modal';
-import { axiosInstance } from 'src/components/App';
-import Swal from 'sweetalert2';
-import { setAmountAdd, setAmountWithdraw } from '../../actions/pots';
+import { setAmountAdd, setAmountWithdraw, setShowModalAddTrue, setShowModalAddFalse, setShowModalWithdrawFalse, setShowModalWithdrawTrue } from '../../actions/pots';
 
 // Import component
 import CardDetailActivityHistory from '../CardDetailActivityHistory';
@@ -18,42 +14,14 @@ ReactModal.setAppElement('#root');
 
 // Component
 function PotDetails() {
-  // use of useParams hook to get the variable parameter of the url (id)
-  const params = useParams();
-
   const dispatch = useDispatch();
-
-  // place datas from API in state
-  const [potDatas, setPotDatas] = useState([]);
 
   const amountAdd = useSelector((state) => state.pots.amountAdd);
   const amountWithdraw = useSelector((state) => state.pots.amountWithdraw);
-
-  const [addFunds, setAddFunds] = useState([]);
-  const [withdrawFunds, setWithdrawFunds] = useState([]);
-
-  const [showModalAdd, setShowModalAdd] = useState(false);
-  const [showModalWithdraw, setShowModalWithdraw] = useState(false);
-
-  // use of useEffect hook to make an asynchronous call to API with the given id of the URL
-  // (from the single card we clicked)
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-
-    axiosInstance.get(`/pots/${params.id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => {
-        // console.log(res.data);
-        setPotDatas(res.data);
-        console.log(potDatas);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [addFunds, withdrawFunds]);
+  const setShowModalWithdraw = useSelector((state) => state.pots.setShowModalWithdraw);
+  const potDatas = useSelector((state) => state.pots.potDatas);
+  const showModalAdd = useSelector((state) => state.pots.showModalAdd);
+  const showModalWithdraw = useSelector((state) => state.pots.showModalWithdraw);
 
   let bar = 'block';
 
@@ -89,107 +57,13 @@ function PotDetails() {
   };
 
   const OnSubmitAmountAdd = (event) => {
-    const token = localStorage.getItem('token');
     event.preventDefault();
-
-    const options = {
-      method: 'POST',
-      url: '/operations',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      data: { type: true, amount: amountAdd, pot: params.id },
-    };
-
-    axiosInstance.request(options)
-      .then((response) => {
-        console.log('onsubmitadd', response.data.amount);
-        setShowModalAdd(false);
-        setAddFunds(response.data.amount);
-        // window.location.reload(true);
-        Swal.fire({
-          position: 'bottom-left',
-          icon: 'success',
-          title: `Dépôt de ${amountAdd}€ réussi`,
-          showConfirmButton: false,
-          timer: 2000,
-          toast: true,
-          timerProgressBar: true,
-          showclass: {
-            popup: 'swal2-show',
-            backdrop: 'swal2-backdrop-show',
-            icon: 'modal-login-success',
-          },
-        });
-      }).catch((error) => {
-        console.error(error);
-        Swal.fire({
-          position: 'bottom-left',
-          icon: 'error',
-          title: "Une erreur s'est produite",
-          showConfirmButton: false,
-          timer: 2000,
-          toast: true,
-          timerProgressBar: true,
-          showclass: {
-            popup: 'swal2-show',
-            backdrop: 'swal2-backdrop-show',
-            icon: 'modal-login-success',
-          },
-        });
-      });
+    dispatch(setShowModalAddFalse());
   };
 
   const OnSubmitAmountWithdraw = (event) => {
-    const token = localStorage.getItem('token');
     event.preventDefault();
-
-    const options = {
-      method: 'POST',
-      url: '/operations',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      data: { type: false, amount: amountWithdraw, pot: params.id },
-    };
-
-    axiosInstance.request(options)
-      .then((response) => {
-        console.log(response.data);
-        setShowModalWithdraw(false);
-        setWithdrawFunds(response.data.amount);
-        // window.location.reload(true);
-        Swal.fire({
-          position: 'bottom-left',
-          icon: 'success',
-          title: `Retrait de ${amountWithdraw}€ réussi`,
-          showConfirmButton: false,
-          timer: 2000,
-          toast: true,
-          timerProgressBar: true,
-          showclass: {
-            popup: 'swal2-show',
-            backdrop: 'swal2-backdrop-show',
-            icon: 'modal-login-success',
-          },
-        });
-      }).catch((error) => {
-        console.error(error);
-        Swal.fire({
-          position: 'bottom-left',
-          icon: 'error',
-          title: 'Montant du retrait trop important',
-          showConfirmButton: false,
-          timer: 3000,
-          toast: true,
-          timerProgressBar: true,
-          showclass: {
-            popup: 'swal2-show',
-            backdrop: 'swal2-backdrop-show',
-            icon: 'modal-login-success',
-          },
-        });
-      });
+    dispatch(setShowModalWithdrawFalse());
   };
 
   return (
@@ -269,10 +143,10 @@ function PotDetails() {
             md:justify-start
             lg:flex-col lg:w-1/4 lg:px-8 lg:gap-0 lg:justify-center "
           >
-            <button onClick={() => setShowModalAdd(true)} className="mt-4 bg-[#C9DECE] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+            <button onClick={() => dispatch(setShowModalAddTrue())} className="mt-4 bg-[#C9DECE] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
               Ajouter
             </button>
-            <button onClick={() => setShowModalWithdraw(true)} className="mt-4 bg-[#FFD9E0] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
+            <button onClick={() => dispatch(setShowModalWithdrawTrue())} className="mt-4 bg-[#FFD9E0] w-[200px] text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2" type="button">
               Retirer
             </button>
           </div>
@@ -286,7 +160,7 @@ function PotDetails() {
 
       {/* Card details Activity */}
       <section>
-        <CardDetailActivityHistory addFunds={addFunds} withdrawFunds={withdrawFunds} />
+        <CardDetailActivityHistory />
       </section>
       {/* End Card details Activity */}
 
@@ -295,7 +169,7 @@ function PotDetails() {
       {/* Modal for 'Ajouter' button */}
       <ReactModal
         isOpen={showModalAdd}
-        onRequestClose={() => setShowModalAdd(false)}
+        onRequestClose={() => dispatch(setShowModalAddFalse())}
         style={customStyles}
         overlayClassName="Overlay"
         className="modal"
@@ -322,7 +196,7 @@ function PotDetails() {
             <p className="my-4 text-gray-500 text-xs italic">Indiquez ci-dessus le montant que vous souhaiter ajouter à votre cagnotte.</p>
           </div>
           <div className="flex gap-4">
-            <input onClick={() => setShowModalAdd(false)} type="submit" className="mt-4 w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Fermer" />
+            <input onClick={() => dispatch(setShowModalAddFalse())} type="submit" className="mt-4 w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Fermer" />
             <input type="submit" className="mt-4 bg-[#C9DECE] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Ajouter" />
           </div>
         </form>
@@ -331,7 +205,7 @@ function PotDetails() {
       {/* Modal for 'Retirer' button */}
       <ReactModal
         isOpen={showModalWithdraw}
-        onRequestClose={() => setShowModalWithdraw(false)}
+        onRequestClose={() => dispatch(setShowModalWithdrawFalse())}
         style={customStyles}
         contentLabel="Example Modal"
         overlayClassName="Overlay"
@@ -360,7 +234,7 @@ function PotDetails() {
             <p className="my-4 text-gray-500 text-xs italic">Indiquez ci-dessus le montant que vous souhaiter retirer de votre cagnotte.</p>
           </div>
           <div className="flex gap-4">
-            <input onClick={() => setShowModalWithdraw(false)} type="submit" className="mt-4 w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Fermer" />
+            <input onClick={() => dispatch(setShowModalWithdrawFalse())} type="submit" className="mt-4 w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Fermer" />
             <input type="submit" className="mt-4 bg-[#FFD9E0] w-full text-slate-600 font-bold px-6 rounded-lg py-3 uppercase flex justify-center items-center gap-2 cursor-pointer" value="Retirer" />
           </div>
         </form>
@@ -371,3 +245,51 @@ function PotDetails() {
 
 // Export
 export default PotDetails;
+
+// modal withdraw
+/* const options = {
+  method: 'POST',
+  url: '/operations',
+  headers: {
+    Authorization: `Bearer ${token}`,
+  },
+  data: { type: false, amount: amountWithdraw, pot: params.id },
+};
+
+axiosInstance.request(options)
+  .then((response) => {
+    console.log(response.data);
+    setShowModalWithdraw(false);
+    setWithdrawFunds(response.data.amount);
+    // window.location.reload(true);
+    Swal.fire({
+      position: 'bottom-left',
+      icon: 'success',
+      title: `Retrait de ${amountWithdraw}€ réussi`,
+      showConfirmButton: false,
+      timer: 2000,
+      toast: true,
+      timerProgressBar: true,
+      showclass: {
+        popup: 'swal2-show',
+        backdrop: 'swal2-backdrop-show',
+        icon: 'modal-login-success',
+      },
+    });
+  }).catch((error) => {
+    console.error(error);
+    Swal.fire({
+      position: 'bottom-left',
+      icon: 'error',
+      title: 'Montant du retrait trop important',
+      showConfirmButton: false,
+      timer: 3000,
+      toast: true,
+      timerProgressBar: true,
+      showclass: {
+        popup: 'swal2-show',
+        backdrop: 'swal2-backdrop-show',
+        icon: 'modal-login-success',
+      },
+    });
+  }); */

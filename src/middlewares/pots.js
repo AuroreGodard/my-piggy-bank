@@ -1,7 +1,8 @@
 // Import
 import axios from 'axios';
+import Swal from 'sweetalert2';
 import {
-  POTS, ADD_POT, listPotsApi, HISTORY, historyApi,
+  POTS, ADD_POT, listPotsApi, HISTORY, historyApi, ADD_AMOUNT,
 } from '../actions/pots';
 
 import { axiosInstance } from '../components/App';
@@ -77,6 +78,66 @@ const potsMiddleWare = (store) => (next) => (action) => {
         })
         .catch((error) => {
           console.log('error', error);
+        });
+
+      next(action);
+      break;
+    }
+
+    case ADD_AMOUNT: {
+      const {
+        pots: {
+          type, amountAdd, id,
+        },
+      } = store.getState();
+
+      const amount = amountAdd;
+      const pot = id;
+
+      axiosInstance.post('/operations', {
+        type,
+        amount,
+        pot,
+      }, {
+        headers: {
+          Authorization: (`Bearer ${token}`),
+        },
+      })
+        .then((response) => {
+          console.log('onsubmitadd', response.data.amount);
+          //setShowModalAdd(false);
+         // setAddFunds(response.data.amount);
+          // window.location.reload(true);
+          Swal.fire({
+            position: 'bottom-left',
+            icon: 'success',
+            title: `Dépôt de ${amountAdd}€ réussi`,
+            showConfirmButton: false,
+            timer: 2000,
+            toast: true,
+            timerProgressBar: true,
+            showclass: {
+              popup: 'swal2-show',
+              backdrop: 'swal2-backdrop-show',
+              icon: 'modal-login-success',
+            },
+          });
+        }).catch((error) => {
+          console.error(error);
+          Swal.fire({
+            position: 'bottom-left',
+            icon: 'error',
+            title: "Une erreur s'est produite",
+            showConfirmButton: false,
+            timer: 2000,
+            toast: true,
+            timerProgressBar: true,
+            showclass: {
+              popup: 'swal2-show',
+              backdrop: 'swal2-backdrop-show',
+              icon: 'modal-login-success',
+            },
+          });
         });
 
       next(action);
