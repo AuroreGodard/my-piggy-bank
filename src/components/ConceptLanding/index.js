@@ -72,7 +72,7 @@ function ConceptLanding() {
                   de l'
                   <span className="underlined-title">argent de côté</span>
                 </h1>
-                <p className=" mt-8 text-gray-600
+                <p className=" mt-8 text-gray-600 leading-6
                 "
                 >
                   Challengez votre épargne
@@ -92,7 +92,8 @@ function ConceptLanding() {
                     <path fillRule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
                   </svg>
                 </Link>
-                <div
+                <a
+                  href="#concept"
                   className="uppercase text-xs flex flex-col gap-2 items-center text-gray-600
                 md:flex-row"
                   type="button"
@@ -103,7 +104,7 @@ function ConceptLanding() {
                   </svg>
                   {' '}
                   En savoir plus
-                </div>
+                </a>
               </div>
             </div>
             {/* END left side */}
@@ -147,24 +148,37 @@ function ConceptLanding() {
       {/* ---------------------------------------------------------------- */}
 
       {/* STEPS main container */}
-      <section className="w-full flex justify-center relative bg-[#F1EECD] px-4
+      <section
+        id="concept"
+        className="w-full py-8 flex justify-center relative bg-[#F1EECD] px-4
       "
       >
 
         {/* STEPS limited container */}
-        <div className="w-full pt-16 flex flex-col gap-8 items-center
+        <div
+          className="w-full pt-8 flex flex-col gap-8 items-center
         xl:w-[1100px]
         lg:mx-8
         md:items-start
         "
         >
 
-          <h3 className="w-fit underline-step-title uppercase text-[1.5em]
+          <h3 className="w-fit pt-8 underline-step-title uppercase text-[1.5em]
           "
           >
             Comment ça marche ?
           </h3>
-          <p className="text-gray-600">Economiser ou atteindre un objectif en seulement 4 étapes pour soi ou pour offir !</p>
+          <p className="text-gray-600 leading-6">
+            My Piggy Bank est un moyen simple, rapide, et ludique d'épargner votre argent. Le site reprend simplement le principe de la bonne vieille tirelire, mais le tout en ligne, avec des moyens de paiement électroniques.
+            Une fois inscrit, il ne vous restera plus qu'à créer votre première cagnotte, lui donner un nom et définir quels seront les objectifs à atteindre avant de retirer vos économies.
+
+          </p>
+          <h3 className="w-fit underline-step-title uppercase text-[1.5em]
+          "
+          >
+            4 étapes simple  :
+          </h3>
+          <p className="text-gray-600">Economiser ou atteindre un objectif pour soi ou pour offir !</p>
 
           {/* STEPS cards */}
           <div className="pb-32 gap-12 grid grid-cols-1 justify-between
@@ -236,7 +250,7 @@ function ConceptLanding() {
           >
             Qui sommes-nous ?
           </h3>
-          <p className="text-gray-600">
+          <p className="text-gray-600 leading-6">
             Nous avons tous suivi une formation au sein de l'école O'Clock d'une durée de 5 mois dont 1 d'une spécialité différente.
             <br />
             Notre équipe est composée de 2 développeurs back-end et 3 développeurs.euse front-end.
