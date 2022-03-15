@@ -1,5 +1,6 @@
 // import
 import { useSelector, useDispatch } from 'react-redux';
+import './style.scss';
 
 // import actions
 import {
@@ -33,9 +34,11 @@ function AddPot() {
     >
 
       <div>
-        <h3 className="w-fit underline-userprofile-informations uppercase text-[1.4em] mb-4 lg:mb-8">
-          Créer ma cagnotte
-        </h3>
+        <div className="text-[1.5em] mb-8">
+          <h3 className="w-fit underline-addpot-title uppercase text-[1.5em]">
+            Créer ma cagnotte
+          </h3>
+        </div>
         {/* FORM SECTION */}
         <form
           onSubmit={handleSubmit}
@@ -45,7 +48,13 @@ function AddPot() {
         >
           <div className="flex flex-col gap-3">
             <div>
-              <label htmlFor="potname" className="text-sm font-medium text-gray-900 block mb-2">Nom de ma cagnotte</label>
+              <label
+                htmlFor="potname"
+                className="text-sm font-medium text-gray-900 block mb-2"
+              >
+                Nom de ma cagnotte
+
+              </label>
               <input
                 value={name}
                 onChange={
@@ -135,7 +144,7 @@ function AddPot() {
       md:mb-24
       xl:mb-0"
       >
-        <h3 className="w-fit underline-userprofile-informations uppercase text-[1.4em] mb-4 lg:mb-8">
+        <h3 className="w-fit underline-userprofile-informations uppercase text-[1.em] mb-4 lg:mb-8">
           Nos modes de déblocages :
         </h3>
         <p className="italic"> Souple : Aucune contrainte de retrait</p>
