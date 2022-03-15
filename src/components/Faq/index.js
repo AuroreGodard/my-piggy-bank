@@ -36,8 +36,10 @@ function Faq() {
   ];
 
   return (
-    <div className="container mx-auto p-4 ">
-      <h3 className="w-fit underline-step-title uppercase text-[1.5em] mb-5">FAQ</h3>
+    <div className="container mx-auto p-4">
+      <div className="text-[1.5em]">
+        <h3 className="w-fit underline-step-title uppercase text-[1.5em] mb-5">FAQ</h3>
+      </div>
 
       {dataFaq.map((faq) => (
         <div className="mb-7 shadow-md p-3 rounded-md" key={faq.title}>

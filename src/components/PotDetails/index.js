@@ -59,7 +59,7 @@ function PotDetails() {
 
   const date = (dateFormat) => {
     const formatFr = new Date(dateFormat).toLocaleString('fr');
-    return `Création de le cagnotte : ${formatFr.substr(0, 10)}`;
+    return `${formatFr.substr(0, 10)}`;
   };
 
   const progressBarFullPotNull = (percentage) => {
@@ -72,9 +72,22 @@ function PotDetails() {
   const amoutGoalNull = (amountGoal) => {
     if (amountGoal === null) {
       bar = 'none';
-      return "Pas d'objectif de montant";
+      return (
+        <span className="bg-[#F1EECD] p-1 px-2 rounded-md">
+          Aucun objectif fixé
+        </span>
+      );
     }
-    return `Objectif cagnotte: ${amountGoal} €`;
+    return (
+      <div>
+        Objectif cagnotte
+        {' '}
+        <span className="bg-[#CFB6E550] p-1 px-2 rounded-md">
+          {amountGoal}
+          €
+        </span>
+      </div>
+    );
   };
 
   const customStyles = {
@@ -216,7 +229,13 @@ function PotDetails() {
           >
             {potDatas.name}
           </span>
+
         </div>
+        <p className="mt-2 ml-1 italic text-gray-700">
+          Créée le
+          {' '}
+          {date(potDatas.createdAt)}
+        </p>
         {/* End Pot Card Title */}
 
         {/* Pot Card section */}
@@ -239,13 +258,18 @@ function PotDetails() {
                 <p>
                   {amoutGoalNull(potDatas.amountGoal)}
                 </p>
-                <p>
-                  {date(potDatas.createdAt)}
-                </p>
+                <div className="flex items-center">
+                  <p>
+                    Date limite
+                  </p>
+                  <span className="bg-[#FFD9E050] p-1 px-2 ml-1 rounded-md">{date(potDatas.dateGoal)}</span>
+                </div>
+
               </div>
             </div>
-            <div className="flex justify-end text-4xl text-slate-800 w-full px-4">
-              <div className="bg-[#C9DECE] rounded-md px-2">
+            <div className="flex justify-end items-center text-slate-800 w-full px-4">
+              <p>Montant actuel</p>
+              <div className="bg-[#C9DECE] rounded-md px-2 text-3xl ml-2">
                 {potDatas.amount}
                 <span className="font-bold pl-1">€</span>
               </div>

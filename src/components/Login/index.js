@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
-
 // import Components
 import HeaderMenu from 'src/components/HeaderMenu';
 
@@ -71,9 +70,13 @@ function Login() {
         <h3 className="w-fit underline-login-title uppercase text-[1.5em] my-6">
           Me connecter
         </h3>
-        <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
+
+        <div className="w-full">
+          <label htmlFor="email" className="text-sm font-medium text-gray-900 block mb-2 ">Votre email</label>
           <input
-            className="w-4/5 flex align-middle justify-center p-2 rounded-md"
+            type="email"
+            name="email"
+            className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
             placeholder="Email"
             type="email"
             value={username}
@@ -85,9 +88,12 @@ function Login() {
           />
         </div>
 
-        <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
+        <div className="w-full">
+          <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 ">Votre mot de passe</label>
           <input
-            className="w-4/5 flex align-middle justify-center p-2 rounded-md"
+            type="email"
+            name="email"
+            className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 "
             placeholder="Mot de passe"
             type="password"
             value={password}
