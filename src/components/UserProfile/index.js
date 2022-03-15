@@ -69,20 +69,6 @@ function UserProfile() {
         </div>
 
         <div>
-          <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2">Votre mot de passe</label>
-          <input type="text" name="password" className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " placeholder="********" required />
-        </div>
-        <div>
-          <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 ">Confirmer votre mot de passe</label>
-          <input type="text" name="password" className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " placeholder="********" required />
-        </div>
-
-        <div>
-          <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 ">Confirmer votre mot de passe</label>
-          <input type="text" name="password" className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 " placeholder="********" required />
-        </div>
-
-        <div>
           <label htmlFor="phone" className="text-sm font-medium text-gray-900 block mb-2 ">Votre téléphone</label>
           <input type="text" name="phone" className="bg-gray-50  border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5 d" placeholder="+33 601020304" required />
         </div>
