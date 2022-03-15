@@ -1,13 +1,15 @@
 // Import
+import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactModal from 'react-modal';
-import { 
-  setAmountAdd, 
+import {
+  setAmountAdd,
   setAmountWithdraw,
   setShowModalAddTrue,
   setShowModalAddFalse,
   setShowModalWithdrawFalse,
   setShowModalWithdrawTrue,
+  getIdFromPotDetail,
 } from '../../actions/pots';
 
 // Import component
@@ -21,7 +23,10 @@ ReactModal.setAppElement('#root');
 
 // Component
 function PotDetails() {
+  const params = useParams();
+  console.log(params);
   const dispatch = useDispatch();
+  dispatch(getIdFromPotDetail(params));
 
   const amountAdd = useSelector((state) => state.pots.amountAdd);
   const amountWithdraw = useSelector((state) => state.pots.amountWithdraw);

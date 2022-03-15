@@ -133,3 +133,12 @@ export const SET_SHOW_MODAL_WITHDRAW_FALSE = 'SET_SHOW_MODAL_WITHDRAW_FALSE';
 export const setShowModalWithdrawFalse = () => ({
   type: SET_SHOW_MODAL_WITHDRAW_FALSE,
 });
+
+// ACTION TYPE GET_ID_FROM_POT_DETAIL
+export const GET_ID_FROM_POT_DETAIL = 'GET_ID_FROM_POT_DETAIL';
+
+// ACTION CREATOR getIdFromPotDetail
+export const getIdFromPotDetail = (id) => ({
+  type: GET_ID_FROM_POT_DETAIL,
+  id,
+});

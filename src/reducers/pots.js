@@ -12,6 +12,7 @@ import {
   SET_SHOW_MODAL_ADD_FALSE,
   SET_SHOW_MODAL_WITHDRAW_FALSE,
   SET_SHOW_MODAL_WITHDRAW_TRUE,
+  GET_ID_FROM_POT_DETAIL,
 
 } from '../actions/pots';
 
@@ -98,6 +99,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         showModalWithdraw: true,
+      };
+    case GET_ID_FROM_POT_DETAIL:
+      return {
+        ...state,
+        id: action.id,
       };
     default:
       return state;
