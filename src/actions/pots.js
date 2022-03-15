@@ -22,6 +22,14 @@ export const addAmount = () => ({
   type: ADD_AMOUNT,
 });
 
+// ACTION TYPE RETRY_AMOUNT
+export const RETRY_AMOUNT = 'RETRY_AMOUNT';
+
+// ACTION CREATOR RETRY_AMOUNT
+export const retryAmount = () => ({
+  type: RETRY_AMOUNT,
+});
+
 // ACTION TYPE ADD_POT
 export const ADD_POT = 'ADD_POT';
 
