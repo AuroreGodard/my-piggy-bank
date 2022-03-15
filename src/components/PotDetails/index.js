@@ -1,7 +1,14 @@
 // Import
 import { useSelector, useDispatch } from 'react-redux';
 import ReactModal from 'react-modal';
-import { setAmountAdd, setAmountWithdraw, setShowModalAddTrue, setShowModalAddFalse, setShowModalWithdrawFalse, setShowModalWithdrawTrue } from '../../actions/pots';
+import { 
+  setAmountAdd, 
+  setAmountWithdraw,
+  setShowModalAddTrue,
+  setShowModalAddFalse,
+  setShowModalWithdrawFalse,
+  setShowModalWithdrawTrue,
+} from '../../actions/pots';
 
 // Import component
 import CardDetailActivityHistory from '../CardDetailActivityHistory';
@@ -18,7 +25,6 @@ function PotDetails() {
 
   const amountAdd = useSelector((state) => state.pots.amountAdd);
   const amountWithdraw = useSelector((state) => state.pots.amountWithdraw);
-  const setShowModalWithdraw = useSelector((state) => state.pots.setShowModalWithdraw);
   const potDatas = useSelector((state) => state.pots.potDatas);
   const showModalAdd = useSelector((state) => state.pots.showModalAdd);
   const showModalWithdraw = useSelector((state) => state.pots.showModalWithdraw);
