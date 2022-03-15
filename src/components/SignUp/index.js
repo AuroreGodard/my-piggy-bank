@@ -16,6 +16,7 @@ import {
   setNewPassword,
   setNewEmail,
   signUp,
+  clearFields,
 } from '../../actions/signUp';
 
 // Component
@@ -33,6 +34,7 @@ function SignUp() {
     // on empêche le rechargement de ma page
     event.preventDefault();
     dispatch(signUp());
+    dispatch(clearFields());
   };
 
   return (
@@ -53,6 +55,7 @@ function SignUp() {
 
           <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
             <input
+              required
               className="w-4/5 flex align-middle justify-center p-2 rounded-md"
               placeholder="Email"
               type="email"
@@ -67,9 +70,11 @@ function SignUp() {
 
           <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
             <input
+              required
               className="w-4/5 flex align-middle justify-center p-2 rounded-md"
               placeholder="Mot de passe"
               type="password"
+              minLength="4"
               value={password}
               onChange={
                         (event) => {
@@ -81,9 +86,11 @@ function SignUp() {
 
           <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
             <input
+              required
               className="w-4/5 flex align-middle justify-center p-2 rounded-md"
               placeholder="Prénom"
               type="text"
+              minLength="2"
               value={firstname}
               onChange={
                         (event) => {
@@ -95,9 +102,11 @@ function SignUp() {
 
           <div className="w-full flex align-middle justify-center bg-gray-200 p-2 rounded-md">
             <input
+              required
               className="w-4/5 flex align-middle justify-center p-2 rounded-md"
               placeholder="Nom"
               type="text"
+              minLength="2"
               value={lastname}
               onChange={
                     (event) => {
@@ -112,6 +121,7 @@ function SignUp() {
               className="w-4/5 flex align-middle justify-center p-2 rounded-md"
               placeholder="Date de naissance"
               type="date"
+              required
               value={birthDate}
               onChange={
                     (event) => {
