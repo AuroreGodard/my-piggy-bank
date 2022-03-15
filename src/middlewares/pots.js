@@ -1,8 +1,7 @@
 // Import
-import axios from 'axios';
 import Swal from 'sweetalert2';
 import {
-  POTS, ADD_POT, listPotsApi, HISTORY, historyApi, ADD_AMOUNT,
+  POTS, ADD_POT, listPotsApi, HISTORY, historyApi, ADD_AMOUNT, GET_POT_ID,
 } from '../actions/pots';
 
 import { axiosInstance } from '../components/App';
@@ -84,6 +83,32 @@ const potsMiddleWare = (store) => (next) => (action) => {
       break;
     }
 
+    case GET_POT_ID: {
+      const {
+        pots: {
+          id,
+        },
+      } = store.getState();
+      const pot = id;
+      axiosInstance
+        .get(
+          `/pots/${pot}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        )
+        .then((response) => {
+          console.log('mon resultat' + response.data);
+        })
+        .catch((error) => {
+          console.log('error', error);
+        });
+      next(action);
+      break;
+    }
+
     case ADD_AMOUNT: {
       const {
         pots: {
@@ -106,7 +131,7 @@ const potsMiddleWare = (store) => (next) => (action) => {
         .then((response) => {
           console.log('onsubmitadd', response.data.amount);
           //setShowModalAdd(false);
-         // setAddFunds(response.data.amount);
+          setAddFunds(response.data.amount);
           // window.location.reload(true);
           Swal.fire({
             position: 'bottom-left',

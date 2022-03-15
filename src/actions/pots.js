@@ -6,6 +6,14 @@ export const pots = () => ({
   type: POTS,
 });
 
+// ACTION TYPE GET_ID_FROM_POT_DETAIL
+export const GET_POT_ID = 'GET_POT_ID';
+
+// ACTION CREATOR login
+export const getPotId = () => ({
+  type: GET_POT_ID,
+});
+
 // ACTION TYPE ADFD_AMOUNT
 export const ADD_AMOUNT = 'ADD_AMOUNT';
 

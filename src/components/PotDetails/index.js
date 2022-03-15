@@ -1,5 +1,6 @@
 // Import
 import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ReactModal from 'react-modal';
 import {
@@ -10,6 +11,7 @@ import {
   setShowModalWithdrawFalse,
   setShowModalWithdrawTrue,
   getIdFromPotDetail,
+  getPotId,
 } from '../../actions/pots';
 
 // Import component
@@ -55,6 +57,10 @@ function PotDetails() {
     }
     return `Objectif cagnotte: ${amountGoal} €`;
   };
+
+  useEffect(() => {
+    dispatch(getPotId());
+  }, []);
 
   const customStyles = {
     content: {
