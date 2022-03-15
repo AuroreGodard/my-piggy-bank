@@ -8,7 +8,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from 'src/components/App';
 import Dashboard from 'src/components/Dashboard';
 import store from 'src/store';
-import Login from 'src/components/Login';
 import SignUp from 'src/components/SignUp';
 import AddPot from 'src/components/AddPot';
 import PotDetails from 'src/components/PotDetails';
@@ -21,12 +20,15 @@ import BottomMenu from 'src/components/BottomMenu';
 import Footer from 'src/components/Footer';
 import Sidebar from './components/Sidebar';
 
+import ScrollToTop from './components/ScrollToTop';
+
 // Store
 
 // == Render
 // 1. Root React element (the one that contains the whole app => structure DOM virtuel)
 const rootReactElement = (
   <BrowserRouter>
+    <ScrollToTop />
     <Provider store={store}>
       <Routes>
         <Route path="/" element={<App />} />
