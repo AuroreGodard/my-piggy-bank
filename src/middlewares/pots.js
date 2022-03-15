@@ -10,6 +10,7 @@ import {
   setShowModalAddFalse,
   RETRY_AMOUNT,
   setShowModalWithdrawFalse,
+  savePotDatas,
 } from '../actions/pots';
 
 import { axiosInstance } from '../components/App';
@@ -108,6 +109,7 @@ const potsMiddleWare = (store) => (next) => (action) => {
         )
         .then((response) => {
           console.log('mon resultat' + (response.data));
+          store.dispatch(savePotDatas(response.data));
         })
         .catch((error) => {
           console.log('error', error);

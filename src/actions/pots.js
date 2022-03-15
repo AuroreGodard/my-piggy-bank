@@ -158,3 +158,12 @@ export const getIdFromPotDetail = (id) => ({
   type: GET_ID_FROM_POT_DETAIL,
   id,
 });
+
+// ACTION TYPE SAVE_POT_DATAS
+export const SAVE_POT_DATAS = 'SAVE_POT_DATAS';
+
+// ACTION CREATOR savePotDatas
+export const savePotDatas = (datas) => ({
+  type: SAVE_POT_DATAS,
+  datas,
+});

@@ -13,6 +13,7 @@ import {
   SET_SHOW_MODAL_WITHDRAW_FALSE,
   SET_SHOW_MODAL_WITHDRAW_TRUE,
   GET_ID_FROM_POT_DETAIL,
+  SAVE_POT_DATAS,
 
 } from '../actions/pots';
 
@@ -104,6 +105,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         id: action.id,
+      };
+    case SAVE_POT_DATAS:
+      return {
+        ...state,
+        potDatas: action.datas,
       };
     default:
       return state;
