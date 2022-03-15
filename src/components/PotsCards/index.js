@@ -49,6 +49,13 @@ function PotsCards() {
     );
   };
 
+  const actualAmount = (amount) => {
+    if (amount === null) {
+      return '0';
+    }
+    return amount;
+  };
+
   return (
     <>
       {
@@ -79,7 +86,7 @@ function PotsCards() {
              <div className="flex justify-end items-center text-slate-800 w-full px-4">
                <p>Montant actuel</p>
                <div className="bg-[#C9DECE] rounded-md px-2 text-3xl ml-2">
-                 {pot.amount}
+                 {actualAmount(pot.amount)}
                  <span className="font-bold pl-1">€</span>
                </div>
              </div>

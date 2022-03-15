@@ -1,6 +1,7 @@
 // import
 import { useSelector, useDispatch } from 'react-redux';
 import './style.scss';
+import { useNavigate } from 'react-router';
 
 // import actions
 import {
@@ -14,6 +15,7 @@ import {
 // Component
 function AddPot() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // calls from selectorssp
   const name = useSelector((state) => state.pots.name);
@@ -24,6 +26,9 @@ function AddPot() {
     // prevent the reloading of my page
     event.preventDefault();
     dispatch(addPot());
+    if (name.value) {
+      navigate('/dashboard');
+    }
   };
 
   return (
@@ -66,7 +71,7 @@ function AddPot() {
                 name="potname"
                 className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
                 placeholder="Anniversaire"
-                required
+
               />
             </div>
             <div>
@@ -82,7 +87,6 @@ function AddPot() {
                 name="goalamount"
                 className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
                 placeholder="1.000 €"
-                required
               />
             </div>
             <div>
@@ -97,7 +101,7 @@ function AddPot() {
                 type="date"
                 name="goaldate"
                 className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
-                required
+
               />
             </div>
 
@@ -105,7 +109,7 @@ function AddPot() {
               <p className=" text-sm font-medium text-gray-900 block mb-2">Mode de déblocage</p>
 
               <div>
-                <input className="mr-2" type="radio" id="souple" name="mode" value="30" />
+                <input className="mr-2" type="radio" id="souple" name="mode" value="30" checked />
                 <label htmlFor="souple">Souple</label>
               </div>
 

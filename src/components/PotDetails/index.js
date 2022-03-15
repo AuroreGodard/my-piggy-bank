@@ -48,7 +48,7 @@ function PotDetails() {
       .then((res) => {
         // console.log(res.data);
         setPotDatas(res.data);
-        console.log(potDatas);
+        // console.log(potDatas);
       })
       .catch((err) => {
         console.log(err);
@@ -90,6 +90,13 @@ function PotDetails() {
     );
   };
 
+  const actualAmount = (amount) => {
+    if (amount === null) {
+      return '0';
+    }
+    return amount;
+  };
+
   const customStyles = {
     content: {
       top: '50%',
@@ -116,7 +123,7 @@ function PotDetails() {
 
     axiosInstance.request(options)
       .then((response) => {
-        console.log('onsubmitadd', response.data.amount);
+        // console.log('onsubmitadd', response.data.amount);
         setShowModalAdd(false);
         setAddFunds(response.data.amount);
         // window.location.reload(true);
@@ -255,9 +262,9 @@ function PotDetails() {
               </div>
               <div className="flex flex-col w-2/3 mt-4 gap-2">
 
-                <p>
+                <div>
                   {amoutGoalNull(potDatas.amountGoal)}
-                </p>
+                </div>
                 <div className="flex items-center">
                   <p>
                     Date limite
@@ -270,7 +277,7 @@ function PotDetails() {
             <div className="flex justify-end items-center text-slate-800 w-full px-4">
               <p>Montant actuel</p>
               <div className="bg-[#C9DECE] rounded-md px-2 text-3xl ml-2">
-                {potDatas.amount}
+                {actualAmount(potDatas.amount)}
                 <span className="font-bold pl-1">€</span>
               </div>
             </div>

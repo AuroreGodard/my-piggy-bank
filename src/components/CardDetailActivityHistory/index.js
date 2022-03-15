@@ -31,7 +31,7 @@ function CardDetailActivitymoveory({ withdrawFunds, addFunds }) {
     axiosInstance.request(options)
       .then((response) => {
         setMoves(response.data);
-        console.log(moves);
+        // console.log(moves);
       })
       .catch((error) => {
         console.error(error);
@@ -88,7 +88,7 @@ function CardDetailActivitymoveory({ withdrawFunds, addFunds }) {
                 {
                   moves.slice(-10).reverse().map(
                     (move) => (
-                      <tbody key={move.createdAt} className="bg-white">
+                      <tbody key={move.id} className="bg-white">
                         <tr className="hover:bg-slate-50 shadow-sm">
                           <td className="px-6 py-4 whitespace-no-wrap ">
                             <div className="flex gap-2 items-center">

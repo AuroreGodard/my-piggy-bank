@@ -1,5 +1,6 @@
 // Import
-import axios from 'axios';
+import Swal from 'sweetalert2';
+
 import {
   POTS, ADD_POT, listPotsApi, HISTORY, historyApi,
 } from '../actions/pots';
@@ -31,9 +32,9 @@ const potsMiddleWare = (store) => (next) => (action) => {
             // console.log('ce sont mes cagnottes du ls ', localStorage.getItem('pots'));
           },
         )
-        .catch(
-          () => console.log('error'),
-        );
+        .catch((error) => {
+          console.log('error', error);
+        });
       next(action);
       break;
     }
@@ -57,9 +58,38 @@ const potsMiddleWare = (store) => (next) => (action) => {
       })
         .then((response) => {
           console.log(response);
+          Swal.fire({
+            position: 'bottom-left',
+            icon: 'success',
+            title: 'Cagnotte créée',
+            showConfirmButton: false,
+            timer: 5000,
+            toast: true,
+            timerProgressBar: true,
+            showclass: {
+              popup: 'swal2-show',
+              backdrop: 'swal2-backdrop-show',
+              icon: 'modal-login-error',
+            },
+          });
         })
         .catch((error) => {
           console.log('error', error);
+          Swal.fire({
+            position: 'bottom-left',
+            icon: 'error',
+            title: 'Impossible de se connecter',
+            text: 'Veillez à bien nommer votre cagnotte',
+            showConfirmButton: false,
+            timer: 5000,
+            toast: true,
+            timerProgressBar: true,
+            showclass: {
+              popup: 'swal2-show',
+              backdrop: 'swal2-backdrop-show',
+              icon: 'modal-login-error',
+            },
+          });
         });
 
       next(action);
