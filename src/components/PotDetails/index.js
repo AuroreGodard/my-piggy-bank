@@ -14,6 +14,7 @@ import {
   getPotId,
   addAmount,
   retryAmount,
+  savePotDatas,
 } from '../../actions/pots';
 
 // Import component
@@ -267,50 +268,3 @@ function PotDetails() {
 // Export
 export default PotDetails;
 
-// modal withdraw
-/* const options = {
-  method: 'POST',
-  url: '/operations',
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-  data: { type: false, amount: amountWithdraw, pot: params.id },
-};
-
-axiosInstance.request(options)
-  .then((response) => {
-    console.log(response.data);
-    setShowModalWithdraw(false);
-    setWithdrawFunds(response.data.amount);
-    // window.location.reload(true);
-    Swal.fire({
-      position: 'bottom-left',
-      icon: 'success',
-      title: `Retrait de ${amountWithdraw}€ réussi`,
-      showConfirmButton: false,
-      timer: 2000,
-      toast: true,
-      timerProgressBar: true,
-      showclass: {
-        popup: 'swal2-show',
-        backdrop: 'swal2-backdrop-show',
-        icon: 'modal-login-success',
-      },
-    });
-  }).catch((error) => {
-    console.error(error);
-    Swal.fire({
-      position: 'bottom-left',
-      icon: 'error',
-      title: 'Montant du retrait trop important',
-      showConfirmButton: false,
-      timer: 3000,
-      toast: true,
-      timerProgressBar: true,
-      showclass: {
-        popup: 'swal2-show',
-        backdrop: 'swal2-backdrop-show',
-        icon: 'modal-login-success',
-      },
-    });
-  }); */

@@ -12,6 +12,9 @@ import {
   setShowModalWithdrawFalse,
   savePotDatas,
   getPotId,
+  GET_MOVEMENT_POT,
+  setMoves,
+  getMovementPot,
 } from '../actions/pots';
 
 import { axiosInstance } from '../components/App';
@@ -144,6 +147,7 @@ const potsMiddleWare = (store) => (next) => (action) => {
           console.log('onsubmitadd', response.data.amount);
           store.dispatch(setShowModalAddFalse());
           store.dispatch(getPotId());
+          store.dispatch(getMovementPot());
           // setShowModalAdd(false);
           // setAddFunds(response.data.amount);
           // window.location.reload(true);
@@ -207,6 +211,7 @@ const potsMiddleWare = (store) => (next) => (action) => {
           console.log(response.data);
           store.dispatch(setShowModalWithdrawFalse());
           store.dispatch(getPotId());
+          store.dispatch(getMovementPot());
           // setShowModalWithdraw(false);
           // setWithdrawFunds(response.data.amount);
           // window.location.reload(true);
@@ -240,6 +245,31 @@ const potsMiddleWare = (store) => (next) => (action) => {
               icon: 'modal-login-success',
             },
           });
+        });
+      next(action);
+      break;
+    }
+    case GET_MOVEMENT_POT: {
+      const {
+        pots: {
+          id,
+        },
+      } = store.getState();
+      axiosInstance
+        .get(
+          `/pots/${id}/operations`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        )
+        .then((response) => {
+          console.log('moves', response.data);
+          store.dispatch(setMoves(response.data));
+        })
+        .catch((error) => {
+          console.log('error', error);
         });
       next(action);
       break;

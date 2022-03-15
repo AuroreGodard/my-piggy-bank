@@ -1,16 +1,16 @@
 // Import
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { axiosInstance } from '../App';
 
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMovementPot } from '../../actions/pots';
+ 
 // Component
-function CardDetailActivitymoveory({ withdrawFunds, addFunds }) {
-  const [moves, setMoves] = useState([]);
+function CardDetailActivitymoveory() {
   const withdraw = 'px-2 inline-flex text-xs leading-5 rounded-full withdraw';
   const pay = 'px-2 inline-flex text-xs leading-5 rounded-full pay';
-  const token = localStorage.getItem('token');
-
+ 
+  const dispatch = useDispatch();
+  const moves = useSelector((state) => state.pots.moves);
   const actionType = (action) => {
     if (action === true) {
       return 'Dépôt';
@@ -18,25 +18,9 @@ function CardDetailActivitymoveory({ withdrawFunds, addFunds }) {
     return 'Retrait';
   };
 
-  const params = useParams();
-
-  const options = {
-    method: 'GET',
-    url: `/pots/${params.id}/operations`,
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
   useEffect(() => {
-    axiosInstance.request(options)
-      .then((response) => {
-        setMoves(response.data);
-        console.log(moves);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [withdrawFunds, addFunds]);
+    dispatch(getMovementPot());
+  }, []);
 
   return (
     <div className="flex flex-col gap-4">

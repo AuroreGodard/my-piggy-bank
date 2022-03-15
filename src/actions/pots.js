@@ -86,9 +86,17 @@ export const savePotsFromLocalStorage = (potsUser) => ({
 // ACTION TYPE HISTORY
 export const HISTORY = 'HISTORY';
 
-// ACTION CREATOR login
+// ACTION CREATOR history
 export const history = () => ({
   type: HISTORY,
+});
+
+// ACTION TYPE GET_MOVEMENT_POT
+export const GET_MOVEMENT_POT = 'GET_MOVEMENT_POT';
+
+// ACTION CREATOR getMovementPot
+export const getMovementPot = () => ({
+  type: GET_MOVEMENT_POT,
 });
 
 // ACTION TYPE HISTORY_API
@@ -166,4 +174,13 @@ export const SAVE_POT_DATAS = 'SAVE_POT_DATAS';
 export const savePotDatas = (datas) => ({
   type: SAVE_POT_DATAS,
   datas,
+});
+
+// ACTION TYPE SET_MOVES
+export const SET_MOVES = 'SET_MOVES';
+
+// ACTION CREATOR savePotDatas
+export const setMoves = (moves) => ({
+  type: SET_MOVES,
+  moves,
 });

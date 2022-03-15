@@ -14,6 +14,7 @@ import {
   SET_SHOW_MODAL_WITHDRAW_TRUE,
   GET_ID_FROM_POT_DETAIL,
   SAVE_POT_DATAS,
+  SET_MOVES,
 
 } from '../actions/pots';
 
@@ -32,6 +33,7 @@ const initialState = {
   showModalAdd: false,
   showModalWithdraw: false,
   potDatas: [],
+  moves: [],
 };
 
 // Pots Reducer
@@ -109,6 +111,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         potDatas: action.datas,
+      };
+    case SET_MOVES:
+      return {
+        ...state,
+        moves: action.moves,
       };
     default:
       return state;
