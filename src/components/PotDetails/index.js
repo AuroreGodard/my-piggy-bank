@@ -60,7 +60,7 @@ function PotDetails() {
 
   useEffect(() => {
     dispatch(getPotId());
-  });
+  }, []);
 
   const customStyles = {
     content: {
