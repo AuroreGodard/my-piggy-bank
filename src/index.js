@@ -19,6 +19,7 @@ import HeaderMenu from 'src/components/HeaderMenu';
 import BottomMenu from 'src/components/BottomMenu';
 import Footer from 'src/components/Footer';
 import Sidebar from './components/Sidebar';
+import Error from './components/Error';
 
 import ScrollToTop from './components/ScrollToTop';
 
@@ -28,6 +29,7 @@ import ScrollToTop from './components/ScrollToTop';
 // 1. Root React element (the one that contains the whole app => structure DOM virtuel)
 const rootReactElement = (
   <BrowserRouter>
+
     <ScrollToTop />
     <Provider store={store}>
       <Routes>
@@ -103,8 +105,19 @@ const rootReactElement = (
 )}
           />
         </Route>
+        <Route
+          path="*"
+          element={(
+            <>
+              <HeaderMenu />
+              <Error />
+              <Footer />
+            </>
+)}
+        />
       </Routes>
     </Provider>
+
   </BrowserRouter>
 );
 // 2. Target where structure comes to life in the DOM
