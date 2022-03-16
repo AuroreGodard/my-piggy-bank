@@ -17,6 +17,10 @@ function PotsCards() {
   }, []);
 
   const date = (dateFormat) => {
+    if (dateFormat === null) {
+      console.log(dateFormat);
+      return null;
+    }
     const formatFr = new Date(dateFormat).toLocaleString('fr');
     return `${formatFr.substr(0, 10)}`;
   };
@@ -75,12 +79,22 @@ function PotsCards() {
                  <div>
                    <span>{amoutGoalNull(pot.amountGoal)}</span>
                  </div>
-                 <div className="flex items-center">
-                   <p>
-                     Date limite
-                   </p>
-                   <span className="bg-[#FFD9E050] p-1 px-2 ml-1 rounded-md">{date(pot.dateGoal)}</span>
-                 </div>
+                 {
+
+                   date(pot.dateGoal) === null
+                     ? (
+                       <div className="flex items-start">
+
+                         <span className="bg-[#FFD9E050] p-1 px-2 rounded-md">Pas d'objectif de date</span>
+                       </div>
+                     )
+                     : (
+                       <div className="flex items-center">
+                         <p>Date limite</p>
+                         <span className="bg-[#FFD9E050] p-1 px-2 ml-1 rounded-md">{date(pot.dateGoal)}</span>
+                       </div>
+                     )
+}
                </div>
              </div>
              <div className="flex justify-end items-center text-slate-800 w-full px-4">

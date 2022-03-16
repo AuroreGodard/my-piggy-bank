@@ -58,6 +58,10 @@ function PotDetails() {
   let bar = 'block';
 
   const date = (dateFormat) => {
+    if (dateFormat === null) {
+      console.log(dateFormat);
+      return null;
+    }
     const formatFr = new Date(dateFormat).toLocaleString('fr');
     return `${formatFr.substr(0, 10)}`;
   };
@@ -74,7 +78,7 @@ function PotDetails() {
       bar = 'none';
       return (
         <span className="bg-[#F1EECD] p-1 px-2 rounded-md">
-          Aucun objectif fixé
+          Pas d'objectif de somme
         </span>
       );
     }
@@ -265,12 +269,22 @@ function PotDetails() {
                 <div>
                   {amoutGoalNull(potDatas.amountGoal)}
                 </div>
-                <div className="flex items-center">
-                  <p>
-                    Date limite
-                  </p>
-                  <span className="bg-[#FFD9E050] p-1 px-2 ml-1 rounded-md">{date(potDatas.dateGoal)}</span>
-                </div>
+                {
+
+date(potDatas.dateGoal) === null
+  ? (
+    <div className="flex items-start">
+
+      <span className="bg-[#FFD9E050] p-1 px-2 rounded-md">Pas d'objectif de date</span>
+    </div>
+  )
+  : (
+    <div className="flex items-center">
+      <p>Date limite</p>
+      <span className="bg-[#FFD9E050] p-1 px-2 ml-1 rounded-md">{date(potDatas.dateGoal)}</span>
+    </div>
+  )
+}
 
               </div>
             </div>
