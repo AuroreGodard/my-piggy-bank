@@ -109,7 +109,7 @@ function AddPot() {
               <p className=" text-sm font-medium text-gray-900 block mb-2">Mode de déblocage</p>
 
               <div>
-                <input className="mr-2" type="radio" id="souple" name="mode" value="30" checked />
+                <input className="mr-2" type="radio" id="souple" name="mode" value="30" defaultChecked />
                 <label htmlFor="souple">Souple</label>
               </div>
 

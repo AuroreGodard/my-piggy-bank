@@ -29,42 +29,45 @@ function RecentActivity() {
   );
 
   return (
-    <div className="my-16 mb-24">
-      <h3 className="w-fit underline-dashboard-activity-title uppercase text-[1.5em]
+    <>
+
+      <h3 className="mt-16 w-fit underline-dashboard-activity-title uppercase text-[1.5em]
           "
       >
         Activité récente
       </h3>
 
-      <table className="min-w-full mt-4">
-        <thead>
-          <tr>
-            <th
-              className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Utilisateur
+      <div className=" mb-24 overflow-x-auto">
 
-            </th>
+        <table className="min-w-full mt-4">
+          <thead>
+            <tr>
+              <th
+                className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Utilisateur
 
-            <th
-              className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Titre de la cagnotte
+              </th>
 
-            </th>
-            <th
-              className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Action
-            </th>
-            <th
-              className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
-            >
-              Montant
-            </th>
-          </tr>
-        </thead>
-        {
+              <th
+                className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Titre de la cagnotte
+
+              </th>
+              <th
+                className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Action
+              </th>
+              <th
+                className="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Montant
+              </th>
+            </tr>
+          </thead>
+          {
        historys.slice(-10).reverse().map(
          (hist) => (
            <tbody key={hist.id} className="bg-white">
@@ -101,9 +104,10 @@ function RecentActivity() {
          ),
        )
      }
-      </table>
+        </table>
 
-    </div>
+      </div>
+    </>
   );
 }
 
