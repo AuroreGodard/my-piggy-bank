@@ -1,5 +1,6 @@
 // import dependencies
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 // import Components
 import HeaderMenu from 'src/components/HeaderMenu';
@@ -164,6 +165,8 @@ function SignUp() {
           />
 
         </form>
+        <Link to="/login" className="text-gray-700 mt-4">Je possède déjà un compte / Me connecter</Link>
+
       </div>
     </>
   );
