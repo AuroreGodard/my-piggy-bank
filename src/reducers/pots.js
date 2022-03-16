@@ -14,9 +14,9 @@ import {
 const initialState = {
   pots: [],
   potsLs: '',
-  name: 'Luc',
-  amountGoal: '',
-  dateGoal: '',
+  name: '',
+  amountGoal: null,
+  dateGoal: null,
   history: [],
   // for add and withddraw button
   amountAdd: '',

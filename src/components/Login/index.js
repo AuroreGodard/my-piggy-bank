@@ -1,6 +1,6 @@
 // import dependencies
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
 // import Components
@@ -112,6 +112,7 @@ function Login() {
         />
 
       </form>
+      <Link to="/signup" className="text-gray-700 mt-4">Je n'ai pas encore de compte / M'inscrire</Link>
     </div>
   );
 }
