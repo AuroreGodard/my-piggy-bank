@@ -114,12 +114,12 @@ function AddPot() {
               </div>
 
               <div>
-                <input className="mr-2" type="radio" id="mixte" name="mode" value="60" />
+                <input className="mr-2" type="radio" id="mixte" name="mode" value="60" disabled />
                 <label htmlFor="mixte">Mixte</label>
               </div>
 
               <div>
-                <input className="mr-2" type="radio" id="stricte" name="mode" value="100" />
+                <input className="mr-2" type="radio" id="stricte" name="mode" value="100" disabled />
                 <label htmlFor="stricte">Stricte</label>
               </div>
 
