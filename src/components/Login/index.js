@@ -112,7 +112,7 @@ function Login() {
         />
 
       </form>
-      <Link to="/signup" className="text-gray-700 mt-4">Je n'ai pas encore de compte / M'inscrire</Link>
+      <Link to="/signup" className="hover-anim text-gray-700 mt-4">Je n'ai pas encore de compte / M'inscrire</Link>
     </div>
   );
 }
