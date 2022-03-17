@@ -33,7 +33,7 @@ const signUpMiddleWare = (store) => (next) => (action) => {
           Swal.fire({
             position: 'bottom-left',
             icon: 'success',
-            title: 'Inscription réussite',
+            title: 'Inscription réussie',
             showConfirmButton: false,
             timer: 2000,
             toast: true,
