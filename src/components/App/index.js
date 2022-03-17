@@ -11,6 +11,10 @@ import axios from 'axios';
   baseURL: 'http://martin-ferret.vpnuser.lan:8080/api',
 }); */
 
+/* export const axiosInstance = axios.create({
+  baseURL: 'http://tristan-bonnal.vpnuser.lan:8000/api',
+}); */
+
 export const axiosInstance = axios.create({
   baseURL: 'http://tristanbonnal-server.eddi.cloud/projet-13-my-piggy-bank-back/public/api',
 });

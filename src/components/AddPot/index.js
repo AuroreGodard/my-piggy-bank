@@ -56,8 +56,9 @@ function AddPot() {
               <label
                 htmlFor="potname"
                 className="text-sm font-medium text-gray-900 block mb-2"
+
               >
-                Nom de ma cagnotte
+                Nom de ma cagnotte *
 
               </label>
               <input
@@ -68,6 +69,7 @@ function AddPot() {
                           }
                       }
                 type="text"
+                required
                 name="potname"
                 className="bg-gray-50 border border-gray-200 text-gray-900 sm:text-sm rounded-lg focus:ring-[#C1E3FE] border-2 focus:border-[#C1E3FE] block w-full p-2.5"
                 placeholder="Anniversaire"

@@ -55,7 +55,7 @@ function SignUp() {
           </h3>
 
           <div className="w-full">
-            <label htmlFor="email" className="text-sm font-medium text-gray-900 block mb-2 ">Votre email</label>
+            <label htmlFor="email" className="text-sm font-medium text-gray-900 block mb-2 ">Votre email*</label>
             <input
               type="email"
               name="email"
@@ -72,7 +72,7 @@ function SignUp() {
           </div>
 
           <div className="w-full">
-            <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 ">Votre mot de passe</label>
+            <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 ">Votre mot de passe*</label>
             <input
               type="password"
               name="password"
@@ -89,7 +89,7 @@ function SignUp() {
           </div>
 
           <div className="w-full">
-            <label htmlFor="prenom" className="text-sm font-medium text-gray-900 block mb-2 ">Votre prénom</label>
+            <label htmlFor="prenom" className="text-sm font-medium text-gray-900 block mb-2 ">Votre prénom*</label>
             <input
               type="prenom"
               name="prenom"
@@ -107,7 +107,7 @@ function SignUp() {
           </div>
 
           <div className="w-full">
-            <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 ">Votre nom</label>
+            <label htmlFor="password" className="text-sm font-medium text-gray-900 block mb-2 ">Votre nom*</label>
             <input
               type="nom"
               name="nom"
@@ -125,7 +125,7 @@ function SignUp() {
           </div>
 
           <div className="w-full">
-            <label htmlFor="date" className="text-sm font-medium text-gray-900 block mb-2 ">Votre date de naissance</label>
+            <label htmlFor="date" className="text-sm font-medium text-gray-900 block mb-2 ">Votre date de naissance*</label>
             <input
               type="date"
               name="date"
@@ -159,7 +159,7 @@ function SignUp() {
             />
           </div>
           <input
-            className="hover-anim cursor-pointer inline-flex justify-center rounded-md items-center w-full text-center text-slate- h-12 bg-[#FFD9E0] uppercase mt-2 "
+            className="hover-anim cursor-pointer inline-flex justify-center rounded-md items-center w-full text-center text-slate- h-12 bg-[#FFD9E0] uppercase mt-2"
             type="submit"
             value="Valider"
           />

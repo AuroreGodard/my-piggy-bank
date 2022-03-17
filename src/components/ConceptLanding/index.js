@@ -198,7 +198,7 @@ function ConceptLanding() {
 
             <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
               <span className="flex items-center justify-center h-full  text-[4em] bg-[#AFC2B4] px-4 rounded-tl-md rounded-bl-md">2</span>
-              <h4 className="flex items-center justify-center h-full bg-[#C9DECE] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Je crée ma cagnotte </h4>
+              <h4 className="flex items-center justify-center h-full bg-[#C9DECE] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Je crée une cagnotte </h4>
             </div>
 
             <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
@@ -208,7 +208,7 @@ function ConceptLanding() {
 
             <div className="single-step-card font-bold h-24 flex justify-center items-center text-center rounded-md">
               <span className="flex items-center justify-center h-full  text-[4em] bg-[#A9C6DE] px-4 rounded-tl-md rounded-bl-md">4</span>
-              <h4 className="flex items-center justify-center h-full bg-[#C2E4FF] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Je retire ou offre ma cagnotte</h4>
+              <h4 className="flex items-center justify-center h-full bg-[#C2E4FF] p-8 md:p-4 w-fit rounded-tr-md rounded-br-md">Je retire de l'argent de ma cagnotte</h4>
             </div>
 
             {/* END SINGLE STEP card */}
